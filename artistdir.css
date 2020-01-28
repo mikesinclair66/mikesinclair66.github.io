@@ -1,0 +1,40 @@
+body{
+	font-family: arial, calibri;
+	text-align: center;
+}
+
+#directoryContainer{
+	border: solid 1px #f0f0f5;
+	padding: 0pt 0pt 10pt 10pt;
+	margin: 0% 25% 0% 25%;
+}
+
+#directoryContainer h1{
+	text-align: left;
+}
+
+#directoryContainer input{
+	width: 90%;
+	height: 22px;
+}
+
+.artistContainer{
+	border: solid 1px #f0f0f5;
+	margin: -1px 29% 0% 29%;
+	text-align: left;
+}
+
+.artistContainer:hover{
+	background-color: #e6e6ee;
+}
+
+.artistContainer img{
+	position: relative;
+	top: 10px;
+	left: 15px;
+	padding-right: 30px;
+}
+
+.artistInfo{
+	display: inline-block;
+}
