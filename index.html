@@ -10,8 +10,9 @@ Artist Directory
 <body>
 <div id="directoryContainer">
 <h1>Artist Directory</h1>
-<input type="text" id="searchBar"/>
-<input type="button" value="Add artist" id="addArtist" onclick="toggleAddArtist()"/>
+<input type="text" id="searchBar" />
+<input type="button" value="Add" id="addArtist" onclick="toggleAddArtist()" />
+<input type="button" value="Search" id="search" onclick="searchArtists()" />
 </div>
 
 <div id="artistList"></div>
@@ -20,7 +21,7 @@ Artist Directory
 <input type="text" id="artistNameInp" placeholder="Artist name" maxlength="40"/><br />
 <input type="text" id="artistDescInp" placeholder="About artist" maxlength="40" /><br />
 <input type="text" id="imgUrlInp" placeholder="Image url" /><br />
-<input type="button" value="Add" id="addInp" />
+<input type="button" value="Add" onclick="addArtist()" />
 </form>
 
 <script type="text/javascript" src="artistdir.js"></script>

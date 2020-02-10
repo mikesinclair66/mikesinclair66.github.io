@@ -1,157 +1,209 @@
 var artists = new Array();
-var artistListDiv = document.getElementById("artistList");
+var artistList = document.getElementById("artistList");
+var showAddArtist = false;
+var storage = window.localStorage;
 var count = 0;
 
-function insertArtist(imgLink, artistName, artistDesc){
-	//if an element is empty within the array, fill it without incrementing count
-	let index;
-	for(index = 0; index < count; index++)
-		if(artists[index] == undefined)
-			break;
+//hides artists and shows add artist directory
+function toggleAddArtist(){
+	let list = document.getElementById("artistList");
+	let addDir = document.getElementById("addArtistDirectory");
 	
-	artists[index] = {
-		img: imgLink,
+	if(!showAddArtist){
+		showAddArtist = true;
+		
+		list.style.display = "none";
+		addDir.style.display = "block";
+	} else {
+		showAddArtist = false;
+		
+		list.style.display = "block";
+		addDir.style.display = "none";
+	}
+}
+
+function getArtist(artistName, artistDesc, artistImg){
+	if(artistName == null || artistDesc == null)
+		return null;
+	
+	let artist = {
 		name: artistName,
 		desc: artistDesc,
-		id: index
+		img: artistImg
 	};
 	
-	if(index == count)
-		count++;
-	
-	return index;
+	return artist;
 }
 
-insertArtist("https://randomuser.me/api/portraits/med/women/1.jpg", "Jessica Shen", "Lives in Asia");
-insertArtist("https://randomuser.me/api/portraits/med/men/1.jpg", "Ben Klasouski", "Lives in the USA");
-insertArtist("https://randomuser.me/api/portraits/med/women/2.jpg", "Nadine Tol", "Lives in Canada");
-insertArtist("https://randomuser.me/api/portraits/med/men/2.jpg", "Ted Klasouski", "Lives in Europe");
-insertArtist("https://randomuser.me/api/portraits/med/women/3.jpg", "Christina Jacob", "Lives in Australia");
-
-//NOTE: must be an artist object used as argument
+//using an artist object made with getArtist(), returns html artistContainer element
 function getArtistContainer(artist){
-	let imgTag = document.createElement("img");
-	imgTag.src = artist.img;
+	let div = document.createElement("div");
+	div.className = "artistContainer";
 	
-	let t = document.createTextNode(artist.name);
+	let img = document.createElement("img");
+	img.src = artist.img;
 	
-	let strongTag = document.createElement("strong");
-	strongTag.appendChild(t);
+	let name = document.createElement("strong");
+	name.textContent = artist.name;
 	
-	t = document.createTextNode(artist.desc);
+	let desc = document.createElement("p");
+	desc.textContent = artist.desc;
 	
-	let pTag = document.createElement("p");
-	pTag.appendChild(t);
+	let artistInfo = document.createElement("div");
+	artistInfo.className = "artistInfo";
 	
-	let inpTag = document.createElement("input");
-	inpTag.className = "delButton";
-	inpTag.type = "button";
-	inpTag.value = "Delete";
-	inpTag.onclick = function(){removeArtist(artist.id);};
-	inpTag.name = artist.id;
+	let del = document.createElement("input");
+	del.type = "button";
+	del.className = "delButton";
+	del.value = "Delete";
 	
-	let infoDiv = document.createElement("div");
-	infoDiv.appendChild(strongTag);
-	infoDiv.appendChild(pTag);
-	infoDiv.className = "artistInfo";
+	del.addEventListener("click", function(){
+		deleteArtist(Number(del.id));
+	});
 	
-	let divTag = document.createElement("div");
-	divTag.appendChild(imgTag);
-	divTag.appendChild(infoDiv);
-	divTag.appendChild(inpTag);
-	divTag.className = "artistContainer";
+	div.appendChild(img);
+	artistInfo.appendChild(name);
+	artistInfo.appendChild(desc);
+	div.appendChild(artistInfo);
+	div.appendChild(del);
 	
-	return divTag;
+	return div;
 }
 
-//adds up to <limit> artists to the HTML file
-function printArtists(limit){
-	//if <limit> artists don't exist, print all existing artists
-	if(count < limit)
-		limit = count;
-	
-	for(let i = 0; i < limit; i++)
-		if(artists[i] != undefined)
-			artistListDiv.appendChild(getArtistContainer(artists[i]));
-}
-
-printArtists(count);
-
-var addArtistDiv = document.getElementById("addArtistDirectory");
-var addArtistToggled = false;
-//executed when add artist button is pressed
-function toggleAddArtist(){
-	if(!addArtistToggled){
-		addArtistToggled = true;
-		let artists = document.getElementsByClassName("artistContainer");
-		for(e of artists)
-			e.style.display = "none";
-		addArtistDiv.style.display = "block";
-	} else {
-		addArtistToggled = false;
-		let artists = document.getElementsByClassName("artistContainer");
-		for(e of artists)
-			e.style.display = "block";
-		addArtistDiv.style.display = "none";
-	}
-}
-
-var addInp = document.getElementById("addInp");
-
-//executed when add button is pressed
 function addArtist(){
-	//get the input values
-	let artistName = document.getElementById("artistNameInp");
-	let artistDesc = document.getElementById("artistDescInp");
-	let imgUrl = document.getElementById("imgUrlInp");
+	count = storage.getItem("count")
+	if(count == null)
+		count = 0;
+	else
+		count = Number(count);
 	
-	let valEmpty = false;
+	let info = new Array();
 	
-	if(artistName.value == ""){
-		printError(artistName, "You must enter the artist's name.");
-		valEmpty = true;
-	} if(artistDesc.value == ""){
-		printError(artistDesc, "You must enter a description.");
-		valEmpty = true;
-	} if(imgUrl.value == ""){
-		printError(imgUrl, "You must enter an image url.");
-		valEmpty = true;
-	}
+	info[0] = document.getElementById("artistNameInp");
+	info[1] = document.getElementById("artistDescInp");
+	info[2] = document.getElementById("imgUrlInp");
 	
-	//if all values have been filled, continue
-	if(!valEmpty){
-		let index = insertArtist(imgUrl.value, artistName.value, artistDesc.value);
-		artistListDiv.appendChild(getArtistContainer(artists[index]));
-		
-		//reset values
-		artistName.placeholder = "Artist name";
-		artistName.value = "";
-		artistDesc.placeholder = "About artist";
-		artistDesc.value = "";
-		imgUrl.placeholder = "Image url";
-		imgUrl.value = "";
-		addInp.style.border = "none";
-		
-		toggleAddArtist();
-	}
+	let notInit;//true if a field is left empty
+	for(let i = 0; i < info.length; i++)
+		if(info[i].value == undefined || info[i].value.trim() == ""){
+			info[i].style.border = "solid 1px red";
+			notInit = true;
+		} else
+			info[i].style.border = "solid 1px #e6e6ee";
+	
+	if(notInit)
+		return;
+	
+	//if function hasn't been exited, return inputs to normal
+	for(let i = 0; i < info.length; i++)
+		info[i].style.border = "solid 1px #e6e6ee";
+	
+	let artist = getArtist(info[0].value, info[1].value, info[2].value);
+	artistList.appendChild(getArtistContainer(artist));
+	artists[count++] = artist;
+	
+	//clear dir info
+	for(let i = 0; i < info.length; i++)
+		info[i].value = "";
+	
+	storeArtist(count - 1);
+	updateIds();
+	toggleAddArtist();
 }
 
-//prints error into the div
-function printError(input, msg){
-	input.value = "";
-	input.placeholder = msg;
-	addInp.style.border = "solid 1px red";
-}
-
-function removeArtist(id){
-	let containers = document.getElementsByClassName("artistContainer");
+function updateIds(){
+	let artistDivs = document.getElementsByClassName("artistContainer");
 	let delButtons = document.getElementsByClassName("delButton");
 	
-	for(let i = 0; i < delButtons.length; i++)
-		if(Number(delButtons[i].name) == id){
-			containers[i].remove();
-			artists[i] = undefined;
-		}
+	for(let i = 0; i < artistDivs.length; i++){
+		artistDivs[i].id = i;
+		delButtons[i].id = i;
+	}
 }
 
-addInp.onclick = addArtist;
+function deleteArtist(num){
+	//remove the html element
+	document.getElementsByClassName("artistContainer")[num].remove();
+	artists[num] = undefined;
+	count--;
+	
+	//decrement array size
+	for(let i = num; i < artists.length - 1; i++){
+		artists[i] = artists[i+1];
+		artists[i+1] = undefined;
+	}
+	
+	deleteStorage(num);
+	updateIds();
+}
+
+//storage functions
+
+function deleteStorage(num){
+	if(storage.getItem("name" + num) == null)
+		num--;
+	
+	storage.removeItem("name" + num);
+	storage.removeItem("desc" + num);
+	storage.removeItem("img" + num);
+	
+	//decrement storage size
+	for(let i = num; i < artists.length - 1; i++){
+		storage.setItem("name" + num, storage.getItem("name" + (i+1)));
+		storage.setItem("desc" + num, storage.getItem("desc" + (i+1)));
+		storage.setItem("img" + num, storage.getItem("img" + (i+1)));
+		
+		storage.removeItem("name" + (i+1));
+		storage.removeItem("desc" + (i+1));
+		storage.removeItem("img" + (i+1));
+	}
+	
+	storage.setItem("count", count);
+}
+
+function storeArtist(num){
+	storage.setItem("name" + num, artists[num].name);
+	storage.setItem("desc" + num, artists[num].desc);
+	storage.setItem("img" + num, artists[num].img);
+	
+	storage.setItem("count", count);
+}
+
+function loadStorage(){
+	let i = 0;
+	let artist;
+	
+	do {
+		artist = getArtist(
+				storage.getItem("name" + i), storage.getItem("desc" + i), storage.getItem("img" + i)
+			);
+		if(artist != null){
+			artists[i] = artist;
+			artistList.appendChild(getArtistContainer(artist));
+		}
+		
+		i++;
+	} while(artist != null);
+	
+	count = storage.getItem("count");
+	if(count == null)
+		count = 0;
+	else
+		count = Number(count);
+	
+	updateIds();
+}
+loadStorage();
+
+function searchArtists(){
+	while(artistList.firstChild)
+		artistList.removeChild(artistList.firstChild);
+	
+	let val = document.getElementById("searchBar").value;
+	
+	for(let i = 0; i < artists.length; i++)
+		if(artists[i].name.substring(0, val.length) == val)
+			artistList.appendChild(getArtistContainer(artists[i]));
+}
+
+document.getElementById("search").onclick = searchArtists;
