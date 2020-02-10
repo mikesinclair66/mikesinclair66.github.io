@@ -202,7 +202,7 @@ function searchArtists(){
 	let val = document.getElementById("searchBar").value;
 	
 	for(let i = 0; i < artists.length; i++)
-		if(artists[i].name.substring(0, val.length) == val)
+		if(val.contains(artists[i].name.substring(0, val.length)))
 			artistList.appendChild(getArtistContainer(artists[i]));
 }
 
