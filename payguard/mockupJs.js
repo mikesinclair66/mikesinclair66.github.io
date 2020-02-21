@@ -3,7 +3,11 @@ var info = document.getElementById("info");
 var tableNum = 13;
 var tables = new Array();
 var tablesInit = false;
-var tipPercent = true;//whether user tips by percent or specified amount
+var tipByPrice = true;
+
+//interval variables
+var interval;
+var infoRemoved = false;
 
 class Table{
 	constructor(tableNo) {
@@ -11,6 +15,8 @@ class Table{
 		this.isAuth = false;
 		this.item = new Array();
 		this.price = new Array();
+		this.preauthAmt = 0;
+		this.tableDiv = undefined;
 	}
 
 	getTableRows(){
@@ -27,10 +33,43 @@ class Table{
 			priceTd.textContent = '$' + this.price[i];
 			curTr.appendChild(priceTd);
 
+			let delTd = document.createElement("td");
+			let delBtn = document.createElement("button");
+			delBtn.textContent = 'X';
+			delBtn.name = i;
+
+			//remove the item from the bill
+			delBtn.addEventListener('click', event => {
+				let itemNo = Number(event.target.name);
+				this.item[itemNo] = undefined;
+				this.price[itemNo] = undefined;
+
+				for(let j = itemNo; j < this.item.length - 1; j++){
+					this.item[j] = this.item[j+1];
+					this.price[j] = this.price[j+1];
+				}
+
+				this.item.length--;
+				this.price.length--;
+
+				curTr.remove();
+
+				//update the total price
+				document.getElementById("totalLabel").textContent
+					= '$' + this.getCost();
+			});
+
+			delTd.appendChild(delBtn);
+			curTr.appendChild(delTd);
+
 			tr.push(curTr);
 		}
 
 		return tr;
+	}
+
+	assignDiv(tableDiv){
+		this.tableDiv = tableDiv;
 	}
 
 	setTableRows(item, price){
@@ -182,9 +221,6 @@ function getBackIcon(){
 	return h2;
 }
 
-//set preauth screen
-var preauthAmt = 0;
-
 function getCollectPreauthScreen(tableNo, returnToBill=false){
 	clrInfo();
 	refreshPresetInpValues();
@@ -199,7 +235,12 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 	let button1 = document.createElement("button");
 	button1.textContent = presetAmt1;
 	button1.onclick = function(){
-		setPreauthAmt(0);
+		if(tables[tableNo].preauthAmt > presetAmt1){
+			window.alert("Alert: You cannot decrease pre auth amount.");
+			return;
+		}
+
+		setPreauthAmt(0, tableNo);
 
 		if(returnToBill){
 			getBillScreen(tableNo);
@@ -211,7 +252,12 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 	let button2 = document.createElement("button");
 	button2.textContent = presetAmt2;
 	button2.onclick = function(){
-		setPreauthAmt(1);
+		if(tables[tableNo].preauthAmt > presetAmt2){
+			window.alert("Alert: You cannot decrease pre auth amount.");
+			return;
+		}
+
+		setPreauthAmt(1, tableNo);
 
 		if(returnToBill){
 			getBillScreen(tableNo);
@@ -223,7 +269,12 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 	let button3 = document.createElement("button");
 	button3.textContent = presetAmt3;
 	button3.onclick = function(){
-		setPreauthAmt(2);
+		if(tables[tableNo].preauthAmt > presetAmt3){
+			window.alert("Alert: You cannot decrease pre auth amount.");
+			return;
+		}
+
+		setPreauthAmt(2, tableNo);
 
 		if(returnToBill){
 			getBillScreen(tableNo);
@@ -241,16 +292,16 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 	info.appendChild(button3);
 }
 
-function setPreauthAmt(buttonNo){
+function setPreauthAmt(buttonNo, tableNo){
 	switch(buttonNo){
 		case 0:
-			preauthAmt = presetAmt1;
+			tables[tableNo].preauthAmt = presetAmt1;
 			break;
 		case 1:
-			preauthAmt = presetAmt2;
+			tables[tableNo].preauthAmt = presetAmt2;
 			break;
 		default:
-			preauthAmt = presetAmt3;
+			tables[tableNo].preauthAmt = presetAmt3;
 			break;
 	}
 }
@@ -282,12 +333,15 @@ function getBillScreen(tableNo){
 	let totalPrice = 0;
 
 	let h2 = getBackIcon();
-	h2.onclick = function(){ getMainScreen(tables.length) };
+	h2.onclick = function(){
+		//stop the table-verifying interval
+		getMainScreen(tables.length);
+	};
 	option1.appendChild(h2);
 
 	let preauthAmtDiv = document.createElement("div");
 	let preauthLabel = document.createElement("p");
-	preauthLabel.textContent = "Pre auth amount: $" + preauthAmt;
+	preauthLabel.textContent = "Pre auth amount: $" + tables[tableNo].preauthAmt;
 	let changeBtn = document.createElement("button");
 	changeBtn.textContent = "Change";
 	changeBtn.onclick = function(){
@@ -310,6 +364,12 @@ function getBillScreen(tableNo){
 	tr.innerHTML = "<th>Item</th><th>Price</th>";
 	table.appendChild(tr);
 	table = getBillInfo(table, tableNo);
+
+	/* After the table has been initialized, create an interval to call getBillInfo() again
+	if info has been removed from the table. */
+
+
+	tables[tableNo].assignDiv(table);
 
 	//tip label on table
 	let tipTr = document.createElement("tr");
@@ -351,48 +411,65 @@ function getBillScreen(tableNo){
 	collectBtn.onclick = function(){
 		proceedPaymentDiv.firstChild.remove();
 
-		function calcTip(){
-			if(!tipPercent)
-				tipTd.textContent = '$' + tipInp.value;
-			else
-				tipTd.textContent = tipInp.value + '%';
-
-			let price = tables[tableNo].getCost();
-			let tip = Number(tipInp.value);
-
-			if(tipPercent)
-				tip = tip / 100 * price;
-
-			totalPrice = (price + tip).toFixed(2);
-			totalTd.textContent = '$' + totalPrice;
-		}
+		let tipInp = document.createElement("input");
+		tipInp.placeholder = "Tip amount";
 
 		let tipPriceBtn = document.createElement("button");
 		tipPriceBtn.textContent = "$";
-		tipPriceBtn.onclick = function(){
-			tipPercent = false;
-			calcTip();
+		tipPriceBtn.onclick = () => {
+			tipByPrice = true;
+			totalPrice = getNumber(tipInp, false);
+
+			if(totalPrice != -1){
+				tipTd.textContent = '$' + totalPrice;
+				totalTd.textContent = '$' + (tables[tableNo].getCost() + totalPrice);
+			}
 		}
 
 		let tipPercBtn = document.createElement("button");
 		tipPercBtn.textContent = "%";
-		tipPercBtn.onclick = function(){
-			tipPercent = true;
-			calcTip();
+		tipPercBtn.onclick = () => {
+			tipByPrice = false;
+			totalPrice = getNumber(tipInp, false);
+
+			if(totalPrice != -1){
+				tipTd.textContent = totalPrice + '%';
+				totalTd.textContent = '$' + (tables[tableNo].getCost() + (tables[tableNo].getCost() *
+					(totalPrice / 100)));
+			}
+		}
+
+		tipInp.onkeyup = () => {
+			totalPrice = getNumber(tipInp, false);
+
+			if(totalPrice != -1){
+				if(tipByPrice){
+					tipTd.textContent = '$' + totalPrice;
+					totalTd.textContent = '$' + (tables[tableNo].getCost() + totalPrice);
+				} else {
+					tipTd.textContent = totalPrice + '%';
+					totalTd.textContent = '$' + (tables[tableNo].getCost() + (tables[tableNo].getCost() *
+						(totalPrice / 100)));
+				}
+			}
 		}
 
 		proceedPaymentDiv.appendChild(tipPriceBtn);
 		proceedPaymentDiv.appendChild(tipPercBtn);
 
-		let tipInp = document.createElement("input");
-		tipInp.placeholder = "Tip amount";
-		tipInp.onkeyup = calcTip;
-
 		let submitBtn = document.createElement("button");
 		submitBtn.textContent = "Submit Payment";
 
 		submitBtn.onclick = function(){
-			if(totalPrice > preauthAmt){
+			let num = getNumber(tipInp, true);
+			if(tipByPrice){
+				totalPrice = tables[tableNo].getCost() + num;
+			} else {
+				totalPrice = tables[tableNo].getCost() +
+					((tables[tableNo].getCost() / 100) * num);
+			}
+
+			if(totalPrice > tables[tableNo].preauthAmt){
 				window.alert("Alert: Pre auth amount does not cover $" + totalPrice);
 				return;
 			}
@@ -429,19 +506,23 @@ function getAddItemMenu(div, tableNo){
 	let priceInp = document.createElement("input");
 	priceInp.type = "text";
 	priceInp.placeholder = "food price";
+	priceInp.onkeyup = function(){
+		getNumber(priceInp, false);
+	};
 
 	let addBtn = document.createElement("button");
 	addBtn.textContent = "Add";
 	addBtn.onclick = function(){
 		let item = itemInp.value;
-		let price = Number(priceInp.value.trim());
+		let price = getNumber(priceInp, true);
 
-		if(item.trim() == '' || price == NaN)
+		if(price == -1 || item.trim() == '') {
 			return;
+		}
 
 		//check that preauthorization covers price
 		let totalPrice = price + tables[tableNo].getCost();
-		if(totalPrice > preauthAmt){
+		if(totalPrice > tables[tableNo].preauthAmt){
 			window.alert("Alert: Pre auth amount does not cover $" + totalPrice);
 			return;
 		}
@@ -479,6 +560,27 @@ function getBillConfirmation(tableNo, total){
 function initTables(){
 	for(let i = 0; i < tableNum; i++)
 		tables[i] = new Table(i);
+}
+
+//returns the number value
+function getNumber(tipInp, checkAlert){
+	let str = tipInp.value;
+
+	str = str.replace('%', '');
+	str = str.replace('$', '');
+	tipInp.value = str;
+
+	let num = Number(str);
+
+	//if an error occurs, raise an alert and highlight the input
+	if(checkAlert && isNaN(num)){
+		window.alert("Error: Please input a numerical value");
+		tipInp.style.border = "solid red 1pt";
+		return -1;
+	} else
+		tipInp.style.border = "solid black 1pt";//default?
+
+	return num;
 }
 
 initTables();
