@@ -5,10 +5,6 @@ var tables = new Array();
 var tablesInit = false;
 var tipByPrice = true;
 
-//interval variables
-var interval;
-var infoRemoved = false;
-
 class Table{
 	constructor(tableNo) {
 		this.num = tableNo;
