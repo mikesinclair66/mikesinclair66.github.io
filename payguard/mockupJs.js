@@ -249,6 +249,7 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 
 		getScanCardScreen(tableNo);
 	};
+
 	let button2 = document.createElement("button");
 	button2.textContent = presetAmt2;
 	button2.onclick = function(){
@@ -266,6 +267,7 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 
 		getScanCardScreen(tableNo);
 	};
+
 	let button3 = document.createElement("button");
 	button3.textContent = presetAmt3;
 	button3.onclick = function(){
@@ -284,12 +286,55 @@ function getCollectPreauthScreen(tableNo, returnToBill=false){
 		getScanCardScreen(tableNo);
 	};
 
+	//custom pre auth amount
+	let span = document.createElement("span");
+	span.style.display = "inline";
+	let customizeLabel = document.createElement("p");
+	customizeLabel.textContent = "Custom amount: ";
+	let customizeInp = document.createElement("input");
+	customizeInp.type = "text";
+	customizeInp.placeholder = "10";
+	let applyBtn = document.createElement("button");
+	applyBtn.textContent = "Apply";
+	span.appendChild(customizeLabel);
+	span.appendChild(customizeInp);
+	span.appendChild(applyBtn);
+
+	customizeInp.onkeyup = () => {
+		customizeInp.value = customizeInp.value.replace('%', '');
+		customizeInp.value = customizeInp.value.replace('$', '');
+	}
+
+	applyBtn.onclick = () => {
+		//get inputted pre auth amount
+		let inpPreauthAmt = getNumber(customizeInp, true);
+
+		if(inpPreauthAmt == -1)
+			return;
+
+		if(tables[tableNo].preauthAmt > inpPreauthAmt){
+			window.alert("Alert: You cannot decrease pre auth amount.");
+			return;
+		}
+
+		tables[tableNo].preauthAmt = inpPreauthAmt;
+
+		if(returnToBill){
+			getBillScreen(tableNo);
+			return;
+		}
+
+		getScanCardScreen(tableNo);
+	};
+
 	info.appendChild(p);
 	info.appendChild(button1);
 	info.appendChild(document.createElement("br"));
 	info.appendChild(button2);
 	info.appendChild(document.createElement("br"));
 	info.appendChild(button3);
+	info.appendChild(document.createElement("br"));
+	info.appendChild(span);
 }
 
 function setPreauthAmt(buttonNo, tableNo){

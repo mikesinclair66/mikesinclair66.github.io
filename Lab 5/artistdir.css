@@ -1,0 +1,90 @@
+body{
+	font-family: arial, calibri;
+	text-align: center;
+}
+
+input[type=text]{
+	height: 30px;
+	border: solid 1px #e6e6ee;
+	border-radius: 6px;
+	text-align: center;
+}
+
+input[type=button]{
+	font: calibri;
+	font-weight: 600;
+	border: none;
+	height: 35px;
+}
+
+#directoryContainer{
+	border: solid 1px #f0f0f5;
+	padding: 0pt 0pt 10pt 10pt;
+	margin: 0% 25% 0% 25%;
+}
+
+#directoryContainer h1{
+	text-align: left;
+}
+
+#searchBar{
+	width: 80%;
+	position: relative;
+	right: 10px;
+}
+
+#addArtist{
+	width: 90px;
+}
+
+#addArtist:hover{
+	background-color: #e6e6ee;
+}
+
+.artistContainer{
+	border: solid 1px #f0f0f5;
+	margin: -1px 29% 0% 29%;
+	text-align: left;
+}
+
+.artistContainer:hover{
+	background-color: #e6e6ee;
+}
+
+.artistContainer img{
+	position: relative;
+	top: 10px;
+	left: 15px;
+	padding-right: 30px;
+	width: 75px;
+	height: 75px;
+}
+
+.delButton{
+	background-color: red;
+	color: white;
+	border-radius: 8px;
+	float: right;
+	margin-top: 25pt;
+	margin-right: 8pt;
+}
+
+.delButton:hover{
+	background-color: darkred;
+}
+
+.artistInfo{
+	display: inline-block;
+}
+
+#addArtistDirectory{
+	display: none;
+}
+
+#addArtistDirectory input[type=text]{
+	width: 40%;
+}
+
+#addArtistDirectory input[type=button]{
+	width: 20%;
+}
