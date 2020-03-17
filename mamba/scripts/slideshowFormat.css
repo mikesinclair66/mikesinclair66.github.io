@@ -1,0 +1,45 @@
+.slideshow{
+    width: 75%;
+    text-align: center;
+    margin: auto;
+}
+
+.slideshow td{
+    border: none;
+    width: 250pt;
+}
+
+.slideshow img{
+    width: 225pt;
+}
+
+.slideshowEl{
+    display: inline-block;
+}
+
+.slideshowEl td{
+    margin-left: 10pt;
+    margin-right: 10pt;
+}
+
+.leftArrow, .rightArrow{
+    transition: 0.5s;
+    color: red;
+    background-color: black;
+    border-radius: 5pt;
+    margin: 10pt;
+    font-size: 15pt;
+    border: solid white 1pt;
+}
+
+.leftArrow:hover, .rightArrow:hover{
+    transition: 0.5s;
+    color: black;
+    background-color: red;
+    cursor: pointer;
+    border: solid black 1pt;
+}
+
+.rightArrow{
+    transform: rotate(180deg);
+}

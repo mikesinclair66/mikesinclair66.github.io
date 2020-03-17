@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="scripts/mainCss.css" />
+    <link rel="stylesheet" type="text/css" href="scripts/slideshowFormat.css" />
+    <title>Mamba Martial Arts Academy</title>
+    <style type="text/css">
+        #kultarBio img{
+            position: relative;
+            top: 15pt;
+        }
+
+        #teamBio img{
+            position: relative;
+            top: 17pt;
+        }
+
+        @media only screen and (max-width: 750pt){
+            #kultarBio img{
+                position: static;
+            }
+
+            #teamBio img{
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="navbar">
+    <!-- Hamburger menu: should have same content as below excluding logo -->
+    <button id="hamburgerBtn" onclick="toggleHamburgerMenu()">Menu</button>
+    <div id="hamburger">
+        <a href="./index.html" class="tab">Home</a>
+        <a href="./index.html#aboutSec" class="tab">About</a>
+        <a href="./classes.html" class="tab">Classes</a>
+        <a href="http://mfn.mambamma.com/" target="_blank" class="tab">MFN</a>
+        <a href="./sponsors.html" class="tab">Sponsors</a>
+        <a class="tab">Contact Us</a>
+
+        <div id="socialMediaMobile">
+            <a href="https://www.facebook.com/groups/152520481437694/?ref=search" target="_blank">
+                <img src="workFiles/fb.png" alt="Follow us on Facebook" />
+            </a>
+            <a href="https://www.instagram.com/mamba_fight_nights/" target="_blank">
+                <img src="workFiles/insta.png" alt="Follow us on Instagram" />
+            </a>
+            <a href="https://twitter.com/mambamma" target="_blank">
+                <img src="workFiles/twitter.png" alt="Follow us on Twitter" />
+            </a>
+        </div>
+    </div>
+
+    <a href="./index.html" id="logo">
+        <img src="workFiles/logo.png" alt="Mamba MMA" />
+    </a>
+    <a href="./index.html" class="tab">Home</a>
+    <a href="./index.html#aboutSec" class="tab">About</a>
+    <a href="./classes.html" class="tab">Classes</a>
+    <a href="http://mfn.mambamma.com/" target="_blank" class="tab">MFN</a>
+    <a href="./sponsors.html" class="tab">Sponsors</a>
+    <a class="tab">Contact Us</a>
+
+    <div id="socialMedia">
+        <a href="https://www.facebook.com/groups/152520481437694/?ref=search" target="_blank">
+            <img src="workFiles/fb.png" alt="Follow us on Facebook" />
+        </a>
+        <a href="https://www.instagram.com/mamba_fight_nights/" target="_blank">
+            <img src="workFiles/insta.png" alt="Follow us on Instagram" />
+        </a>
+        <a href="https://twitter.com/mambamma" target="_blank">
+            <img src="workFiles/twitter.png" alt="Follow us on Twitter" />
+        </a>
+    </div>
+</div>
+
+<header>
+    <img src="workFiles/headerImg.png" alt="Mamba Martial Arts Academy" />
+    <h1>Mamba Martial Arts Academy</h1>
+    <a href="./classes.html#costs"><button class="default">View Our Memberships</button></a>
+</header>
+
+<br />
+<div id="aboutSec">
+    <h1>About Us</h1>
+    <p>
+        At Mamba Martial Arts Academy (Mamba MMA) we are a family friendly community-minded martial arts facility, open
+        to everybody, that prides itself on providing a safe and positive environment that is disciplined and focused on
+        morals, ethics and a martial way of life. Mamba MMA teaches beginner to advanced classes in Muay Thai/Kickboxing
+        as well as Boxing, Jiu Jitsu and Mixed Martial Arts (MMA) for kids, teens &amp; adults.
+    </p>
+    <i>-"Real Fighters, Real Training"</i>
+    <!--TODO social media links to Facebook, Instagram, Twitter, and YouTube-->
+</div>
+
+<div id="trainerBios">
+    <div class="imgAndInfo" id="kultarBio">
+        <h1>Our Trainers</h1><!--Keep in this div so it aligns properly-->
+        <img src="workFiles/kultarFighting.png" alt="Kultar Black Mamba Gill" />
+        <div>
+            <p>
+                Kultar Gill decided to open a martial arts academy under his name, Mamba Martial Arts Academy. Giving back to
+                the community, he gave Abbotsford the most elite and state of the art facility for athletes who want to meet
+                their martial arts goals. This is not restricted to just a ring, but for fitness, self defence, self confidence,
+                self esteem, self belief, focus and social well being, among the many other benefits you will receive here with
+                Team Mamba.
+
+                Kultar "Black Mamba" Gill is a world renown accomplished fighter and: Canadian Muay Thai Champion & Pacific
+                North West Champion by age 16, Fought for first world muay thai title at age 16, Ranked 6th in the world by age
+                19, At age 26 was picked up by the elite MMA and Kickboxing organization in the world (K1), Coached and cornered
+                fighters in the UFC, K1 and other recognized organizations, Brown belt in Brazillian Jiu Jitsu, Most recently
+                fought with Super Fight League.
+            </p>
+            <a href="workFiles/kultarBio.pdf" target="_blank"><button class="default">More on Kultar Gill...</button></a>
+        </div>
+    </div>
+
+    <div id="teamBio">
+        <div class="imgAndInfo">
+            <img src="workFiles/teamAndFighters.png" alt="Team & Fighters" />
+            <div>
+                <p>
+                    Our Team Mamba trainers are all honest, humble and dedicated to the sport. In order to give those interested
+                    in using the facility the proper MMA workout, Head Instructor Kultar Gill has assembled a group of
+                    well-accomplished competitors. The best of the best in Abbotsford have come together to train everybody in
+                    this community-based, family-orientated academy. We are not just a gym, we are a team and a family where
+                    everybody helps each other out in an inclusive positive environment open to anyone who wants a full body
+                    workout and self-esteem among the many other benefits of training in martials arts.
+                </p>
+            </div>
+        </div>
+
+        <div class="imgAndInfo">
+            <img src="workFiles/recTeam.png" alt="Our Rec Team" />
+            <div>
+                <p>
+                    Team Mamba is home to many amateur and professional fighters, as well as a recreation team. Everybody trains
+                    alongside each other, helping each other... we are more than a team, we are family. Our fighters are our
+                    coaches, alongside well-accomplished specialists we bring in to sharpen out technique. Within the first year
+                    of opening our fighters fought on fight network, HD net fights, colors TV and the Dream championships in
+                    Japan. All of our fighters, amateur and professional, are expected to pass a rigorous fitness test prior to
+                    any and all fights.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="facility">
+    <h1>Our Facility</h1>
+
+    <div class="slideshow">
+        <table class="slideshowEl">
+            <tr>
+                <td>
+                    <img src="workFiles/facility.png" alt="3000 sqft facility" />
+                </td>
+                <td>
+                    <h1>3000</h1>
+                    <hr />
+                    <h1>Square ft. facility</h1>
+                </td>
+            </tr>
+        </table>
+
+        <table class="slideshowEl">
+            <tr>
+                <td>
+                    <img src="workFiles/boxingRing.png" alt="One Boxing Ring" />
+                </td>
+                <td>
+                    <h1>1</h1>
+                    <hr />
+                    <h1>Boxing ring</h1>
+                </td>
+            </tr>
+        </table>
+
+        <table class="slideshowEl">
+            <tr>
+                <td>
+                    <img src="workFiles/cage.png" alt="One Cage" />
+                </td>
+                <td>
+                    <h1>1</h1>
+                    <hr />
+                    <h1>Cage</h1>
+                </td>
+            </tr>
+        </table>
+
+        <table class="slideshowEl">
+            <tr>
+                <td>
+                    <img src="workFiles/weightArea.png" alt="Two Weight Areas" />
+                </td>
+                <td>
+                    <h1>2</h1>
+                    <hr />
+                    <h1>Weight areas</h1>
+                </td>
+            </tr>
+        </table>
+
+        <table class="slideshowEl">
+            <tr>
+                <td>
+                    <img src="workFiles/heavyBags.png" alt="Many Heavy Bags" />
+                </td>
+                <td>
+                    <h1>Many</h1>
+                    <hr />
+                    <h1>Heavy bags</h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>What we have</h2>
+    <p>
+        Mamba Martial Arts Academy, located on South Fraser Way in Abbotsford British Columbia, opened to the public in
+        March 1, 2011. We are a 3,000 square foot facility that includes a full boxing ring, state-of-the-arts mats,
+        Octagon, bags, strength and conditioning weight room and more.
+    </p>
+
+    <div id="facilityRentals">
+        <h2>Facility rentals available</h2>
+        <p>
+            Looking for gym space to rent for your fitness group or activity? Contact us.<br />
+
+            We are a community-minded gym open to the public, that prides ourselves on providing a safe and positive
+            environment for everyone. Our 3,000 square foot facility includes a full boxing ring, state-of-the-arts
+            mats, Octagon, weight area, heavy bags, speed bags and other fitness equipment. Our weight area is equiped
+            with weightlifting platform and bumper plates, strength cage, weight stations, free weights and more.<br />
+
+            Facilities are available to community groups on a rental basis; For further information, rates and
+            availability, please contact us at 604-746-2622.
+        </p>
+    </div>
+</div>
+
+<div class="slideshow" id="testimonials">
+    <h1>Testimonials</h1>
+
+    <span class="slideshowEl">
+        <h3>Bill MacGregor</h3>
+        <i>Abbotsford City Councilor</i>
+        <p>
+            "As a former teacher of Kultar I can tell you that he is a highly focused, dedicated and talented
+            athlete who believes firmly in the life lessons that can be learned through Martial Arts. He is and
+            always will be a true Champion."
+        </p>
+    </span>
+
+    <span class="slideshowEl">
+        <h3>Lopati Panza</h3>
+        <i>MMA Madhouse</i>
+        <p>
+            "my 2012 year end awards on MMAMadhouse Live.... Mamba MMA was my choice of gym of the year as they
+            compiled a 22-5(?) record in 2012, congrats to Kultar Black Mamba Gill his teammates and students."
+        </p>
+    </span>
+
+    <span class="slideshowEl">
+        <h3>Kalib Starnes</h3>
+        <i>UFC Veteran</i>
+        <p>
+            "Kultar Gill is one of the greatest fighters to ever come out of British Columbia or Canada. This is one
+            of the best places to train MMA in B.C."
+        </p>
+    </span>
+
+    <span class="slideshowEl">
+        <h3>Jason Dooms Day</h3>
+        <i>UFC Veteran</i>
+        <p>
+            "If you want to be the best you have to train with the best, Mamba MMA is top of the food chain when it
+            comes to training"
+        </p>
+    </span>
+
+    <span class="slideshowEl">
+        <h3>Denis Kang</h3>
+        <i>UFC K-1 Pride Veteran</i>
+        <p>
+            "I trained with Mamba when I was in Vancouver. The level of training was excellent for both pros and
+            amateurs"
+        </p>
+    </span>
+
+    <span class="slideshowEl">
+        <h3>Colin Daynes</h3>
+        <i>1996 Wrestling Olympian</i>
+        <p>
+            "Mamba had great insight into transitioning my wrestling into MMA."
+        </p>
+    </span>
+</div>
+
+<div id="merchandise">
+    <h1>Merchandise</h1>
+    <i>Mouth Guard, Gloves and Shin Pads are mandatory for sparring.</i><br />
+
+    <div id="clothing">
+        <h2>Clothing</h2>
+        <ul>
+            <li>Zip Up Sweater $50</li>
+            <li>Hoodies $50</li>
+            <li>T-Shirts $20</li>
+            <li>Grading T-Shirts $20</li>
+            <li>Bushido T-Shirts $30</li>
+            <li>Tank Top $15</li>
+            <li>Shorts $50</li>
+        </ul>
+    </div>
+
+    <div id="gear">
+        <h2>Gear</h2>
+
+        <ul>
+            <li>Hand Wraps $10</li>
+            <li>Mouth Guard $10</li>
+            <li>Shin Pads $115</li>
+            <li>16oz Boxing Gloves $100</li>
+            <li>10oz Boxing Gloves $85</li>
+            <li>MMA Gloves $85</li>
+            <li>Head Gear $85</li>
+        </ul>
+    </div>
+</div>
+
+<script src="scripts/mainJs.js" type="text/javascript"></script>
+<script src="scripts/slideshow.js" type="text/javascript"></script>
+</body>
+</html>
