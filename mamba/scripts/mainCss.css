@@ -13,7 +13,13 @@ body{
     display: inline-block;
 }
 
-#aboutSec, #fightersBio, #facility, #classes, #scheduleDiv, #costs, #training, #sponsors{
+#aboutSec, #fightersBio, #facility, #scheduleDiv, #costs, #training, #sponsors{
+    width: 80%;
+    text-align: left;
+    margin: auto;
+}
+
+.classes{
     width: 80%;
     text-align: left;
     margin: auto;
@@ -151,7 +157,7 @@ header{
 }
 
 header img{
-    width: 101.5%;
+    width: 103%;
     position: relative;
     left: -6pt;
     top: 10pt;
@@ -206,10 +212,9 @@ table th, table tr, table td, table caption{
 .night{
     background-color: black;
     color: white;
-    width: 100%;
+    width: 101%;
     padding: 6pt;
     margin-left: -6pt;
-    padding-right: 12pt;
 }
 
 #mainP div{
@@ -240,6 +245,17 @@ table th, table tr, table td, table caption{
 
 .blood img{
     border: solid white 2pt;
+}
+
+#memberships td, #memberships th{
+    border: solid 1pt grey;
+    padding: 8pt;
+    transition: 0.5s;
+}
+
+#memberships td:hover, #memberships th:hover{
+    background-color: red;
+    transition: 0.5s;
 }
 
 /* mobile */
