@@ -247,6 +247,16 @@ table th, table tr, table td, table caption{
     border: solid white 2pt;
 }
 
+.blood .scheduleTime{
+    background-color: lightgrey;
+    color: black;
+}
+
+.blood .scheduleClass{
+    background-color: white;
+    color: black;
+}
+
 #memberships td, #memberships th{
     border: solid 1pt grey;
     padding: 8pt;
@@ -259,7 +269,7 @@ table th, table tr, table td, table caption{
 }
 
 /* mobile */
-@media only screen and (max-width: 750pt) {
+@media only screen and (max-width: 750pt){
     #socialMedia{
         display: none;
     }
@@ -332,5 +342,33 @@ table th, table tr, table td, table caption{
         position: static;
         text-align: center;
         margin: auto;
+    }
+
+    @media only screen and (max-width: 450pt){
+        .facilityDesktop{
+            display: none;
+        }
+
+        #hamburger{
+            width: 60%;
+        }
+
+        p{
+            font-size: 18pt;
+        }
+
+        .imgAndInfo img{
+            width: 90%;
+        }
+
+        #logo{
+            position: relative;
+            left: -5%;
+        }
+
+        #schedule{
+            position: relative;
+            right: 7%;
+        }
     }
 }
