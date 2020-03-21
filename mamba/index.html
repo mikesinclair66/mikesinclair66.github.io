@@ -30,7 +30,7 @@
 <body>
 <div id="navbar">
     <!-- Hamburger menu: should have same content as below excluding logo -->
-    <button id="hamburgerBtn" onclick="toggleHamburgerMenu()">Menu</button>
+    <img src="workFiles/hamburger.png" id="hamburgerBtn" onclick="toggleHamburgerMenu()">Menu</img>
     <div id="hamburger">
         <a href="./index.html" class="tab">Home</a>
         <a href="./index.html#aboutSec" class="tab">About</a>
@@ -116,8 +116,9 @@
         </div>
     </div>
 
-    <div id="teamBio">
-        <div class="imgAndInfo">
+    <div id="teamBio" style="margin-top: -20pt">
+        <img src="workFiles/fullLogo.png" id="fullLogo" alt="Mamba Martial Arts" style="margin-bottom: -120pt"/>
+        <div class="night imgAndInfo" id="mainP">
             <img src="workFiles/teamAndFighters.png" alt="Team & Fighters" />
             <div>
                 <p>
@@ -134,7 +135,7 @@
         <div class="imgAndInfo">
             <img src="workFiles/recTeam.png" alt="Our Rec Team" />
             <div>
-                <p>
+                <p><br />
                     Team Mamba is home to many amateur and professional fighters, as well as a recreation team. Everybody trains
                     alongside each other, helping each other... we are more than a team, we are family. Our fighters are our
                     coaches, alongside well-accomplished specialists we bring in to sharpen out technique. Within the first year
@@ -150,71 +151,73 @@
 <div id="facility">
     <h1>Our Facility</h1>
 
-    <div class="slideshow">
-        <table class="slideshowEl">
-            <tr>
-                <td>
-                    <img src="workFiles/facility.png" alt="3000 sqft facility" />
-                </td>
-                <td>
-                    <h1>3000</h1>
-                    <hr />
-                    <h1>Square ft. facility</h1>
-                </td>
-            </tr>
-        </table>
+    <div class="blood">
+        <div class="slideshow">
+            <table class="slideshowEl">
+                <tr>
+                    <td>
+                        <img src="workFiles/facility.png" alt="3000 sqft facility" />
+                    </td>
+                    <td>
+                        <h1>3000</h1>
+                        <hr />
+                        <h1>Square ft. facility</h1>
+                    </td>
+                </tr>
+            </table>
 
-        <table class="slideshowEl">
-            <tr>
-                <td>
-                    <img src="workFiles/boxingRing.png" alt="One Boxing Ring" />
-                </td>
-                <td>
-                    <h1>1</h1>
-                    <hr />
-                    <h1>Boxing ring</h1>
-                </td>
-            </tr>
-        </table>
+            <table class="slideshowEl">
+                <tr>
+                    <td>
+                        <img src="workFiles/boxingRing.png" alt="One Boxing Ring" />
+                    </td>
+                    <td>
+                        <h1>1</h1>
+                        <hr />
+                        <h1>Boxing ring</h1>
+                    </td>
+                </tr>
+            </table>
 
-        <table class="slideshowEl">
-            <tr>
-                <td>
-                    <img src="workFiles/cage.png" alt="One Cage" />
-                </td>
-                <td>
-                    <h1>1</h1>
-                    <hr />
-                    <h1>Cage</h1>
-                </td>
-            </tr>
-        </table>
+            <table class="slideshowEl">
+                <tr>
+                    <td>
+                        <img src="workFiles/cage.png" alt="One Cage" />
+                    </td>
+                    <td>
+                        <h1>1</h1>
+                        <hr />
+                        <h1>Cage</h1>
+                    </td>
+                </tr>
+            </table>
 
-        <table class="slideshowEl">
-            <tr>
-                <td>
-                    <img src="workFiles/weightArea.png" alt="Two Weight Areas" />
-                </td>
-                <td>
-                    <h1>2</h1>
-                    <hr />
-                    <h1>Weight areas</h1>
-                </td>
-            </tr>
-        </table>
+            <table class="slideshowEl">
+                <tr>
+                    <td>
+                        <img src="workFiles/weightArea.png" alt="Two Weight Areas" />
+                    </td>
+                    <td>
+                        <h1>2</h1>
+                        <hr />
+                        <h1>Weight areas</h1>
+                    </td>
+                </tr>
+            </table>
 
-        <table class="slideshowEl">
-            <tr>
-                <td>
-                    <img src="workFiles/heavyBags.png" alt="Many Heavy Bags" />
-                </td>
-                <td>
-                    <h1>Many</h1>
-                    <hr />
-                    <h1>Heavy bags</h1>
-                </td>
-            </tr>
-        </table>
+            <table class="slideshowEl">
+                <tr>
+                    <td>
+                        <img src="workFiles/heavyBags.png" alt="Many Heavy Bags" />
+                    </td>
+                    <td>
+                        <h1>Many</h1>
+                        <hr />
+                        <h1>Heavy bags</h1>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <h2>What we have</h2>
@@ -240,7 +243,7 @@
     </div>
 </div>
 
-<div class="slideshow" id="testimonials">
+<div class="slideshow" id="testimonials" style="border: none">
     <h1>Testimonials</h1>
 
     <span class="slideshowEl">
@@ -298,35 +301,38 @@
     </span>
 </div>
 
-<div id="merchandise">
-    <h1>Merchandise</h1>
-    <i>Mouth Guard, Gloves and Shin Pads are mandatory for sparring.</i><br />
+<div class="night" style="transform: rotate(-3deg);
+    margin-left: -20pt; margin-top: 20pt; padding-left: 20pt; padding-right: 20pt; padding-bottom: 40pt">
+    <div id="merchandise" style="transform: rotate(3deg)">
+        <h1>Merchandise</h1>
+        <i>Mouth Guard, Gloves and Shin Pads are mandatory for sparring.</i><br />
 
-    <div id="clothing">
-        <h2>Clothing</h2>
-        <ul>
-            <li>Zip Up Sweater $50</li>
-            <li>Hoodies $50</li>
-            <li>T-Shirts $20</li>
-            <li>Grading T-Shirts $20</li>
-            <li>Bushido T-Shirts $30</li>
-            <li>Tank Top $15</li>
-            <li>Shorts $50</li>
-        </ul>
-    </div>
+        <div id="clothing">
+            <h2>Clothing</h2>
+            <ul>
+                <li>Zip Up Sweater $50</li>
+                <li>Hoodies $50</li>
+                <li>T-Shirts $20</li>
+                <li>Grading T-Shirts $20</li>
+                <li>Bushido T-Shirts $30</li>
+                <li>Tank Top $15</li>
+                <li>Shorts $50</li>
+            </ul>
+        </div>
 
-    <div id="gear">
-        <h2>Gear</h2>
+        <div id="gear">
+            <h2>Gear</h2>
 
-        <ul>
-            <li>Hand Wraps $10</li>
-            <li>Mouth Guard $10</li>
-            <li>Shin Pads $115</li>
-            <li>16oz Boxing Gloves $100</li>
-            <li>10oz Boxing Gloves $85</li>
-            <li>MMA Gloves $85</li>
-            <li>Head Gear $85</li>
-        </ul>
+            <ul>
+                <li>Hand Wraps $10</li>
+                <li>Mouth Guard $10</li>
+                <li>Shin Pads $115</li>
+                <li>16oz Boxing Gloves $100</li>
+                <li>10oz Boxing Gloves $85</li>
+                <li>MMA Gloves $85</li>
+                <li>Head Gear $85</li>
+            </ul>
+        </div>
     </div>
 </div>
 

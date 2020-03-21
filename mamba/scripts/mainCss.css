@@ -67,8 +67,13 @@ body{
     background-color: black;
     position: absolute;
     top: 50pt;
-    left: 25pt;
-    padding: 10pt;
+    left: 0;
+    padding: 30pt;
+    padding-bottom: 15pt;
+}
+
+#hamburger a{
+    padding: 5pt 0 5pt 0;
 }
 
 #hamburger img{
@@ -183,6 +188,44 @@ table th, table tr, table td, table caption{
     text-align: center;
 }
 
+.night{
+    background-color: black;
+    color: white;
+    width: 100%;
+    padding: 6pt;
+    margin-left: -6pt;
+}
+
+#mainP div{
+    width: 55%;
+    position: relative;
+    right: 15pt;
+}
+
+#mainP{
+    padding-top: 100pt;
+    margin-top: 30pt;
+}
+
+.blood{
+    background-color: red;
+    color: white;
+    width: 100%;
+    margin: auto;
+    transform: rotate(-3deg);
+}
+
+.blood .slideshow{
+    transform: rotate(3deg);
+    margin-bottom: 40pt;
+    position: relative;
+    top: 5pt;
+}
+
+.blood img{
+    border: solid white 2pt;
+}
+
 /* mobile */
 @media only screen and (max-width: 750pt) {
     #socialMedia{
@@ -195,6 +238,11 @@ table th, table tr, table td, table caption{
 
     #hamburgerBtn{
         display: block;
+        width: 45pt;
+        cursor: pointer;
+        position: absolute;
+        top: 10pt;
+        left: 10pt;
     }
 
     #navbar{
@@ -218,6 +266,7 @@ table th, table tr, table td, table caption{
 
     header h1{
         color: black;
+        margin-top: 50pt;
     }
 
     .imgAndInfo{
@@ -235,5 +284,21 @@ table th, table tr, table td, table caption{
         float: none;
         width: 100%;
         margin-left: 0;
+    }
+
+    #fullLogo{
+        display: none;
+    }
+
+    #mainP{
+        padding-top: 6pt;
+        width: 100%;
+        text-align: center;
+    }
+
+    #mainP div{
+        position: static;
+        text-align: center;
+        margin: auto;
     }
 }

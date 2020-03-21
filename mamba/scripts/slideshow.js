@@ -8,7 +8,7 @@ class Slideshow{
         this.initInterval();
 
         let leftArrow = document.createElement('button');
-        leftArrow.textContent = '^';
+        leftArrow.textContent = '<';
         leftArrow.className = 'leftArrow';
 
         leftArrow.onclick = () => {
@@ -17,10 +17,10 @@ class Slideshow{
             this.initInterval();
         };
 
-        this.div.prepend(leftArrow);
+        this.div.appendChild(leftArrow);
 
         let rightArrow = document.createElement('button');
-        rightArrow.textContent = '^';
+        rightArrow.textContent = '>';
         rightArrow.className = 'rightArrow';
 
         rightArrow.onclick = () => {
