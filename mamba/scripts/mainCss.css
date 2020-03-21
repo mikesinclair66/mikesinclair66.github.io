@@ -269,7 +269,7 @@ table th, table tr, table td, table caption{
 }
 
 /* mobile */
-@media only screen and (max-width: 750pt){
+@media only screen and (max-width: 750px){
     #socialMedia{
         display: none;
     }
@@ -343,32 +343,117 @@ table th, table tr, table td, table caption{
         text-align: center;
         margin: auto;
     }
+}
 
-    @media only screen and (max-width: 450pt){
-        .facilityDesktop{
-            display: none;
-        }
+@media only screen and (max-device-width: 450px){
+    body{
+        width: 115%;
+        height: 115%;
+    }
 
-        #hamburger{
-            width: 60%;
-        }
+    #socialMedia{
+        display: none;
+    }
 
-        p{
-            font-size: 18pt;
-        }
+    a.tab{
+        display: none;
+    }
 
-        .imgAndInfo img{
-            width: 90%;
-        }
+    #hamburger{
+        width: 60%;
+        height: 100%;
+        background-color: black;
+        padding-bottom: 70%;
+    }
 
-        #logo{
-            position: relative;
-            left: -5%;
-        }
+    #hamburger a{
+        font-size: 50pt;
+        padding-top: 5%;
+    }
 
-        #schedule{
-            position: relative;
-            right: 7%;
-        }
+    #socialMediaMobile img{
+        width: 100pt;
+        height: 100pt;
+    }
+
+    #hamburgerBtn{
+        display: block;
+        width: 45pt;
+        cursor: pointer;
+        position: absolute;
+        top: 10pt;
+        left: 10pt;
+    }
+
+    #navbar{
+        display: inline-block;
+    }
+
+    #logo{
+        text-align: center;
+        margin: auto;
+    }
+
+    header{
+        text-align: center;
+    }
+
+    header h1, header button{
+        position: static;
+        text-align: center;
+    }
+
+    header h1{
+        color: black;
+        margin-top: 50pt;
+    }
+
+    header img{
+        width: 140%;
+    }
+
+    .imgAndInfo{
+        text-align: center;
+        width: 80%;
+    }
+
+    .imgAndInfo img{
+        width: 400pt;
+        text-align: center;
+        margin: auto;
+    }
+
+    .imgAndInfo > div{
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #fullLogo{
+        display: none;
+    }
+
+    #mainP{
+        padding-top: 6pt;
+        width: 100%;
+        text-align: center;
+    }
+
+    #mainP div{
+        position: static;
+        text-align: center;
+        margin: auto;
+    }
+
+    p, i, button, h1, h2, li{
+        font-size: 35pt;
+    }
+
+    button{
+        padding: 25pt;
+    }
+
+    .night{
+        padding-right: 250pt;
     }
 }
