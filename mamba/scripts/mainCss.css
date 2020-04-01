@@ -4,6 +4,10 @@ body{
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+}
+
 #merchandise{
     text-align: center;
 }
@@ -117,10 +121,11 @@ a.tab:hover{
     top: 20pt;
 }
 
-#logo{
+#logo img{
     background-color: red;
     position: relative;
-    right: 20pt;
+    top: 6pt;
+    right: 5%;
 }
 
 #socialMedia{
@@ -268,87 +273,9 @@ table th, table tr, table td, table caption{
     transition: 0.5s;
 }
 
-/* mobile */
-@media only screen and (max-width: 750px){
-    #socialMedia{
-        display: none;
-    }
-
-    a.tab{
-        display: none;
-    }
-
-    #hamburgerBtn{
-        display: block;
-        width: 45pt;
-        cursor: pointer;
-        position: absolute;
-        top: 10pt;
-        left: 10pt;
-    }
-
-    #navbar{
-        display: inline-block;
-    }
-
-    #logo{
-        text-align: center;
-        margin: auto;
-        left: 1.5%;
-    }
-
-    header{
-        text-align: center;
-    }
-
-    header h1, header button{
-        position: static;
-        text-align: center;
-    }
-
-    header h1{
-        color: black;
-        margin-top: 50pt;
-    }
-
-    .imgAndInfo{
-        text-align: center;
-        width: 80%;
-    }
-
-    .imgAndInfo img{
-        width: 400pt;
-        text-align: center;
-        margin: auto;
-    }
-
-    .imgAndInfo > div{
-        float: none;
-        width: 100%;
-        margin-left: 0;
-    }
-
-    #fullLogo{
-        display: none;
-    }
-
-    #mainP{
-        padding-top: 6pt;
-        width: 100%;
-        text-align: center;
-    }
-
-    #mainP div{
-        position: static;
-        text-align: center;
-        margin: auto;
-    }
-}
-
-@media only screen and (max-device-width: 450px){
+@media only screen and (max-device-width: 750px){
     body{
-        width: 115%;
-        height: 115%;
+        margin-left: 8%;
     }
 
     #socialMedia{
@@ -409,7 +336,8 @@ table th, table tr, table td, table caption{
     }
 
     header img{
-        width: 140%;
+        margin-top: 10pt;
+        width: 100%;
     }
 
     .imgAndInfo{
@@ -427,6 +355,11 @@ table th, table tr, table td, table caption{
         float: none;
         width: 100%;
         margin-left: 0;
+    }
+
+    #logo img{
+        width: 20%;
+        margin-top: -5pt;
     }
 
     #fullLogo{
@@ -453,7 +386,8 @@ table th, table tr, table td, table caption{
         padding: 25pt;
     }
 
-    .night{
-        padding-right: 250pt;
+    header h1, header a, #aboutSec, #trainerBios, #facility, #testimonials, #merchandise, #mainP div,
+        #kultarBio, #teamBio{
+        width: 100%;
     }
 }
