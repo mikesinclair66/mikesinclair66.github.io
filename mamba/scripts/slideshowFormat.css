@@ -22,22 +22,26 @@
     margin-right: 10pt;
 }
 
-.leftArrow, .rightArrow{
-    transition: 0.5s;
-    color: red;
-    background-color: black;
-    border-radius: 5pt;
-    margin: 10pt;
-    font-size: 15pt;
-    border: solid white 1pt;
+.blood .leftArrow, .blood .rightArrow{
+    color: white;
 }
 
-.leftArrow:hover, .rightArrow:hover{
+.leftArrow, .rightArrow{
     transition: 0.5s;
     color: black;
-    background-color: red;
+    margin: 10pt 10pt 20pt 10pt;
+    font-size: 15pt;
+    background: none;
+    border: none;
+    font-weight: 900;
+    font-family: Elephant, serif;
+}
+
+.leftArrow:hover, .rightArrow:hover, .leftArrow:active, .rightArrow:active{
+    transition: 0.5s;
     cursor: pointer;
-    border: solid black 1pt;
+    font-size: 20pt;
+    margin-top: 5pt;
 }
 
 .rightArrow{
