@@ -38,9 +38,10 @@
             right: 6pt;
         }
 
-        @media only screen and (max-width: 750pt){
+        @media only screen and (max-width: 750px){
             .imgAndInfo img{
                 position: static;
+                width: 500pt;
             }
 
             .imgAndInfo div{
@@ -52,7 +53,7 @@
 <body>
 <div id="navbar">
     <!-- Hamburger menu: should have same content as below excluding logo -->
-    <img src="workFiles/hamburger.png" id="hamburgerBtn" onclick="toggleHamburgerMenu()">Menu</img>
+    <img src="workFiles/hamburger.png" id="hamburgerBtn" onclick="toggleHamburgerMenu()" />
     <div id="hamburger">
         <a href="./index.html" class="tab">Home</a>
         <a href="./index.html#aboutSec" class="tab">About</a>
@@ -151,11 +152,11 @@
                 younger than 14 are requested to ask coach permission to attend adult classes.
             </i><br /><br />
 
-            <b>Please Note:</b>
-            <p>
+            <b>Please note:</b>
+            <p style="display: inline">
                 Due to the COVID-19 pandemic, our classes are closed down and won't resume until further notice.
-                Memberships for April 2020 will not be charged to our customers' accounts. However, once classes resume,
-                the schedule will resume as displayed:
+                Memberships at Mamba will no longer be charged to our customers' accounts. However, once classes resume,
+                the schedule will resume as displayed in the schedule above.
             </p>
         </div>
     </div>

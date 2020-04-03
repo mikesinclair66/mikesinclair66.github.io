@@ -121,6 +121,13 @@ a.tab:hover{
     top: 20pt;
 }
 
+#fullLogoMobile{
+    width: 130pt;
+    border: none;
+    padding-bottom: 10pt;
+    display: none;
+}
+
 #logo img{
     background-color: red;
     position: relative;
@@ -156,7 +163,6 @@ a.tab:hover{
     height: 25pt;
 }
 
-/* Starting div of each page (dismissing navbar) */
 header{
     margin-top: 53pt;
 }
@@ -273,13 +279,17 @@ table th, table tr, table td, table caption{
     transition: 0.5s;
 }
 
-@media only screen and (max-device-width: 750px){
+@media only screen and (max-width: 750px){
     body{
         margin-left: 8%;
     }
 
     #socialMedia{
         display: none;
+    }
+
+    #teamBio div{
+        width: 100%;
     }
 
     a.tab{
@@ -336,8 +346,9 @@ table th, table tr, table td, table caption{
     }
 
     header img{
-        margin-top: 10pt;
-        width: 100%;
+        margin-top: 2pt;
+        width: 111%;
+        margin-left: -7.5%;
     }
 
     .imgAndInfo{
@@ -366,6 +377,10 @@ table th, table tr, table td, table caption{
         display: none;
     }
 
+    #fullLogoMobile{
+        display: block;
+    }
+
     #mainP{
         padding-top: 6pt;
         width: 100%;
@@ -384,6 +399,10 @@ table th, table tr, table td, table caption{
 
     button{
         padding: 25pt;
+    }
+
+    #scheduleDiv, #memberships{
+        width: 90%;
     }
 
     header h1, header a, #aboutSec, #trainerBios, #facility, #testimonials, #merchandise, #mainP div,
