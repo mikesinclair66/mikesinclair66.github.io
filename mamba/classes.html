@@ -2,215 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="scripts/mainCss.css" />
     <title>Mamba MMA - Classes</title>
-    <style type="text/css">
-        .imgAndInfo img{
-            width: 250pt;
-            position: relative;
-            right: 2%;
-        }
 
-        .imgAndInfo div{
-            position: relative;
-            bottom: 15pt;
-            right: 2.5%;
-        }
-
-        .blood, .night{
-            margin-left: -15%;
-            margin-top: -45pt;
-            padding: 30pt 15% 30pt 15%;
-            margin-bottom: 35pt;
-        }
-
-        .blood h1, .blood div, .night h1, .night p, .night img{
-            transform: rotate(3deg);
-        }
-
-        .night{
-            margin-top: 20pt;
-        }
-
-        .night img{
-            border: solid white 2pt;
-            position: relative;
-            right: 6pt;
-        }
-
-        @media only screen and (max-width: 750px){
-            .imgAndInfo img{
-                position: static;
-            }
-
-            .imgAndInfo div{
-                position: static;
-            }
-        }
-    </style>
+    <link href="scripts/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="navbar">
-    <!-- Hamburger menu: should have same content as below excluding logo -->
-    <img src="workFiles/hamburger.png" id="hamburgerBtn" onclick="toggleHamburgerMenu()" />
-    <div id="hamburger">
-        <a href="./index.html" class="tab">Home</a>
-        <a href="./index.html#aboutSec" class="tab">About</a>
-        <a href="./classes.html" class="tab">Classes</a>
-        <a href="http://mfn.mambamma.com/" target="_blank" class="tab">MFN</a>
-        <a href="./sponsors.html" class="tab">Sponsors</a>
-        <a href="./contact.html" class="tab">Contact Us</a>
 
-        <table id="socialMediaMobile">
-            <tr>
-                <td>
-                    <a href="https://www.facebook.com/groups/152520481437694/?ref=search" target="_blank">
-                        <img src="workFiles/fb.png" alt="Follow us on Facebook" />
-                    </a>
-                </td>
-                <td>
-                    <a href="https://www.instagram.com/mamba_fight_nights/" target="_blank">
-                        <img src="workFiles/insta.png" alt="Follow us on Instagram" />
-                    </a>
-                </td>
-                <td>
-                    <a href="https://twitter.com/mambamma" target="_blank">
-                        <img src="workFiles/twitter.png" alt="Follow us on Twitter" />
-                    </a>
-                </td>
-            </tr>
-        </table>
+</div>
+
+<div class="blood rotated" id="scheduleDiv">
+    <table id="schedule">
+        <caption>Our Schedule</caption>
+        <tr>
+            <th></th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+        </tr>
+        <tr>
+            <td class="scheduleTime">Kids ages 5-12<br />5:30-6:15pm</td>
+            <td class="scheduleClass">Kids Class</td>
+            <td class="scheduleClass">-</td>
+            <td class="scheduleClass">Kids Class</td>
+            <td class="scheduleClass">-</td>
+            <td class="scheduleClass">Kids Class</td>
+        </tr>
+        <tr>
+            <td class="scheduleTime">Co-ed Adults<br />5:30-6:30pm</td>
+            <td class="scheduleClass">Adult Boxing</td>
+            <td class="scheduleClass">Adult Boxing</td>
+            <td class="scheduleClass">Jiu Jitsu</td>
+            <td class="scheduleClass">Adult Boxing</td>
+            <td class="scheduleClass">Jiu Jitsu</td>
+        </tr>
+        <tr>
+            <td class="scheduleTime">Co-ed Adults<br />6:30-7:30pm</td>
+            <td class="scheduleClass">Kickboxing</td>
+            <td class="scheduleClass">MMA</td>
+            <td class="scheduleClass">Kickboxing</td>
+            <td class="scheduleClass">MMA</td>
+            <td class="scheduleClass">Kickboxing</td>
+        </tr>
+    </table>
+
+    <i>
+        Schedule subject to change without notice. Ages 12 and up are welcome to attend the co-ed adult classes. Kids
+        younger than 14 are requested to ask coach permission to attend adult classes.
+    </i><br /><br />
+
+    <p>
+        <b>Please note:</b> Due to the COVID-19 pandemic, our classes are closed down and won't resume until further
+        notice. Memberships at Mamba will no longer be charged to our customers' accounts. However, once classes resume,
+        the schedule will resume as displayed in the schedule above.
+    </p>
+</div>
+
+<div>
+    <h2>Muay Thai, Kickboxing & Boxing</h2>
+    <p>
+        Develop dynamic striking power in “The Art of 8 Limbs” with classes of intense physical conditioning where
+        we train the body, the mind and the heart. In traditional Muay Thai, the intense physical conditioning is
+        considered a doorway into developing focus, dedication, honesty, confidence, respect and ultimately
+        happiness, if the practitioner so chooses. Mamba Martial Arts Academy provides both the advanced and amateur
+        practitioner with what they need to achieve their fitness goals.
+    </p>
+</div>
+
+<div class="imgAndInfo">
+    <div>
+        <img src="workFiles/proFighters.png" alt="Amateur & Pro Fighter Training" />
     </div>
-
-    <a href="./index.html" id="logo">
-        <img src="workFiles/logo.png" alt="Mamba MMA" />
-    </a>
-    <a href="./index.html" class="tab">Home</a>
-    <a href="./index.html#aboutSec" class="tab">About</a>
-    <a href="./classes.html" class="tab">Classes</a>
-    <a href="http://mfn.mambamma.com/" target="_blank" class="tab">MFN</a>
-    <a href="./sponsors.html" class="tab">Sponsors</a>
-    <a href="./contact.html" class="tab">Contact Us</a>
-
-    <div id="socialMedia">
-        <a href="https://www.facebook.com/groups/152520481437694/?ref=search" target="_blank">
-            <img src="workFiles/fb.png" alt="Follow us on Facebook" />
-        </a>
-        <a href="https://www.instagram.com/mamba_fight_nights/" target="_blank">
-            <img src="workFiles/insta.png" alt="Follow us on Instagram" />
-        </a>
-        <a href="https://twitter.com/mambamma" target="_blank">
-            <img src="workFiles/twitter.png" alt="Follow us on Twitter" />
-        </a>
+    <div>
+        <h2>MMA & Wrestling</h2>
+        <p>
+            Master what it means to be an athlete by using a variety of martial arts styles. MMA is gaining popularity
+            because it is a dynamic sport that uses a variety of martial arts styles. True MMA champions have mastered
+            what it means to be an athlete by training in many of the striking and grappling arts. Many of the top MMA
+            competitors have a black belt in two or more of the martial arts such as Jiu-jitsu, Judo and Karate; as well
+            as mastering other martial arts like Boxing, Kickboxing and Wrestling, to name a few. Our wrestling is MMA
+            focused, and you learn takedowns, how to set up your takedowns with strikes and how to control your opponent
+            once on the ground in order to utilize jiu jitsu techniques and striking
+        </p>
     </div>
 </div>
 
-<div id="classes">
-    <div class="blood">
-        <h1>Classes</h1>
+<div>
+    <h2>Jiu Jitsu</h2>
+    <p>
+        Learn no-gi grappling techniques that will allow you to use less strength and more leverage; ultimately
+        learning to control your opponent by controlling yourself. Brazilian Jiu-Jitsu is ultimately a life style of
+        self-mastery that is based on the principles of efficiency, patience and control. It has become an
+        ubiquitous part of MMA due to its sophisticated use of leverage and timing over speed and power. No-gi jiu
+        jitsu is training in regular gym clothing instead of a kimono (aka "gi").
+    </p>
+</div>
 
-        <div id="scheduleDiv">
-            <table id="schedule" align="center">
-                <caption>Our Schedule</caption>
-                <tr>
-                    <th></th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                </tr>
-                <tr>
-                    <td class="scheduleTime">Kids ages 5-12<br />5:30-6:15pm</td>
-                    <td class="scheduleClass">Kids Class</td>
-                    <td class="scheduleClass">-</td>
-                    <td class="scheduleClass">Kids Class</td>
-                    <td class="scheduleClass">-</td>
-                    <td class="scheduleClass">Kids Class</td>
-                </tr>
-                <tr>
-                    <td class="scheduleTime">Co-ed Adults<br />5:30-6:30pm</td>
-                    <td class="scheduleClass">Adult Boxing</td>
-                    <td class="scheduleClass">Adult Boxing</td>
-                    <td class="scheduleClass">Jiu Jitsu</td>
-                    <td class="scheduleClass">Adult Boxing</td>
-                    <td class="scheduleClass">Jiu Jitsu</td>
-                </tr>
-                <tr>
-                    <td class="scheduleTime">Co-ed Adults<br />6:30-7:30pm</td>
-                    <td class="scheduleClass">Kickboxing</td>
-                    <td class="scheduleClass">MMA</td>
-                    <td class="scheduleClass">Kickboxing</td>
-                    <td class="scheduleClass">MMA</td>
-                    <td class="scheduleClass">Kickboxing</td>
-                </tr>
-            </table>
-
-            <i>
-                Schedule subject to change without notice. Ages 12 and up are welcome to attend the co-ed adult classes. Kids
-                younger than 14 are requested to ask coach permission to attend adult classes.
-            </i><br /><br />
-
-            <b>Please note:</b>
-            <p style="display: inline">
-                Due to the COVID-19 pandemic, our classes are closed down and won't resume until further notice.
-                Memberships at Mamba will no longer be charged to our customers' accounts. However, once classes resume,
-                the schedule will resume as displayed in the schedule above.
-            </p>
-        </div>
-    </div>
-
-    <div class="classes" style="margin-bottom: 25pt">
-        <h2>Muay Thai, Kickboxing & Boxing</h2>
-        <p>
-            Develop dynamic striking power in “The Art of 8 Limbs” with classes of intense physical conditioning where
-            we train the body, the mind and the heart. In traditional Muay Thai, the intense physical conditioning is
-            considered a doorway into developing focus, dedication, honesty, confidence, respect and ultimately
-            happiness, if the practitioner so chooses. Mamba Martial Arts Academy provides both the advanced and amateur
-            practitioner with what they need to achieve their fitness goals.
-        </p>
-    </div>
-
-    <div class="imgAndInfo" style="margin-bottom: -20pt">
-        <img src="workFiles/proFighters.png" alt="Amateur & Pro Fighter Training" />
-        <div>
-            <h2>MMA & Wrestling</h2>
-            <p>
-                Master what it means to be an athlete by using a variety of martial arts styles. MMA is gaining popularity
-                because it is a dynamic sport that uses a variety of martial arts styles. True MMA champions have mastered
-                what it means to be an athlete by training in many of the striking and grappling arts. Many of the top MMA
-                competitors have a black belt in two or more of the martial arts such as Jiu-jitsu, Judo and Karate; as well
-                as mastering other martial arts like Boxing, Kickboxing and Wrestling, to name a few. Our wrestling is MMA
-                focused, and you learn takedowns, how to set up your takedowns with strikes and how to control your opponent
-                once on the ground in order to utilize jiu jitsu techniques and striking
-            </p>
-        </div>
-    </div>
-
-    <div class="classes" style="margin-bottom: 30pt">
-        <h2>Jiu Jitsu</h2>
-        <p>
-            Learn no-gi grappling techniques that will allow you to use less strength and more leverage; ultimately
-            learning to control your opponent by controlling yourself. Brazilian Jiu-Jitsu is ultimately a life style of
-            self-mastery that is based on the principles of efficiency, patience and control. It has become an
-            ubiquitous part of MMA due to its sophisticated use of leverage and timing over speed and power. No-gi jiu
-            jitsu is training in regular gym clothing instead of a kimono (aka "gi").
-        </p>
-    </div>
-
-    <div class="imgAndInfo" style="margin-bottom: 0">
+<div class="imgAndInfo">
+    <div>
         <img src="workFiles/weightArea.png" alt="Personal training" />
-        <div>
-            <h2>Weights & Conditioning</h2>
-            <p>
-                It takes an ample amount of conditioning and cardio to train in mixed martial arts. Consintently coming to
-                class and practicing the techniques we teach will make you fit and on top of that we have all the neccessary
-                machines and weights you will need to tone your muscles even more. And cardio macgines to increase your
-                stamina. All members are welcome and encouraged to come during open mat times to use the weights and
-                machines. Additionally, private lessons from our head coach or a fighter will help you to greatly increase
-                your performance.
-            </p>
-        </div>
+    </div>
+    <div>
+        <h2>Weights & Conditioning</h2>
+        <p>
+            It takes an ample amount of conditioning and cardio to train in mixed martial arts. Consintently coming to
+            class and practicing the techniques we teach will make you fit and on top of that we have all the neccessary
+            machines and weights you will need to tone your muscles even more. And cardio macgines to increase your
+            stamina. All members are welcome and encouraged to come during open mat times to use the weights and
+            machines. Additionally, private lessons from our head coach or a fighter will help you to greatly increase
+            your performance.
+        </p>
     </div>
 </div>
 
@@ -229,20 +132,18 @@
     </p>
 
     <h2>All Inclusive Membership</h2>
-
     <p>
         All inclusive membership includes unlimited access to Muay Thai/Kickboxing classes, Jiu Jitsu classes, MMA
         classes, Boxing classes, Weightlifting/Strength & Conditioning classes, Open Mat times and weight room for the
         membership term selected.
     </p>
-
     <p>
         In an effort to see youth succeed in life, we are willing to offer discounted membership to those in financial
         need, or who are at risk, in exchange for that individual giving back to the community in a way we can arrange.
         Talk to us about your circumstances and we can work something out.
     </p>
 
-    <table id="memberships" align="center">
+    <table id="memberships">
         <tr>
             <th>Duration</th>
             <th>Cost</th>
@@ -272,8 +173,8 @@
     </p>
 </div>
 
-<div id="training">
-    <div class="night" style="transform: rotate(-3deg)">
+<div class="night rotated">
+    <div id="training">
         <h1>Training</h1>
 
         <p>
@@ -283,10 +184,12 @@
             a fun way to get or stay in shape, as well as those interested in fighting. Our classes include classes for kids
             starting at age 6, teens and adults both male or female.
         </p>
-
-        <img src="workFiles/recreational.png" alt="Kids & Adults Recreational Training" />
     </div>
 
+    <img src="workFiles/recreational.png" alt="Kids & Adults Recreational Training" />
+</div>
+
+<div>
     <h2>Kids & Teens Classes (9-16 years)</h2>
     <p>
         Our kids & teens classes are a fun, engaging and disciplined class designed to exercise and teach about all
@@ -335,6 +238,5 @@
         needs and desires. Contact us today to setup your group training.
     </p>
 </div>
-<script src="scripts/mainJs.js" type="text/javascript"></script>
 </body>
 </html>
