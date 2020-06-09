@@ -1,0 +1,14 @@
+@media only screen and (min-width: 1000px){
+    body{
+        font-size: 18pt;
+    }
+
+    .blood, .info_sec{
+        border-top: solid white 3pt;
+        border-bottom: solid white 3pt;
+    }
+
+    .info_sec{
+        padding-left: 300pt;
+    }
+}

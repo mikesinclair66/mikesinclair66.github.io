@@ -341,7 +341,7 @@ hr{
 
 #mobileSchedule .slideSelector{
     position: relative;
-    bottom: 610pt;
+    bottom: 670pt;
     right: 25pt;
 }
 
@@ -357,9 +357,10 @@ hr{
 .scEl{
     display: block;
     border: solid black 5pt;
-    padding: 15pt 0 15pt 0;
-    height: 100pt;
+    padding: 15pt 0 30pt 0;
     width: 200pt;
+    height: 100pt;
+    margin-bottom: 5pt;
 }
 
 .title{
