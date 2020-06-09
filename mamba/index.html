@@ -5,16 +5,32 @@
     <title>Mamba Martial Arts Academy</title>
 
     <link href="scripts/main.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        #facilitySlideshow{
+            padding-top: 50pt;
+        }
+
+        #split_header{
+            padding-top: 20pt;
+            padding-bottom: 20pt;
+            text-align: center;
+            color: white;
+            background-color: red;
+            border-top: solid white 5pt;
+            border-bottom: solid white 5pt;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
 <div id="navbar" class="night">
-    <div id="content" class="night"><!--Displayed under hamurger button when active in mobile-->
-        <div>
-            <div class="blood" id="logo_banner"><a href="./index.html">
-                <img src="workFiles/logo.png" id="logo" alt="Mamba Martial Arts Academy" id="logo" />
-            </a></div>
-        </div>
+    <div id="logo_banner">
+        <div><a href="./index.html">
+            <img src="workFiles/logo.png" id="logo" alt="Mamba Martial Arts Academy" />
+        </a></div>
+    </div>
 
+    <div id="content" class="night"><!--Displayed under hamurger button when active in mobile-->
         <div id="links" class="night">
             <a href="./index.html">Home</a>
             <a href="./index.html#aboutStart">About Us</a>
@@ -50,51 +66,33 @@
 </div>
 
 <header>
-    <img src="workFiles/headerImg.png" alt="Mamba Martial Arts Academy" />
-    <h1>Mamba Martial Arts Academy</h1>
-    <a href="./classes.html#costs"><button class="default">View Our Memberships</button></a>
+    <img src="workFiles/headerImg.png" alt="Mamba Martial Arts Academy" id="header_img" />
+    <div>
+        <img src="workFiles/fullLogo.png" alt="Mamba Martial Arts Academy" id="full_logo" /><br />
+
+        <h2><span>Respect</span> your Community<br /></h2>
+        <h2><span>Honour</span> your Family<br /></h2>
+        <h2><span>Loyalty</span> to your Country</h2>
+
+        <a href="./classes.html#costs"><button class="default">View Our Memberships</button></a>
+    </div>
 </header>
 
-<div id="aboutStart">
+<div id="aboutStart" class="info_sec">
     <h1>About Us</h1>
     <p>
         At Mamba Martial Arts Academy (Mamba MMA) we are a family friendly community-minded martial arts facility, open
         to everybody, that prides itself on providing a safe and positive environment that is disciplined and focused on
-        morals, ethics and a martial way of life. Mamba MMA teaches beginner to advanced classes in Muay Thai/Kickboxing
-        as well as Boxing, Jiu Jitsu and Mixed Martial Arts (MMA) for kids, teens &amp; adults.
+        morals, ethics and a martial way of life.<br /><br />Mamba MMA teaches beginner to advanced classes in Muay
+        Thai/Kickboxing as well as Boxing, Jiu Jitsu and Mixed Martial Arts (MMA) for kids, teens &amp; adults.
     </p>
     <i>-"Real Fighters, Real Training"</i>
 </div>
 
-<div class="imgAndInfo" id="kultarBio">
-    <div>
-        <h1>Our Trainers</h1>
-        <img src="workFiles/kultarFighting.png" alt="Kultar Black Mamba Gill" />
-    </div>
-    <div>
-        <p>
-            Kultar Gill decided to open a martial arts academy under his name, Mamba Martial Arts Academy. Giving back to
-            the community, he gave Abbotsford the most elite and state of the art facility for athletes who want to meet
-            their martial arts goals. This is not restricted to just a ring, but for fitness, self defence, self confidence,
-            self esteem, self belief, focus and social well being, among the many other benefits you will receive here with
-            Team Mamba.
-
-            Kultar "Black Mamba" Gill is a world renown accomplished fighter and: Canadian Muay Thai Champion & Pacific
-            North West Champion by age 16, Fought for first world muay thai title at age 16, Ranked 6th in the world by age
-            19, At age 26 was picked up by the elite MMA and Kickboxing organization in the world (K1), Coached and cornered
-            fighters in the UFC, K1 and other recognized organizations, Brown belt in Brazillian Jiu Jitsu, Most recently
-            fought with Super Fight League.
-        </p>
-        <a href="workFiles/kultarBio.pdf" target="_blank"><button>More on Kultar Gill...</button></a>
-    </div>
-</div>
-
 <div class="night">
-    <img src="workFiles/fullLogo.png" id="fullLogo" alt="Mamba Martial Arts"/>
     <div class="imgAndInfo">
-        <div>
-            <img src="workFiles/teamAndFighters.png" alt="Team & Fighters" />
-        </div>
+        <img src="workFiles/teamAndFighters.png" alt="Team & Fighters" />
+        <h1>Our Trainers</h1>
         <div>
             <p>
                 Our Team Mamba trainers are all honest, humble and dedicated to the sport. In order to give those interested
@@ -106,12 +104,33 @@
             </p>
         </div>
     </div>
+
+    <div class="imgAndInfo" id="kultarBio">
+        <img src="workFiles/kultarFighting.png" alt="Kultar Black Mamba Gill" />
+        <h1>Our Head Coach</h1>
+        <div>
+            <p>
+                Kultar Gill decided to open a martial arts academy under his name, Mamba Martial Arts Academy. Giving back to
+                the community, he gave Abbotsford the most elite and state of the art facility for athletes who want to meet
+                their martial arts goals. This is not restricted to just a ring, but for fitness, self defence, self confidence,
+                self esteem, self belief, focus and social well being, among the many other benefits you will receive here with
+                Team Mamba.
+
+                Kultar "Black Mamba" Gill is a world renown accomplished fighter and: Canadian Muay Thai Champion & Pacific
+                North West Champion by age 16, Fought for first world muay thai title at age 16, Ranked 6th in the world by age
+                19, At age 26 was picked up by the elite MMA and Kickboxing organization in the world (K1), Coached and cornered
+                fighters in the UFC, K1 and other recognized organizations, Brown belt in Brazillian Jiu Jitsu, Most recently
+                fought with Super Fight League.
+                <br /><br />
+                <a href="workFiles/kultarBio.pdf" target="_blank"><button>More on Kultar Gill...</button></a>
+            </p>
+        </div>
+    </div>
 </div>
 
 <div class="imgAndInfo">
-    <div>
-        <img src="workFiles/recTeam.png" alt="Our Rec Team" />
-    </div>
+    <img src="workFiles/recTeam.png" alt="Our Rec Team" />
+    <h1>Our Team</h1>
     <div>
         <p>
             Team Mamba is home to many amateur and professional fighters, as well as a recreation team. Everybody trains
@@ -124,7 +143,7 @@
     </div>
 </div>
 
-<div class="slideshow blood">
+<div class="slideshow blood" id="facilitySlideshow">
     <div class="slideshowEl">
         <img src="workFiles/facility.png" alt="3000 sqft facility" />
         <h1>3000<hr />Square ft. facility</h1>
@@ -147,75 +166,70 @@
     </div>
 </div>
 
-<div>
-    <h1>What we have</h1>
-    <p>
-        Mamba Martial Arts Academy, located on South Fraser Way in Abbotsford British Columbia, opened to the public in
-        March 1, 2011. We are a 3,000 square foot facility that includes a full boxing ring, state-of-the-arts mats,
-        Octagon, bags, strength and conditioning weight room and more.
-    </p>
+<div class="loose_info">
+    <div>
+        <h1>Facility rentals available</h1>
+        <p>
+            Looking for gym space to rent for your fitness group or activity? Contact us.
+            We are a community-minded gym open to the public, that prides ourselves on providing a safe and positive
+            environment for everyone.<br /><br />
 
-    <h1>Facility rentals available</h1>
-    <p>
-        Looking for gym space to rent for your fitness group or activity? Contact us.<br />
+            Our 3,000 square foot facility includes a full boxing ring, state-of-the-arts
+            mats, Octagon, weight area, heavy bags, speed bags and other fitness equipment. Our weight area is equiped
+            with weightlifting platform and bumper plates, strength cage, weight stations, free weights and more.
+            Facilities are available to community groups on a rental basis; For further information, rates and
+            availability, please contact us at 604-746-2622.
+        </p>
+    </div>
 
-        We are a community-minded gym open to the public, that prides ourselves on providing a safe and positive
-        environment for everyone. Our 3,000 square foot facility includes a full boxing ring, state-of-the-arts
-        mats, Octagon, weight area, heavy bags, speed bags and other fitness equipment. Our weight area is equiped
-        with weightlifting platform and bumper plates, strength cage, weight stations, free weights and more.<br />
-
-        Facilities are available to community groups on a rental basis; For further information, rates and
-        availability, please contact us at 604-746-2622.
-    </p>
-</div>
-
-<h1>Testimonials</h1>
-<div class="slideshow" id="testimonials">
-    <div class="slideshowEl">
-        <h2>Bill MacGregor - <i>Abbotsford City Councilor</i></h2><br />
-        <p>
-            "As a former teacher of Kultar I can tell you that he is a highly focused, dedicated and talented
-            athlete who believes firmly in the life lessons that can be learned through Martial Arts. He is and
-            always will be a true Champion."
-        </p>
-    </div>
-    <div class="slideshowEl">
-        <h2>Lopati Panza - MMA Madhouse</h2><br />
-        <p>
-            "my 2012 year end awards on MMAMadhouse Live.... Mamba MMA was my choice of gym of the year as they
-            compiled a 22-5(?) record in 2012, congrats to Kultar Black Mamba Gill his teammates and students."
-        </p>
-    </div>
-    <div class="slideshowEl">
-        <h2>Kalib Starnes - UFC Veteran</h2>
-        <p>
-            "Kultar Gill is one of the greatest fighters to ever come out of British Columbia or Canada. This is one
-            of the best places to train MMA in B.C."
-        </p>
-    </div>
-    <div class="slideshowEl">
-        <h2>Jason Dooms Day - UFC Veteran</h2>
-        <p>
-            "If you want to be the best you have to train with the best, Mamba MMA is top of the food chain when it
-            comes to training"
-        </p>
-    </div>
-    <div class="slideshowEl">
-        <h2>Denis Kang - UFC K-1 Pride Veteran</h2>
-        <p>
-            "I trained with Mamba when I was in Vancouver. The level of training was excellent for both pros and
-            amateurs"
-        </p>
-    </div>
-    <div class="slideshowEl">
-        <h2>Colin Daynes - 1996 Wrestling Olympian</h2>
-        <p>
-            "Mamba had great insight into transitioning my wrestling into MMA."
-        </p>
+    <h1 id="split_header">Testimonials</h1>
+    <div class="slideshow" id="testimonials">
+        <div class="slideshowEl">
+            <h2>Bill MacGregor - <i>Abbotsford City Councilor</i></h2>
+            <p>
+                "As a former teacher of Kultar I can tell you that he is a highly focused, dedicated and talented
+                athlete who believes firmly in the life lessons that can be learned through Martial Arts. He is and
+                always will be a true Champion."
+            </p>
+        </div>
+        <div class="slideshowEl">
+            <h2>Lopati Panza - MMA Madhouse</h2>
+            <p>
+                "my 2012 year end awards on MMAMadhouse Live.... Mamba MMA was my choice of gym of the year as they
+                compiled a 22-5(?) record in 2012, congrats to Kultar Black Mamba Gill his teammates and students."
+            </p>
+        </div>
+        <div class="slideshowEl">
+            <h2>Kalib Starnes - UFC Veteran</h2>
+            <p>
+                "Kultar Gill is one of the greatest fighters to ever come out of British Columbia or Canada. This is one
+                of the best places to train MMA in B.C."
+            </p>
+        </div>
+        <div class="slideshowEl">
+            <h2>Jason Dooms Day - UFC Veteran</h2>
+            <p>
+                "If you want to be the best you have to train with the best, Mamba MMA is top of the food chain when it
+                comes to training"
+            </p>
+        </div>
+        <div class="slideshowEl">
+            <h2>Denis Kang - UFC K-1 Pride Veteran</h2>
+            <p>
+                "I trained with Mamba when I was in Vancouver. The level of training was excellent for both pros and
+                amateurs"
+            </p>
+        </div>
+        <div class="slideshowEl">
+            <h2>Colin Daynes - 1996 Wrestling Olympian</h2>
+            <p>
+                "Mamba had great insight into transitioning my wrestling into MMA."
+            </p>
+        </div>
     </div>
 </div>
 
-<div class="night">
+<div class="info_sec_white">
     <h1>Merchandise</h1>
     <i>Mouth Guard, Gloves and Shin Pads are mandatory for sparring.</i><br />
 

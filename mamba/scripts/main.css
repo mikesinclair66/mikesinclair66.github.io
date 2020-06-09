@@ -1,89 +1,392 @@
 body{
-    font-family: Arial, Calibri, "Times New Roman", serif;
-    font-size: 15pt;
-    position: relative;
-}
-
-a{
-    transition: 0.5s;
-    text-decoration: none;
+    font-family: Arial, Calibri, serif;
+    font-size: 35pt;
+    overflow-x: hidden;
+    background-color: black;
     color: white;
 }
 
-a:hover, a:active{
-    transition: 0.5s;
+h1{
     color: red;
 }
 
 .blood{
+    background: red;
+    border-top: solid white 5pt;
+    border-bottom: solid white 5pt;
+}
+
+.blood h1, .info_sec h1{
+    color: white;
+}
+
+.info_sec{
     background-color: red;
-    border-top: solid white 2pt;
-    border-bottom: solid white 2pt;
-    color: white;
+    border-top: solid white 5pt;
+    border-bottom: solid white 5pt;
+    margin: 0 -8pt 35pt -6pt;
+    padding: 25pt 35pt 50pt 50pt;
 }
 
-.night{
-    color: white;
-    background-color: black;/* TODO maybe greyish black? */
+.info_sec_white{
+    background-color: white;
+    color: black;
+    margin: 0 -8pt 0 -6pt;
+    padding: 25pt 35pt 50pt 50pt;
+    border-top: solid red 5pt;
 }
 
-#navbar{
-    width: 100%;
-    height: 60pt;
-
-    position: fixed;
-    left: 0;
-    top: 0;
+.info_sec p{
+    color: black;
 }
 
-#navbar #content{
-    position: fixed;
-    top: 0;
-    left: calc(100% - 500pt);
-    width: 500pt;
-    height: 100%;
+.imgAndInfo{
+    border: solid white 5pt;
+    margin: 40pt;
     text-align: center;
 }
 
-#logo_banner{
-    margin-top: 60pt;/* navbar height */
-    margin-bottom: 10pt;
-    border: solid white 2pt;
+.imgAndInfo h1{
+    background-color: red;
+    color: white;
+    border-top: solid white 5pt;
+    border-bottom: solid white 5pt;
+    text-align: center;
+    padding: 25pt 0 25pt 0;
 }
 
-#logo{
-    padding: 5pt;
+.imgAndInfo img{
+    width: 100%;
+    margin-bottom: -58pt;
 }
 
-#links a{
-    display: block;
-    padding: 10pt;
+.imgAndInfo p{
+    padding: 10pt 40pt 40pt 40pt;
+}
+
+.imgAndInfo button{
+    margin-top: 25pt;
+    margin-bottom: 25pt;
 }
 
 .angled{
-    transform: skew(-20deg) rotate(-20deg);
+    transform: skew(-30deg) rotate(-30deg);
+    width: calc(100% - 80pt);
+    position: relative;
+    left: 40pt;
 }
 
 .angled div{
-    transform: rotate(20deg) skew(20deg);
+    transform: rotate(30deg) skew(30deg);
 }
 
-#navbar #socialMedia{
-    margin-top: 15pt;
-    padding: 60pt 0 150pt 0;
-    width: 95%;
-    margin-left: 3%;
-}
-
-#navbar #socialMedia img{
-    transition: 0.5s;
-    width: 60pt;
-    height: 60pt;
-    border: solid white 2pt;
-    border-radius: 80pt;
-}
-
-#navbar #socialMedia img:hover{
-    transition: 0.5s;
+#navbar{
     background-color: black;
+    width: 100%;
+    height: 100pt;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+#logo_banner{
+    width: 310pt;
+    height: 100pt;
+    background-color: red;
+
+    position: fixed;
+    top: 0;
+    left: calc(100% - 278pt);
+    transform: skew(-30deg);
+    text-align: center;
+    z-index: 99;
+
+    transition: left 0.5s, width 0.5s;
+}
+
+#logo_banner div{
+    transform: skew(30deg);
+}
+
+#logo{
+    width: 250pt;
+    position: relative;
+    top: 30pt;
+    right: 30pt;
+}
+
+#content{
+    background-color: black;
+    width: 600pt;
+    height: 100%;
+    text-align: center;
+    opacity: 0;
+
+    position: fixed;
+    left: 100%;
+    top: 0;
+
+    transition: left 0.5s, opacity 0.5s;
+}
+
+#links{
+    margin: 125pt 0 50pt 0;
+    text-align: left;
+    padding-left: 40pt;
+}
+
+#links a{
+    transition: 0.5s;
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 25pt;
+    font-size: 50pt;
+}
+
+#links a:hover{
+    transition: 0.5s;
+    color: red;
+}
+
+#socialMedia{
+    padding-top: 100pt;
+    padding-bottom: 100pt;
+}
+
+#socialMedia img{
+    transition: 0.5s;
+    width: 100pt;
+    height: 100pt;
+    border: solid white 5pt;
+    border-radius: 75pt;
+}
+
+#socialMedia img:hover{
+    transition: 0.5s;
+    background-color: white;
+}
+
+#hamburgerBtn{
+    width: 70pt;
+    height: 70pt;
+    text-align: center;
+    cursor: pointer;
+
+    position: fixed;
+    top: 20pt;
+    left: 25pt;
+}
+
+.bar{
+    background-color: white;
+    border-radius: 50pt;
+    width: 60pt;
+    height: 10pt;
+    display: block;
+    margin: 7pt 0 7pt 0;
+    transition: opacity 0.5s, transform 0.5s, top 0.5s;
+}
+
+#header_img{
+    margin: 94pt 0 -9pt -6pt;
+    width: 102%;
+}
+
+#full_logo{
+    width: 175pt;
+    margin-top: -88.5pt;
+    margin-bottom: 40pt;
+}
+
+header div{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-bottom: 50pt;
+    width: 102%;
+    margin-left: -6pt;
+}
+
+header div span{
+    color: red;
+}
+
+header h2{
+    font-size: 40pt;
+}
+
+button{
+    transition: 0.5s;
+    border: solid white 5pt;
+    background-color: red;
+    padding: 40pt;
+    font-size: 30pt;
+    font-weight: 900;
+    color: white;
+    cursor: pointer;
+}
+
+button:active, button:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+    border: solid black 5pt;
+}
+
+header button{
+    margin-top: 60pt;
+    margin-bottom: 45pt;
+}
+
+hr{
+    height: 5pt;
+    background-color: white;
+}
+
+.slideshow{
+    text-align: center;
+}
+
+.slideshowEl{
+    transition: opacity 0.5s;
+}
+
+.slideshowEl img{
+    width: 500pt;
+    border: solid white 5pt;
+}
+
+.leftArrow, .rightArrow{
+    cursor: pointer;
+}
+
+.slideSelector{
+    padding-bottom: 50pt;
+}
+
+.slideshowDot{
+    font-size: 100pt;
+    position: relative;
+    bottom: 15pt;
+}
+
+.loose_info{
+    padding: 25pt 35pt 50pt 35pt;
+}
+
+#scheduleDiv{
+    margin-top: 80pt;
+    padding: 25pt 35pt 50pt 35pt;
+}
+
+#schedule{
+    text-align: center;
+    margin-bottom: 100pt;
+}
+
+.scCol{
+    display: inline;
+    border: solid black 5pt;
+}
+
+#scRow1 .scCol{
+
+}
+
+/* sponsors and contact */
+#sponsorContext{
+    margin-top: 100pt;
+    margin-bottom: 75pt;
+    border-top: none;
+    border-bottom: solid red 5pt;
+}
+
+#sponsors{
+    text-align: center;
+}
+
+#sponsors p{
+    margin-bottom: 75pt;
+}
+
+#sponsors img{
+    width: 400pt;
+    margin-top: 20pt;
+    margin-bottom: 20pt;
+}
+
+#contact{
+    margin-top: 100pt;
+    margin-bottom: 50pt;
+    border-top: none;
+    border-bottom: solid red 5pt;
+}
+
+#postNote{
+    text-align: center;
+    margin-top: 60pt;
+}
+
+#mobileSchedule{
+    margin-top: 150pt;
+}
+
+#mobileSchedule .slideshowEl{
+    position: absolute;
+    top: 387pt;
+}
+
+#mobileSchedule .slideSelector{
+    position: relative;
+    bottom: 610pt;
+    right: 25pt;
+}
+
+.scBlock{
+    display: inline-block;
+}
+
+.scInfo{
+    background-color: white;
+    color: black;
+}
+
+.scEl{
+    display: block;
+    border: solid black 5pt;
+    padding: 15pt 0 15pt 0;
+    height: 100pt;
+    width: 200pt;
+}
+
+.title{
+    background-color: red;
+    color: white;
+    border-top: solid white 5pt;
+    border-bottom: solid white 5pt;
+    text-align: center;
+    padding: 25pt 0 25pt 0;
+}
+
+#memberships{
+    text-align: center;
+}
+
+#memberships td, #memberships th{
+    border: solid black 5pt;
+    text-align: center;
+    padding: 50pt;
+}
+
+#memberships th{
+    background-color: red;
+    color: white;
+}
+
+#recreationalImg{
+    border: solid white 5pt;
+    width: 550pt;
 }
