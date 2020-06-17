@@ -215,16 +215,21 @@
     }
 
     .slideshowEl{
-
+        display: inline-block;
     }
 
     .slideshowEl h1{
         font-size: 25pt;
+        display: inline-block;
+        margin-left: 10pt;
+        position: relative;
+        bottom: 40pt;
     }
 
     .slideshowEl img{
         width: 200pt;
         border: solid white 3pt;
+        margin-right: 10pt;
     }
 
     .leftArrow, .rightArrow{
@@ -248,7 +253,8 @@
     }
 
     #scheduleDiv{
-
+        border-top: none;
+        margin-top: 60pt;
     }
 
     #schedule{
