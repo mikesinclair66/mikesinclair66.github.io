@@ -160,7 +160,7 @@ h1{
     transition: 0.5s;
     width: 100pt;
     height: 100pt;
-    border: solid white 5pt;
+    border: solid white 3pt;
     border-radius: 75pt;
 }
 
@@ -199,6 +199,10 @@ h1{
     width: 175pt;
     margin-top: -88.5pt;
     margin-bottom: 40pt;
+}
+
+#desktop_full_logo{
+    display: none;
 }
 
 header div{
@@ -246,6 +250,11 @@ hr{
     background-color: white;
 }
 
+#facilityTitle{
+    margin-top: -50pt;
+    margin-bottom: -20pt;
+}
+
 .slideshow{
     text-align: center;
 }
@@ -271,6 +280,7 @@ hr{
     font-size: 100pt;
     position: relative;
     bottom: 15pt;
+    cursor: pointer;
 }
 
 .loose_info{
@@ -328,6 +338,27 @@ hr{
 #postNote{
     text-align: center;
     margin-top: 60pt;
+}
+
+#desktopSchedule{
+    display: none;
+    text-align: center;
+    margin-bottom: 35pt;
+}
+
+#desktopSchedule th, td, caption{
+    border: solid black 3pt;
+    padding: 5pt;
+}
+
+.scheduleTime{
+    background-color: #e3e3e3;
+    color: black;
+}
+
+.scheduleClass{
+    background-color: white;
+    color: black;
 }
 
 #mobileSchedule{

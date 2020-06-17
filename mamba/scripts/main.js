@@ -1,10 +1,9 @@
 let hamburgerBtn = document.getElementById('hamburgerBtn');
 let hamburgerClicked = false;
-hamburgerBtn.onclick = () => {
-    //slide content open
-    let content = document.getElementById('content');
-    let banner = document.getElementById('logo_banner');
+var content = document.getElementById('content');
+var banner = document.getElementById('logo_banner');
 
+var toggleNavbar = () => {
     //hamburger button icons
     let bar1 = document.getElementById('bar1');
     let bar2 = document.getElementById('bar2');
@@ -37,32 +36,39 @@ hamburgerBtn.onclick = () => {
         hamburgerClicked = false;
     }
 };
+hamburgerBtn.onclick = toggleNavbar;
 
-//limit imgandinfo paragraph
-var imgInfos = document.getElementsByClassName('imgAndInfo');
-const WORD_LIMIT = 50;
-for(el of imgInfos){
-    let p = el.getElementsByTagName('p')[0];
-    let words = p.innerText.split(' ');
-    if(words.length > WORD_LIMIT){
-        p.style.display = 'none';
-        let limitedP = document.createElement('p');
-        for(let i = 0; i < WORD_LIMIT; i++)
-            limitedP.textContent += (words[i] + ' ');
-        limitedP.innerHTML += '<br /><br />';
+window.onresize = () => {
+    if(hamburgerClicked)
+        toggleNavbar();
 
-        let seeMore = document.createElement('span');
-        seeMore.textContent = "See more...";
-        seeMore.style.cursor = 'pointer';
-        seeMore.onclick = () => {
-            limitedP.style.display = 'none';
-            p.style.display = 'block';
-        };
+    if(window.innerWidth > 1000){
+        content.style.position = 'static';
+        content.style.opacity = '1.0';
+        //content.style.width = '100%';
+        banner.style.width = '200pt';
+        banner.style.left = 'calc(100% - 175pt)';
+    } else{
+        //mobile css
+        content.style.backgroundColor = 'black';
+        content.style.width = '600pt';
+        content.style.height = '100%';
+        content.style.textAlign = 'center';
+        content.style.position = 'fixed';
+        content.style.top =  '0';
 
-        limitedP.appendChild(seeMore);
-        el.appendChild(limitedP);
+        content.style.left = '100%';
+        content.style.opacity = '0.0';
+        banner.style.width = '310pt';
+        banner.style.left = 'calc(100% - 278pt)';
+        bar1.style.top = '0';
+        bar1.style.transform = 'rotate(0deg)';
+        bar2.style.opacity = '1.0';
+        bar3.style.top = '0';
+        bar3.style.transform = 'rotate(0deg)';
+        hamburgerClicked = false;
     }
-}
+};
 
 //translate slideshow divs
 class Slideshow{
