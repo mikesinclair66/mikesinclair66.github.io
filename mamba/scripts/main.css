@@ -423,3 +423,17 @@ hr{
     border: solid white 5pt;
     width: 550pt;
 }
+
+footer{
+    text-align: center;
+}
+
+footer a{
+    transition: 0.5s;
+    color: white;
+}
+
+footer a:hover, footer a:active{
+    transition: 0.5s;
+    color: red;
+}
