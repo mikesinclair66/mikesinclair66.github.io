@@ -33,7 +33,7 @@
     }
 
     .imgAndInfo img{
-        width: 400pt;
+        width: 350pt;
         border: solid white 3pt;
         margin-bottom: 0;
         text-align: center;
@@ -283,7 +283,7 @@
     }
 
     #sponsors img{
-
+        width: 225pt;
     }
 
     #contact{
@@ -304,7 +304,7 @@
 
     #mobileSchedule .slideshowEl{
         position: absolute;
-        top: 387pt;
+        top: 390pt;
     }
 
     #mobileSchedule .slideSelector{
@@ -312,7 +312,7 @@
     }
 
     .scBlock{
-
+        padding: 15pt;
     }
 
     .scInfo{
@@ -340,6 +340,6 @@
     }
 
     #recreationalImg{
-
+        width: 300pt;
     }
 }

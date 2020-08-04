@@ -288,6 +288,7 @@ hr{
 }
 
 #scheduleDiv{
+    margin-left: -6pt;
     margin-top: 80pt;
     margin-right: -8pt;
     padding: 25pt 35pt 50pt 35pt;
