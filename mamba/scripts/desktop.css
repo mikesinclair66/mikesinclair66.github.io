@@ -92,6 +92,7 @@
 
     #links{
         margin: auto;
+        margin-left: -35pt;
     }
 
     #links a{
@@ -115,7 +116,7 @@
         width: 100pt;
         height: 100pt;
         position: fixed;
-        left: 65%;
+        left: 68%;
         top: 2.5pt;
     }
 
@@ -255,6 +256,7 @@
     #scheduleDiv{
         border-top: none;
         margin-top: 60pt;
+        text-align: center;
     }
 
     #schedule{
@@ -296,6 +298,7 @@
 
     #desktopSchedule{
         display: block;
+        text-align: center;
     }
 
     #mobileSchedule{
@@ -345,5 +348,19 @@
 
     #jiu_jitsu{
         margin-top: -200pt;
+    }
+
+    #scheduleTitle{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1250px){
+    #links{
+        margin-left: 0;
+    }
+
+    #socialMedia{
+        left: 65%;
     }
 }
