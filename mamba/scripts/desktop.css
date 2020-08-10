@@ -354,13 +354,3 @@
         display: none;
     }
 }
-
-@media only screen and (min-width: 1250px){
-    #links{
-        margin-left: 0;
-    }
-
-    #socialMedia{
-        left: 65%;
-    }
-}

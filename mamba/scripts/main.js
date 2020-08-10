@@ -188,5 +188,9 @@ function offsetAnchor() {
         window.scrollTo(window.scrollX, window.scrollY - 70);
     }
 }
-window.addEventListener("hashchange", offsetAnchor);
+window.addEventListener("hashchange", () => {
+    offsetAnchor();
+    if(window.innerWidth <= 1000)
+        toggleNavbar();
+});
 window.setTimeout(offsetAnchor, 1);
