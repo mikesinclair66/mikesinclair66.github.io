@@ -6,6 +6,23 @@
 
     <link href="scripts/main.css" rel="stylesheet" type="text/css" />
     <link href="scripts/desktop.css" rel="stylesheet" type="text/css" />
+    <style>
+        @media only screen and (max-width: 1000px){
+            .google_maps {
+                position: relative;
+                padding-bottom: 75%;
+                height: 0;
+                overflow: hidden;
+            }
+            .google_maps iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="navbar" class="night">
@@ -60,10 +77,12 @@
     </ul>
 </div>
 
-<iframe allowfullscreen="" frameborder="0" height="200" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d
+<div class="google_maps">
+    <iframe allowfullscreen="" frameborder="0" height="200" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d
     2615.111075610466!2d-122.35085698431901!3d49.04651157930633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485
     cab39520d685%3A0x11647d86e0aa7af0!2s31581+S+Fraser+Way+%23105%2C+Abbotsford%2C+BC+V2T+1T8!5e0!3m2!1sen!2sca!4v151276
     2278997" style="border:0" width="100%"></iframe>
+</div>
 
 <footer>
     <h6>© Copyright 2020 | Mamba MMA | All Rights Reserved<br /><br />
