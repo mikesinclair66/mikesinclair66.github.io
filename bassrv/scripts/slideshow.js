@@ -73,9 +73,18 @@ class Slideshow{
 				this.changeStack();
 		}
 	}
+	
+	//disable on mobile if platform is for desktop
+	checkPlatform(){
+		if(this.div.getAttribute("name") == "desktop" && window.innerWidth < 1000)
+			this.div.style.display = "none";
+		else
+			this.div.style.display = "block";
+	}
 }
 var slideshow = new Slideshow();
 
 window.setInterval(() => {
 	slideshow.transition();
+	slideshow.checkPlatform();
 }, 40);

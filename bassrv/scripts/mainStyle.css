@@ -1,8 +1,13 @@
 body{
 	font-family: Arial, Calibri, serif;
-    font-size: 35pt;
+    font-size: 40pt;
 	background-image: linear-gradient(to right, #575757, #7a7a7a);
 	color: white;
+	margin-bottom: -6pt;
+}
+
+h2{
+	color: #9bffb2;
 }
 
 header{
@@ -19,6 +24,10 @@ header img{
 	text-align: center;
 	margin-top: 10pt;
 	margin-bottom: 10pt;
+}
+
+#main-page-img{
+	display: none;
 }
 
 #navbar{
@@ -64,7 +73,9 @@ header img{
 
 #slideshow{
 	padding-top: 143pt;
+	margin-top: -6pt;
 	margin-left: -6pt;
+	display: block;
 }
 
 #slideshow img{
@@ -77,18 +88,49 @@ header img{
 	padding: 60pt;
 }
 
-#info p{
+#info p, #info h2, #info ul{
 	text-align: left;
-	padding: 20pt;
+	padding-left: 15pt;
 }
 
-#info img{
+#info ul{
+	padding-left: 50pt;
+}
+
+#info iframe{
+	width: 80%;
+	height: 400pt;
+}
+
+#info{
+	padding-top: 175pt;
+}
+
+#info img, #photo-gallery img{
 	border: solid white 5pt;
 	width: 80%;
 }
 
+#photo-gallery img{
+	margin: 15pt 0 15pt 0;
+}
+
+#photo-gallery{
+	margin-top: -50pt;
+	text-align: center;
+	padding-bottom: 70pt;
+}
+
+#photo-gallery h2{
+	text-align: left;
+	padding-left: 75pt;
+}
+
 footer{
-	font-size: 25pt;
+	font-size: 30pt;
+	background-image: url("../images/navbarImg.jpg");
+	background-size: cover;
+	margin: -6pt;
 }
 
 footer a, footer a:visited{

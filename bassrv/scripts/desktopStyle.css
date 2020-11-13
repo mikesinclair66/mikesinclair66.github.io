@@ -1,0 +1,89 @@
+@media only screen and (min-width: 1000px){
+	body{
+		
+	}
+
+	h2{
+		
+	}
+	
+	header{
+		
+	}
+
+	header img{
+		
+	}
+
+	#navbar{
+		display: none;
+	}
+
+	#navbar-btn{
+		display: none;
+	}
+
+	.link{
+		
+	}
+
+	.link:hover, .link:active{
+		
+	}
+
+	#slideshow{
+		padding-top: 0;
+	}
+
+	#slideshow img{
+		
+	}
+
+	#info, footer{
+		
+	}
+
+	#info p, #info h2, #info ul{
+		
+	}
+
+	#info ul{
+		
+	}
+
+	#info iframe{
+		
+	}
+
+	#info{
+		
+	}
+
+	#info img, #photo-gallery img{
+		
+	}
+
+	#photo-gallery img{
+		
+	}
+
+	#photo-gallery{
+		
+	}
+
+	#photo-gallery h2{
+		
+	}
+
+	footer{
+		
+	}
+
+	footer a, footer a:visited{
+		
+	}
+
+	footer a:active{
+		
+	}
+}
