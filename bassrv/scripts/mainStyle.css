@@ -1,0 +1,102 @@
+body{
+	font-family: Arial, Calibri, serif;
+    font-size: 35pt;
+	background-image: linear-gradient(to right, #575757, #7a7a7a);
+	color: white;
+}
+
+header{
+	background-image: url("../images/navbarImg.jpg");
+	background-size: cover;
+	text-align: center;
+	margin: -6pt -6pt 0 -6pt;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+header img{
+	text-align: center;
+	margin-top: 10pt;
+	margin-bottom: 10pt;
+}
+
+#navbar{
+	background-color: #262525;
+	background-size: cover;
+	margin: -450pt -6pt 0 -6pt;
+	text-align: center;
+	padding: 20pt 0 20pt 0;
+	position: fixed;
+	width: 100%;
+	top: 145pt;
+	z-index: 1;
+	transition: margin 0.5s;
+}
+
+#navbar-btn{
+	color: white;
+	position: absolute;
+	right: 50pt;
+	top: 20pt;
+	font-size: 80pt;
+	width: 90pt;
+	height: 90pt;
+	transform: rotate(180deg);
+	border-radius: 100pt;
+	background-color: none;
+	transition: border 0.5s, background-color 0.5s, transform 0.5s;
+}
+
+.link{
+	transition: 0.5s;
+	text-decoration: none;
+	color: white;
+	font-size: 50pt;
+	display: block;
+	margin: 30pt 0 30pt 0;
+}
+
+.link:hover, .link:active{
+	transition: 0.5s;
+	color: #9bffb2;
+}
+
+#slideshow{
+	padding-top: 143pt;
+	margin-left: -6pt;
+}
+
+#slideshow img{
+	width: calc(100% + 6pt);
+	display: block;
+}
+
+#info, footer{
+	text-align: center;
+	padding: 60pt;
+}
+
+#info p{
+	text-align: left;
+	padding: 20pt;
+}
+
+#info img{
+	border: solid white 5pt;
+	width: 80%;
+}
+
+footer{
+	font-size: 25pt;
+}
+
+footer a, footer a:visited{
+	transition: 0.5s;
+	color: white;
+}
+
+footer a:active{
+	transition: 0.5s;
+	color: #9bffb2;
+}
