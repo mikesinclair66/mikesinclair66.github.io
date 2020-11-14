@@ -5,21 +5,30 @@
 <link rel="stylesheet" href="scripts/desktopStyle.css" type="text/css" />
 <style type="text/css">
 	#info{
-		padding-top: 50pt;
+		padding-top: 25pt;
 	}
-	
+
 	@media only screen and (min-width: 1000px){
 		header{
+			transition: opacity 0.5s, filter 0.5s;
+			display: block;
 			filter: alpha(opacity=0);
 			opacity: 0;
-			display: none;
 		}
 	
 		#main-page-img{
+			z-index: 3;
 			display: block;
 			position: absolute;
 			left: calc(50% - 200px);
 			top: calc(50% - 80px);
+		}
+		
+		#navbar{
+			transition: opacity 0.5s, filter 0.5s, margin 0.5s;
+			margin-left: 0;
+			filter: alpha(opacity=0);
+			opacity: 0;
 		}
 	}
 </style>
@@ -41,6 +50,8 @@
 	</div>
 	<img id="main-page-img" src="images/title.png" alt="BASS RV" />
 	<div id="info">
+		<img src="images/fish6.jpg" alt="Customer holding a fish" />
+		<h2>Our Campsite</h2>
 		<p>
 			Here at Judson Lake, we would love to welcome you to a beautiful environment that is great for fishing.
 			Our lake is large and full of bass that are ready to be caught and released!
@@ -48,9 +59,8 @@
 		<p>
 			For the price of $100, you and a companion can set up an RV here for the night!
 			If you would like to bring more than one other companion, it costs $25 per extra person.
-		</p><br />
-		<img src="images/fish6.jpg" alt="Customer holding a fish" />
-	</div>
+		</p>
+	</div><br /><br /><br />
 	<footer>
 		<span>© Copyright 2020 | Bass RV | All Rights Reserved</span><br /><br />
 		<span>Site created and designed by <a href="https://mikesinclair66.github.io/">Michael Sinclair</a></span>
@@ -58,7 +68,46 @@
 	<script type="text/javascript" src="scripts/main.js"></script>
 	<script type="text/javascript" src="scripts/slideshow.js"></script>
 	<script type="text/javascript">
+		var mainImg = document.getElementById("main-page-img");
+		var mobileImg = document.getElementsByTagName("header")[0].getElementsByTagName("img")[0];
+		var mobileImgY = mobileImg.offsetTop;
+		var mobileImgHeight = mobileImg.offsetHeight;
+		var header = document.getElementsByTagName("header")[0];
+		var navbar = document.getElementById("navbar");
 		
+		window.onscroll = () => {
+			if(window.innerWidth >= 1000){
+				mainImg.style.top = "calc(50% - 80px - " + parseInt(window.scrollY, 10) + "px)";
+				if(window.scrollY >= mobileImgY + mobileImgHeight){
+					header.style.filter = "alpha(opacity=100)";
+					header.style.opacity = 1.0;
+					mobileImg.style.marginRight = window.innerWidth / 2 + 75 + "pt";
+					navbar.style.marginLeft = "7%";
+					navbar.style.filter = "alpha(opacity=100)";
+					navbar.style.opacity = 1.0;
+				} else {
+					header.style.filter = "alpha(opacity=0)";
+					header.style.opacity = 0;
+					navbar.style.marginLeft = "0";
+					navbar.style.filter = "alpha(opacity=0)";
+					navbar.style.opacity = 0;
+				}
+			}
+		};
+		
+		window.onresize = () => {
+			if(window.innerWidth < 1000){
+				mainImg.style.display = "none";
+				header.style.filter = "alpha(opacity=100)";
+				header.style.opacity = 1.0;
+				mobileImg.style.marginRight = "0";
+				navbar.style.marginLeft = "0";
+			} else {
+				mobileImg.style.marginRight = window.innerWidth / 2 + 75 + "pt";
+				navbar.style.marginLeft = "7%";
+				mainImg.style.display = "block";
+			}
+		};
 	</script>
 </body>
 </html>

@@ -14,6 +14,8 @@ class Slideshow{
 		this.next = this.slides[1];
 		this.cur.style.position = "absolute";
 		this.cur.style.width = "100%";
+		this.cur.style.zIndex = 2;
+		this.next.style.zIndex = 1;
 		this.div.appendChild(this.cur);
 		this.div.appendChild(this.next);
 		
@@ -52,6 +54,8 @@ class Slideshow{
 		this.next = this.slides[this.slideNo];
 		this.cur.style.position = "absolute";
 		this.cur.style.width = "100%";
+		this.cur.style.zIndex = 2;
+		this.next.style.zIndex = 1;
 		this.div.appendChild(this.cur);
 		this.div.appendChild(this.next);
 		

@@ -17,13 +17,18 @@ header{
 	margin: -6pt -6pt 0 -6pt;
 	position: fixed;
 	width: 100%;
-	z-index: 2;
+	z-index: 5;
 }
 
 header img{
+	transition: margin 0.5s;
 	text-align: center;
 	margin-top: 10pt;
 	margin-bottom: 10pt;
+	margin-right: 0;
+	position: relative;
+	top: 8pt;
+	width: auto;
 }
 
 #main-page-img{
@@ -39,8 +44,9 @@ header img{
 	position: fixed;
 	width: 100%;
 	top: 145pt;
-	z-index: 1;
+	z-index: 4;
 	transition: margin 0.5s;
+	display: block;
 }
 
 #navbar-btn{
@@ -108,7 +114,7 @@ header img{
 
 #info img, #photo-gallery img{
 	border: solid white 5pt;
-	width: 80%;
+	width: 65%;
 }
 
 #photo-gallery img{
