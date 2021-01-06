@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		
+		<style type="text/css">
+			#coming_soon{
+				opacity: 0.5;
+				background-color: white;
+				margin-top: 10%;
+				padding: 7.5% 0 7.5% 0;
+			}
+			
+			#coming_soon div{
+				opacity: 1.0;
+			}
+		</style>
+		<link rel="stylesheet" href="./scripts/mainStyle.css" type="text/css" />
 	</head>
 	<body>
+		<div id="coming_soon">
+			<div>
+				<h1>Coming soon.</h1>
+				<span>The website for Intiva Technologies will make its debut in early 2021.</span>
+			</div>
+		</div>
+		
 		<footer>
-			<span>© Copyright 2021 | Mamba MMA | All Rights Reserved</span>
-			<span>Website created by <a href="">Michael Sinclair</a></span>
+			<span>© Copyright 2021 | Mamba MMA | All Rights Reserved</span><br />
+			<span>Website created by <a href="./portfolio.html">Michael Sinclair</a></span>
 		</footer>
 		
-		<script type="text/javascript">
-			var imgs = [];
-			var i = 1;
-			do{
-				valid = true
-				fetch('/landscape/img' + i + '.jpg', {method: 'HEAD'})
-					.then(res => {
-						i++;
-						console.log(i)
-					}).catch(err => valid = false);
-			} while(valid);
-			
-			var ran = Math.floor(Math.random() * (i - 1) + 1);
-			document.body.style.backgroundImage = "url('landscape/img" + ran + ".jpg')";
-			console.log("Ran: " + ran);
-		</script>
+		<script type="text/javascript" src="./scripts/main.js"></script>
 	</body>
 </html>
