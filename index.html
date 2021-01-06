@@ -17,12 +17,13 @@
 				fetch('/landscape/img' + i + '.jpg', {method: 'HEAD'})
 					.then(res => {
 						i++;
+						console.log(i)
 					}).catch(err => valid = false);
 			} while(img.style.offsetWidth > 0);
 			
 			var ran = Math.floor(Math.random() * (i - 1) + 1);
 			document.body.style.backgroundImage = "url('landscape/img" + ran + ".jpg')";
-			console.log(ran);
+			console.log("Ran: " + ran);
 		</script>
 	</body>
 </html>
