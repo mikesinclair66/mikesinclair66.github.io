@@ -1,0 +1,302 @@
+body{
+	background-color: black;
+	color: white;
+	font-size: 50pt;
+	font-family: "Tahoma Regular";
+}
+
+/* Navbar content */
+#navbar{
+	background-color: #3D3D3D;
+	margin: -6pt -6pt 0 -6pt;
+	height: 250pt;
+}
+
+#logo{
+	margin-top: -25pt;
+	width: 300pt;
+	height: 300pt;
+}
+
+#hamburger_btn{
+	width: 125pt;
+	height: 125pt;
+	position: absolute;
+	top: 70pt;
+	right: 25pt;
+	z-index: 100;
+}
+
+.hamburger_slot{
+	transition: opacity 0.5s, transform 0.5s, top 0.5s;
+	display: block;
+	width: 80%;
+	height: 15pt;
+	margin-top: 20pt;
+	margin-left: 10%;
+	background-color: white;
+	border-radius: 25pt;
+	position: relative;
+}
+
+#navbar_menu{
+	transition: opacity 0.5s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #3D3D3D;
+	text-align: center;
+	padding-top: 225pt;
+	opacity: 0.0;
+	filter: alpha(opacity=0);
+}
+
+.link{
+	transition: 0.5s;
+	color: white;
+	text-decoration: none;
+	font-family: "Tahoma Regular";
+	font-size: 45pt;
+	padding-bottom: 10%;
+	display: none;
+}
+
+.link:hover, .link:active{
+	transition: 0.5s;
+	color: #EAD160;
+}
+
+#properties_dropdown_link{
+	transition: color 0.5s;
+	font-size: 100pt;
+	transition: 0.5s;
+	transform: rotate(180deg);
+	margin: -80pt 0 50pt 0;
+	position: relative;
+}
+
+#properties_dropdown{/* Height: 1172 */
+	background-color: #6D6D6D;
+	margin-top: -50pt;
+	margin-bottom: 80pt;
+	display: none;
+}
+
+#properties_dropdown .link{
+	border-bottom: solid 3pt #969696;
+	height: 35pt;
+	padding-top: 35pt;
+	display: none;
+}
+
+#properties_dropdown .link:hover, #properties_dropdown .link:active{
+	background-color: #969696;
+}
+
+/* Page content */
+#header_banner{
+	text-align: center;
+}
+
+.info{
+	padding: 0 40pt 0 40pt;
+}
+
+footer{
+	background-color: #6D6D6D;
+	font-size: 40pt;
+	text-align: center;
+	padding: 25pt;
+	margin: 100pt -6pt -6pt -5pt;
+}
+
+footer a{
+	transition: 0.5s;
+	color: white;
+}
+
+footer a:active, footer a:hover{
+	transition: 0.5s;
+	color: #EAD160;
+}
+
+/* Property section views */
+#property_section_flippables{
+	
+}
+
+.property_info{
+	background-color: white;
+	margin-top: -75pt;
+	text-align: center;
+	padding-top: 50pt;
+}
+
+.property_info #first_child{
+	background: rgba(30, 144, 255, 0.5);
+	padding: 5pt 105pt 5pt 109pt;
+	color: white;
+}
+
+.property_info #third_child{
+	position: relative;
+	bottom: 50pt;
+	font-style: italic;
+	font-family: Arial, Calibri;
+}
+
+.property_info table, .property_info #last_child{
+	font-family: Arial, Calibri;
+}
+
+.property_info td{
+	background-color: #969696;
+	border: solid white 3pt;
+}
+
+/* The flip box container - set the width and height to whatever you want.*/
+.section_flippable {
+  background-color: transparent;
+  width: 600pt;
+  height: 500pt;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  padding-bottom: 580pt;
+  position: relative;
+  left: calc(50% - 300pt);
+}
+
+/* This container is needed to position the front and back side */
+.section_flippable_inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.section_flippable:hover .section_flippable_inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.section_flippable_front, .section_flippable_back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.section_flippable_front {
+  background-color: white;
+  color: black;
+}
+
+.section_flippable_front img{
+	width: 600pt;
+}
+
+/* Style the back side */
+.section_flippable_back {
+  background-color: white;
+  color: black;
+  padding-bottom: 500pt;
+  transform: rotateY(180deg);
+}
+
+.section_flippable_front button{
+	background-color: #EAD160;
+	border: solid black 5pt;
+	font-size: 50pt;
+	padding: 25pt;
+	margin: 25pt;
+	color: white;
+}
+
+.section_flippable_back td{
+	background-color: #969696;
+}
+
+.section_flippable_back th, .section_flippable_back td, .section_flippable_back span{
+	font-size: 40pt;
+	padding: 0 30pt 20pt 30pt;
+}
+
+.section_flippable_back #address{
+	font-style: italic;
+}
+
+.section_flippable_back button{
+	transition: 0.5s;
+	background: none;
+	background-color: none;
+	width: 275pt;
+	height: 125pt;
+	padding-bottom: 140pt;
+	color: black;
+	border: solid black 10pt;
+	font-family: "Tahoma Regular";
+	font-size: 50pt;
+	text-align: center;
+	cursor: pointer;
+}
+
+.section_flippable_back button:hover, .section_flippable_back button:active{
+	transition: 0.5s;
+	background-color: yellow;
+}
+
+/* Property slideshows */
+.slide{
+	text-align: center;
+}
+
+.slide img{
+	width: 80%;
+}
+
+.sub_info{
+	position: relative;
+	margin-top: -50pt;
+	top: 275pt;
+}
+
+#guide{
+	font-size: 150pt;
+	text-align: center;
+	color: white;
+	font-family: Calibri, Arial;
+}
+
+.center_guide{
+	padding: 10pt;
+	position: relative;
+	bottom: 30pt;
+}
+
+#left_guide, #right_guide{
+	transition: 0.2s;
+	font-family: "Bauhaus 93", Broadway, Arial, Calibri;
+	font-weight: 900;
+	font-size: 100pt;
+	border-radius: 100pt;
+	border: solid white 10pt;
+	padding: 0 25pt 0 25pt;
+}
+
+#left_guide:active, #right_guide:active{
+	transition: 0.2s;
+	border: solid black 10pt;
+	background-color: white;
+	color: black;
+}
+
+#guide_selected{
+	transition: 0.5s;
+	color: #EAD160;
+}
