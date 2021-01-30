@@ -40,7 +40,7 @@ hamburgerBtn.onclick = () => {
 	}
 };
 
-//make window non-scrollable if the navbar menu is active
+//TODO make window non-scrollable if the navbar menu is active?
 
 var propertiesDropdownToggled = false;
 var contactLink = document.getElementById("contact_link");
@@ -81,8 +81,14 @@ class Slideshow{
 		this.guideDiv = document.createElement("div");
 		this.guideDiv.id = "guide";
 		this.leftArrow = document.createElement("span");
+		this.leftArrowPressed = false;
 		this.rightArrow = document.createElement("span");
+		this.rightArrowPressed = false;
 		this.guides = [];
+		
+		this.toggled = false;
+		window.addEventListener("click", ev => this.requestGuidePress(ev));
+		//window.addEventListener("click", () => this.requestGuideRelease());
 	}
 	
 	start(){
@@ -103,28 +109,8 @@ class Slideshow{
 				this.slides[this.slideNo].style.filter = "alpha(opacity=" + ((1 - this.opacityLvl) * 100) + ")";
 				this.slides[this.slideNo].style.opacity = 1 - this.opacityLvl;
 				
-				if(this.opacityLvl == 1){
-					this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
-					this.slides[this.slideNo].style.opacity = 1.0;
-					this.slides[this.slideNo].style.display = "none";
-					
-					this.slideNo = this.nextSlideNo;
-					this.nextSlideNo++;
-					if(this.nextSlideNo >= this.slides.length)
-						this.nextSlideNo = 0;
-					this.slides[this.nextSlideNo].style.display = "block";
-					this.slides[this.slideNo].style.marginTop = "0";
-					if(this.nextSlideNo != 0)
-						this.slides[this.nextSlideNo].style.marginTop = "-" + this.slides[this.slideNo].offsetHeight + "px";
-					else
-						this.slides[this.slideNo].style.marginTop = "-" + this.slides[this.nextSlideNo].offsetHeight + "px";
-					this.slides[this.nextSlideNo].style.filter = "alpha(opacity=0)";
-					this.slides[this.nextSlideNo].style.opacity = "0.0";
-					
-					//reset
-					this.opacityLvl = 0;
-					this.count = 0;
-				}
+				if(this.opacityLvl == 1)
+					this.next()
 			}
 			
 			if(this.hasGuide && this.guides[this.slideNo].id != "guide_selected"){
@@ -136,6 +122,8 @@ class Slideshow{
 		
 		if(this.hasGuide)
 			this.guideDiv.style.display = "block";
+		if(!this.toggled)
+			this.toggled = true;
 	}
 	
 	pause(){
@@ -151,6 +139,49 @@ class Slideshow{
 		
 		if(this.hasGuide)
 			this.guideDiv.style.display = "none";
+		
+		this.toggled = false;
+	}
+	
+	next(){
+		this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
+		this.slides[this.slideNo].style.opacity = 1.0;
+		this.slides[this.slideNo].style.display = "none";
+		
+		this.slideNo = this.nextSlideNo;
+		this.nextSlideNo++;
+		if(this.nextSlideNo >= this.slides.length)
+			this.nextSlideNo = 0;
+		this.slides[this.nextSlideNo].style.display = "block";
+		this.slides[this.slideNo].style.marginTop = "0";
+		if(this.nextSlideNo != 0)
+			this.slides[this.nextSlideNo].style.marginTop = "-" + this.slides[this.slideNo].offsetHeight + "px";
+		else
+			this.slides[this.slideNo].style.marginTop = "-" + this.slides[this.nextSlideNo].offsetHeight + "px";
+		this.slides[this.nextSlideNo].style.filter = "alpha(opacity=0)";
+		this.slides[this.nextSlideNo].style.opacity = "0.0";
+		
+		//reset
+		this.opacityLvl = 0;
+		this.count = 0;
+	}
+	
+	back(){
+		this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
+		this.slides[this.slideNo].style.opacity = 1.0;
+		this.slides[this.slideNo].style.display = "block";
+		
+		this.slideNo--;
+		if(this.slideNo < 0){
+			this.slideNo = this.slides.length - 1;
+			this.nextSlideNo = 0;
+			
+			
+			
+			//reset
+			this.opacityLvl = 0;
+			this.count = 0;
+		}
 	}
 	
 	enableGuide(){
@@ -170,6 +201,46 @@ class Slideshow{
 		this.guideDiv.appendChild(this.rightArrow);
 		
 		this.slideshow.appendChild(this.guideDiv);
+	}
+	
+	requestGuidePress(ev){
+		if(this.toggled){
+			if(ev.pageX >= this.leftArrow.offsetLeft && ev.pageX <= this.leftArrow.offsetLeft + this.leftArrow.offsetWidth
+				&& ev.pageY >= this.guideDiv.offsetTop && ev.pageY <= this.guideDiv.offsetTop + this.guideDiv.offsetHeight){
+				console.log("Left arrow clicked");
+				this.leftArrow.style.border = "solid black 10pt";
+				this.leftArrow.style.backgroundColor = "white";
+				this.leftArrow.style.color = "black";
+				this.leftArrowPressed = true;
+				this.back()
+			}
+			if(ev.pageX >= this.guideDiv.offsetLeft + this.guideDiv.offsetWidth - this.leftArrow.offsetLeft * 2 &&
+				ev.pageX <= this.guideDiv.offsetLeft + this.guideDiv.offsetWidth
+				&& ev.pageY >= this.guideDiv.offsetTop && ev.pageY <= this.guideDiv.offsetTop + this.guideDiv.offsetHeight){
+				console.log("Right arrow clicked");
+				this.rightArrow.style.border = "solid black 10pt";
+				this.rightArrow.style.backgroundColor = "white";
+				this.rightArrow.style.color = "black";
+				this.rightArrowPressed = true;
+				this.next()
+			}
+		}
+	}
+	
+	requestGuideRelease(){
+		console.log("screen released");
+		if(this.leftArrowPressed){
+			this.leftArrow.style.border = "solid white 10pt";
+			this.leftArrow.style.backgroundColor = "black";
+			this.leftArrow.style.color = "white";
+			this.leftArrowPressed = false;
+		}
+		if(this.rightArrowPressed){
+			this.rightArrow.style.border = "solid white 10pt";
+			this.rightArrow.style.backgroundColor = "black";
+			this.rightArrow.style.color = "white";
+			this.rightArrowPressed = false;
+		}
 	}
 }
 
