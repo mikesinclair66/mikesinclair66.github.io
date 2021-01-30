@@ -40,6 +40,7 @@ body{
 }
 
 #navbar_menu{
+	font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
 	transition: opacity 0.5s;
 	position: absolute;
 	top: 0;
