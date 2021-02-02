@@ -203,7 +203,7 @@ class Slideshow{
 			this.guideDiv.insertBefore(dotsDiv, this.guideDiv.getElementsByClassName("right_guide")[0])
 			
 			window.addEventListener("click", ev => this.requestGuideListen());
-			window.addEventListener("touchstart", ev => this.requestGuideListen());
+			window.addEventListener("touchend", ev => this.requestGuideListen());
 		}
 	}
 	

@@ -52,6 +52,7 @@ body{
 	padding-top: 225pt;
 	opacity: 0.0;
 	filter: alpha(opacity=0);
+	font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
 }
 
 .link{
