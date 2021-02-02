@@ -202,12 +202,12 @@ class Slideshow{
 			
 			this.guideDiv.insertBefore(dotsDiv, this.guideDiv.getElementsByClassName("right_guide")[0])
 			
-			window.addEventListener("click", ev => this.requestGuideListen());
-			window.addEventListener("touchend", ev => this.requestGuideListen());
+			window.addEventListener("click", ev => this.requestGuideListen(ev));
+			window.addEventListener("touchend", ev => this.requestGuideListen(ev));
 		}
 	}
 	
-	requestGuideListen(){
+	requestGuideListen(ev){
 		let left = this.guideDiv.getElementsByClassName("left_guide")[0];
 		let right = this.guideDiv.getElementsByClassName("right_guide")[0];
 		
