@@ -202,34 +202,37 @@ class Slideshow{
 			
 			this.guideDiv.insertBefore(dotsDiv, this.guideDiv.getElementsByClassName("right_guide")[0])
 			
-			window.addEventListener("click", ev => {
-				let left = this.guideDiv.getElementsByClassName("left_guide")[0];
-				let right = this.guideDiv.getElementsByClassName("right_guide")[0];
-				
-				if(ev.pageX >= left.offsetLeft && ev.pageX <= left.offsetLeft + left.offsetWidth
-					&& ev.pageY >= left.offsetTop && ev.pageY <= left.offsetTop + left.offsetHeight){
-					left.style.backgroundColor = "white";
-					left.style.color = "black";
-					let interval = window.setInterval(() => {
-						left.style.backgroundColor = "black";
-						left.style.color = "white";
-						this.previous();
-						this.count = 4;
-						window.clearInterval(interval);
-					}, 300);
-				} else if(ev.pageX >= right.offsetLeft && ev.pageX <= right.offsetLeft + right.offsetWidth
-					&& ev.pageY >= right.offsetTop && ev.pageY <= right.offsetTop + right.offsetHeight){
-					right.style.backgroundColor = "white";
-					right.style.color = "black";
-					let interval = window.setInterval(() => {
-						right.style.backgroundColor = "black";
-						right.style.color = "white";
-						this.next();
-						this.count = 4;
-						window.clearInterval(interval);
-					}, 300);
-				}
-			});
+			window.addEventListener("click", ev => this.requestGuideListen());
+			window.addEventListener("touchstart", ev => this.requestGuideListen());
+		}
+	}
+	
+	requestGuideListen(){
+		let left = this.guideDiv.getElementsByClassName("left_guide")[0];
+		let right = this.guideDiv.getElementsByClassName("right_guide")[0];
+		
+		if(ev.pageX >= left.offsetLeft && ev.pageX <= left.offsetLeft + left.offsetWidth
+			&& ev.pageY >= left.offsetTop && ev.pageY <= left.offsetTop + left.offsetHeight){
+			left.style.backgroundColor = "white";
+			left.style.color = "black";
+			let interval = window.setInterval(() => {
+				left.style.backgroundColor = "black";
+				left.style.color = "white";
+				this.previous();
+				this.count = 4;
+				window.clearInterval(interval);
+			}, 300);
+		} else if(ev.pageX >= right.offsetLeft && ev.pageX <= right.offsetLeft + right.offsetWidth
+			&& ev.pageY >= right.offsetTop && ev.pageY <= right.offsetTop + right.offsetHeight){
+			right.style.backgroundColor = "white";
+			right.style.color = "black";
+			let interval = window.setInterval(() => {
+				right.style.backgroundColor = "black";
+				right.style.color = "white";
+				this.next();
+				this.count = 4;
+				window.clearInterval(interval);
+			}, 300);
 		}
 	}
 	
