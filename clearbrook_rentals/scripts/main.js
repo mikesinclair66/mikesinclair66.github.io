@@ -85,6 +85,7 @@ class Slideshow{
 		this.curSlide = 0;
 		this.nextSlide = 1;
 		
+		this.notInit = true;
 		this.interval = undefined;
 		this.count = 0;
 		this.guideDiv = this.slideshow.getElementsByClassName("guide")[0];
@@ -94,6 +95,16 @@ class Slideshow{
 	}
 	
 	start(){
+		//does an immediate test on the slideshow to ensure it doesn't glitch
+		if(this.notInit){
+			this.next();
+			this.ready();
+			this.previous();
+			this.ready();
+			
+			this.notInit = false;
+		}
+		
 		this.slideshow.style.display = "block";
 		this.interval = window.setInterval(() => {
 			this.count++;
