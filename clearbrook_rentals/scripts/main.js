@@ -8,6 +8,12 @@ hamburgerSlots.push(document.getElementById("slot3"));
 var navbarMenu = document.getElementById("navbar_menu");
 var links = document.getElementsByClassName("link");
 
+//runs part of the animation (not seen by the user) so that it's ready to animate
+hamburgerSlots[0].style.top = "34pt";
+hamburgerSlots[2].style.top = "-34pt";
+hamburgerSlots[0].style.top = "0";
+hamburgerSlots[2].style.top = "0";
+
 hamburgerBtn.onclick = () => {
 	if(!navbarToggled){
 		//navbarMenu.style.display = "block";
@@ -23,6 +29,7 @@ hamburgerBtn.onclick = () => {
 			el.style.display = "block";
 		
 		navbarToggled = true;
+		//maintainNavbarHeight();
 	} else {
 		//navbarMenu.style.display = "none";
 		navbarMenu.style.filter = "alpha(opacity=0)";
@@ -40,7 +47,15 @@ hamburgerBtn.onclick = () => {
 	}
 };
 
-//TODO make window non-scrollable if the navbar menu is active?
+function maintainNavbarHeight(){
+	if(window.scrollY > 950)
+		window.scrollTo(0, 950);
+}
+
+window.addEventListener("scroll", () => {
+	if(navbarToggled)
+		maintainNavbarHeight();
+});
 
 var propertiesDropdownToggled = false;
 var contactLink = document.getElementById("contact_link");
@@ -62,184 +77,171 @@ propertiesDropdownLink.onclick = () => {
 
 //slideshow script
 class Slideshow{
+	//"-" + (this.slides[this.curSlide].offsetTop * 1.926) + "px";
 	constructor(slideshowId, slideEl){
 		this.slideshow = document.getElementById(slideshowId);
 		this.slides = this.slideshow.getElementsByClassName(slideEl);
-		this.slides[1].style.marginTop = "-" + this.slides[0].offsetHeight + "px";
-		this.slides[1].style.opacity = "0.0";
-		this.slides[1].style.filter = "alpha(opacity=0)";
-		for(let i = 2; i < this.slides.length; i++)
-			this.slides[i].style.display = "none";
+		this.DEF_TRANSITION = "opacity 0.5s, filter 0.5s";
+		this.curSlide = 0;
+		this.nextSlide = 1;
 		
-		this.slideNo = 0;
-		this.nextSlideNo = 1;
+		this.interval = undefined;
 		this.count = 0;
-		this.COUNT_METER = 50;
-		this.opacityLvl = 0;//0.0, 0.1, 0.2...
-		
-		this.hasGuide = false;
-		this.guideDiv = document.createElement("div");
-		this.guideDiv.id = "guide";
-		this.leftArrow = document.createElement("span");
-		this.leftArrowPressed = false;
-		this.rightArrow = document.createElement("span");
-		this.rightArrowPressed = false;
-		this.guides = [];
-		
-		this.toggled = false;
-		window.addEventListener("click", ev => this.requestGuidePress(ev));
-		//window.addEventListener("click", () => this.requestGuideRelease());
+		this.guideDiv = this.slideshow.getElementsByClassName("guide")[0];
+		this.guideDots = [];
+		this.ready();
+		this.requestGuide();
 	}
 	
 	start(){
-		this.slides[this.slideNo].style.display = "block";
-		this.slides[this.nextSlideNo].style.display = "block";
-		
+		this.slideshow.style.display = "block";
 		this.interval = window.setInterval(() => {
-			if(this.count < this.COUNT_METER)
-				this.count++;
-			else{
-				if(this.opacityLvl < 1)
-					this.opacityLvl += 0.1;
-				else if(this.opacityLvl > 1)
-					this.opacityLvl = 1;
-				
-				this.slides[this.nextSlideNo].style.filter = "alpha(opacity=" + (this.opacityLvl * 100) + ")";
-				this.slides[this.nextSlideNo].style.opacity = this.opacityLvl;
-				this.slides[this.slideNo].style.filter = "alpha(opacity=" + ((1 - this.opacityLvl) * 100) + ")";
-				this.slides[this.slideNo].style.opacity = 1 - this.opacityLvl;
-				
-				if(this.opacityLvl == 1)
-					this.next()
+			this.count++;
+			if(this.count == 4){
+				this.next();
+			} else if(this.count > 4){
+				this.ready();
+				this.count = 0;
 			}
-			
-			if(this.hasGuide && this.guides[this.slideNo].id != "guide_selected"){
-				for(let i = 0; i < this.guides.length; i++)
-					this.guides[i].id = "";
-				this.guides[this.slideNo].id = "guide_selected";
-			}
-		}, 50);
-		
-		if(this.hasGuide)
-			this.guideDiv.style.display = "block";
-		if(!this.toggled)
-			this.toggled = true;
+		}, 550);
 	}
 	
 	pause(){
 		window.clearInterval(this.interval);
-		this.count = 0;
-		this.opacityLvl = 0;
-		this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
-		this.slides[this.slideNo].style.opacity = "1.0";
-		this.slides[this.slideNo].style.display = "none";
-		this.slides[this.nextSlideNo].style.filter = "alpha(opacity=0)";
-		this.slides[this.nextSlideNo].style.opacity = "0.0";
-		this.slides[this.nextSlideNo].style.display = "none";
-		
-		if(this.hasGuide)
-			this.guideDiv.style.display = "none";
-		
-		this.toggled = false;
+		this.slideshow.style.display = "none";
 	}
 	
 	next(){
-		this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
-		this.slides[this.slideNo].style.opacity = 1.0;
-		this.slides[this.slideNo].style.display = "none";
+		this.slides[this.curSlide].style.transition = this.DEF_TRANSITION;
+		this.slides[this.curSlide].style.filter = "alpha(opacity=0)";
+		this.slides[this.curSlide].style.opacity = "0.0";
+		this.slides[this.nextSlide].style.transition = this.DEF_TRANSITION;
+		this.slides[this.nextSlide].style.filter = "alpha(opacity=100)";
+		this.slides[this.nextSlide].style.opacity = "1.0";
 		
-		this.slideNo = this.nextSlideNo;
-		this.nextSlideNo++;
-		if(this.nextSlideNo >= this.slides.length)
-			this.nextSlideNo = 0;
-		this.slides[this.nextSlideNo].style.display = "block";
-		this.slides[this.slideNo].style.marginTop = "0";
-		if(this.nextSlideNo != 0)
-			this.slides[this.nextSlideNo].style.marginTop = "-" + this.slides[this.slideNo].offsetHeight + "px";
+		this.curSlide++;
+		this.nextSlide++;
+		if(this.nextSlide >= this.slides.length)
+			this.nextSlide = 0;
+		if(this.curSlide >= this.slides.length)
+			this.curSlide = 0;
+		
+		this.selectGuide(this.curSlide);
+	}
+	
+	previous(){
+		let previousSlide = this.curSlide - 1;
+		if(previousSlide < 0)
+			previousSlide = this.slides.length - 1;
+		
+		this.slides[this.curSlide].style.transition = this.DEF_TRANSITION;
+		this.slides[this.curSlide].style.filter = "alpha(opacity=0)";
+		this.slides[this.curSlide].style.opacity = "0.0";
+		if(this.curSlide != 0)
+			this.slides[this.curSlide].style.marginTop = "-" + (this.slides[this.curSlide].offsetHeight) + "px";
 		else
-			this.slides[this.slideNo].style.marginTop = "-" + this.slides[this.nextSlideNo].offsetHeight + "px";
-		this.slides[this.nextSlideNo].style.filter = "alpha(opacity=0)";
-		this.slides[this.nextSlideNo].style.opacity = "0.0";
+			this.slides[previousSlide].style.marginTop = "-" + (this.slides[this.curSlide].offsetHeight) + "px";
 		
-		//reset
-		this.opacityLvl = 0;
-		this.count = 0;
-	}
-	
-	back(){
-		this.slides[this.slideNo].style.filter = "alpha(opacity=100)";
-		this.slides[this.slideNo].style.opacity = 1.0;
-		this.slides[this.slideNo].style.display = "block";
-		
-		this.slideNo--;
-		if(this.slideNo < 0){
-			this.slideNo = this.slides.length - 1;
-			this.nextSlideNo = 0;
-			
-			
-			
-			//reset
-			this.opacityLvl = 0;
-			this.count = 0;
+		this.slides[previousSlide].style.display = "block";
+		this.slides[previousSlide].style.transition = this.DEF_TRANSITION;
+		this.slides[previousSlide].style.filter = "alpha(opacity=100)";
+		this.slides[previousSlide].style.opacity = "1.0";
+		if(this.curSlide == (this.slides.length - 1)){
+			this.slides[previousSlide].style.marginTop = "-" + (this.slides[this.curSlide].offsetHeight) + "px";
 		}
+		
+		this.curSlide = previousSlide;
+		this.nextSlide = this.curSlide + 1;
+		if(this.nextSlide >= this.slides.length)
+			this.nextSlide = 0;
+		
+		this.selectGuide(this.curSlide);
 	}
 	
-	enableGuide(){
-		this.hasGuide = true;
-		this.leftArrow.innerHTML = "<";
-		this.leftArrow.id = "left_guide";
-		this.guideDiv.appendChild(this.leftArrow);
-		this.rightArrow.innerHTML = ">";
-		this.rightArrow.id = "right_guide";
+	/* Readies the slideshow to transition to the next slide. */
+	ready(){
 		for(let i = 0; i < this.slides.length; i++){
-			let dot = document.createElement("span");
-			dot.innerHTML = ".";
-			dot.className = "center_guide";
-			this.guides.push(dot);
-			this.guideDiv.appendChild(this.guides[i]);
+			if(i == this.curSlide || i == this.nextSlide)
+				continue;
+			else {
+				this.slides[i].transition = "none";
+				this.slides[i].style.filter = "alpha(opacity=0)";
+				this.slides[i].style.opacity = "0.0";
+				this.slides[i].style.display = "none";
+				this.slides[i].style.marginTop = "0";
+			}
 		}
-		this.guideDiv.appendChild(this.rightArrow);
 		
-		this.slideshow.appendChild(this.guideDiv);
+		this.slides[this.curSlide].style.transition = this.DEF_TRANSITION;
+		this.slides[this.curSlide].style.marginTop = "0";
+		this.slides[this.curSlide].style.marginBottom = "0";
+		this.slides[this.nextSlide].style.display = "block";
+		this.slides[this.nextSlide].style.transition = "none";
+		this.slides[this.nextSlide].style.filter = "alpha(opacity=0)";
+		this.slides[this.nextSlide].style.opacity = "0.0";
+		if(this.nextSlide != 0)
+			this.slides[this.nextSlide].style.marginTop = "-" + (this.slides[this.curSlide].offsetHeight) + "px";
+		else
+			this.slides[this.curSlide].style.marginTop = "-" + (this.slides[this.nextSlide].offsetHeight) + "px";
 	}
 	
-	requestGuidePress(ev){
-		if(this.toggled){
-			if(ev.pageX >= this.leftArrow.offsetLeft && ev.pageX <= this.leftArrow.offsetLeft + this.leftArrow.offsetWidth
-				&& ev.pageY >= this.guideDiv.offsetTop && ev.pageY <= this.guideDiv.offsetTop + this.guideDiv.offsetHeight){
-				console.log("Left arrow clicked");
-				this.leftArrow.style.border = "solid black 10pt";
-				this.leftArrow.style.backgroundColor = "white";
-				this.leftArrow.style.color = "black";
-				this.leftArrowPressed = true;
-				this.back()
+	/* Adds a guide to the slideshow if the div is available. */
+	requestGuide(){
+		if(this.guideDiv){
+			var dotsDiv = document.createElement("div");
+			dotsDiv.className = "dots";
+			
+			for(let i = 0; i < this.slides.length; i++){
+				let dot = document.createElement("span");
+				if(i == 0)
+					dot.className = "guide_selected";
+				dot.innerHTML = ".";
+				this.guideDots.push(dot);
+				dotsDiv.appendChild(this.guideDots[i]);
 			}
-			if(ev.pageX >= this.guideDiv.offsetLeft + this.guideDiv.offsetWidth - this.leftArrow.offsetLeft * 2 &&
-				ev.pageX <= this.guideDiv.offsetLeft + this.guideDiv.offsetWidth
-				&& ev.pageY >= this.guideDiv.offsetTop && ev.pageY <= this.guideDiv.offsetTop + this.guideDiv.offsetHeight){
-				console.log("Right arrow clicked");
-				this.rightArrow.style.border = "solid black 10pt";
-				this.rightArrow.style.backgroundColor = "white";
-				this.rightArrow.style.color = "black";
-				this.rightArrowPressed = true;
-				this.next()
-			}
+			
+			this.guideDiv.insertBefore(dotsDiv, this.guideDiv.getElementsByClassName("right_guide")[0])
+			
+			window.addEventListener("click", ev => {
+				let left = this.guideDiv.getElementsByClassName("left_guide")[0];
+				let right = this.guideDiv.getElementsByClassName("right_guide")[0];
+				
+				if(ev.pageX >= left.offsetLeft && ev.pageX <= left.offsetLeft + left.offsetWidth
+					&& ev.pageY >= left.offsetTop && ev.pageY <= left.offsetTop + left.offsetHeight){
+					left.style.backgroundColor = "white";
+					left.style.color = "black";
+					let interval = window.setInterval(() => {
+						left.style.backgroundColor = "black";
+						left.style.color = "white";
+						this.previous();
+						this.count = 4;
+						window.clearInterval(interval);
+					}, 300);
+				} else if(ev.pageX >= right.offsetLeft && ev.pageX <= right.offsetLeft + right.offsetWidth
+					&& ev.pageY >= right.offsetTop && ev.pageY <= right.offsetTop + right.offsetHeight){
+					right.style.backgroundColor = "white";
+					right.style.color = "black";
+					let interval = window.setInterval(() => {
+						right.style.backgroundColor = "black";
+						right.style.color = "white";
+						this.next();
+						this.count = 4;
+						window.clearInterval(interval);
+					}, 300);
+				}
+			});
 		}
 	}
 	
-	requestGuideRelease(){
-		console.log("screen released");
-		if(this.leftArrowPressed){
-			this.leftArrow.style.border = "solid white 10pt";
-			this.leftArrow.style.backgroundColor = "black";
-			this.leftArrow.style.color = "white";
-			this.leftArrowPressed = false;
-		}
-		if(this.rightArrowPressed){
-			this.rightArrow.style.border = "solid white 10pt";
-			this.rightArrow.style.backgroundColor = "black";
-			this.rightArrow.style.color = "white";
-			this.rightArrowPressed = false;
+	/* Selects a certain element of the guide and slideshow. (May should only work on desktop? */
+	selectGuide(n){
+		if(this.guideDiv){
+			for(let i = 0; i < this.guideDots.length; i++){
+				if(i != n)
+					this.guideDots[i].className = "";
+				else
+					this.guideDots[i].className = "guide_selected";
+			}
 		}
 	}
 }
@@ -262,7 +264,7 @@ class SectionFlippableSet{
 		this.captions[index].innerHTML = caption;
 		this.captions[index].id = "first_child";
 		this.captions[index].style.position = "absolute";
-		this.captions[index].style.top = (propertyInfo.offsetTop - 981) + "px";
+		this.captions[index].style.top = this.sections[index].offsetTop - this.sections[index].offsetTop;
 		this.captions[index].style.left = "0";
 		propertyInfo.insertBefore(this.captions[index], propertyInfo.firstChild);
 	}

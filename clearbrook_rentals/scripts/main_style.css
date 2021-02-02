@@ -10,9 +10,10 @@ body{
 	background-color: #3D3D3D;
 	margin: -6pt -6pt 0 -6pt;
 	height: 250pt;
+	font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
 }
 
-#logo, footer img{
+#logo{
 	margin-top: -25pt;
 	width: 300pt;
 	height: 300pt;
@@ -40,7 +41,6 @@ body{
 }
 
 #navbar_menu{
-	font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
 	transition: opacity 0.5s;
 	position: absolute;
 	top: 0;
@@ -99,14 +99,36 @@ body{
 /* Page content */
 #header_banner{
 	text-align: center;
+	color: #EAD160;
+}
+
+#property_banner{
+	text-align: center;
 }
 
 #header_banner span{
 	font-style: italic;
 }
 
+.btn{
+	transition: 0.5s;
+	font-size: 50pt;
+	background-color: #EAD160;
+	padding: 25pt;
+	border: solid white 8pt;
+	text-decoration: none;
+	color: black;
+}
+
+.btn img{
+	width: 60pt;
+	height: 60pt;
+	margin-bottom: -10pt;
+}
+
 .info{
 	padding: 0 40pt 0 40pt;
+	margin: 0 10pt 0 10pt;
 }
 
 .info table{
@@ -128,23 +150,24 @@ body{
 	color: white;
 }
 
-#table_info{
-	border: solid black 8pt;
+.info ul{
+	margin-left: 15pt;
 }
 
-#table_info button{
-	transition: 0.5s;
-	font-size: 50pt;
-	padding: 25pt;
-	background: none;
-	background-color: white;
+#table_info{
+	background-color: #EAD160;
 	color: black;
 	border: solid black 8pt;
+	padding: 30pt 30pt 80pt 30pt;
 }
 
-#table_info button img{
-	width: 50pt;
-	height: 50pt;
+#table_info .btn{
+	border: solid black 8pt;
+}
+
+#table_info .btn:active, #table_info .btn:hover{
+	transition: 0.5s;
+	background-color: white;
 }
 
 footer{
@@ -154,6 +177,12 @@ footer{
 	padding: 25pt;
 	padding-bottom: 75pt;
 	margin: 100pt -6pt -6pt -5pt;
+}
+
+footer img{
+	margin: -50pt 0 -50pt 0;
+	width: 650pt;
+	height: 650pt;
 }
 
 footer a{
@@ -301,6 +330,7 @@ footer a:active, footer a:hover{
 }
 
 .slide{
+	transition: opacity 0.5s, filter 0.5s;
 	text-align: center;
 }
 
@@ -309,12 +339,11 @@ footer a:active, footer a:hover{
 }
 
 .sub_info{
-	position: relative;
-	margin-top: -50pt;
-	top: 275pt;
+	margin-top: 50pt;
+	padding-bottom: 25pt;
 }
 
-#guide{
+.guide{
 	font-size: 150pt;
 	text-align: center;
 	color: white;
@@ -322,13 +351,15 @@ footer a:active, footer a:hover{
 	padding-bottom: 100pt;
 }
 
-.center_guide{
-	padding: 10pt;
+.dots{
+	display: inline-block;
+	text-align: center;
 	position: relative;
-	bottom: 30pt;
+	right: 17pt;
+	bottom: 22pt;
 }
 
-#left_guide, #right_guide{
+.left_guide, .right_guide{
 	transition: 0.2s;
 	font-family: "Bauhaus 93", Broadway, Arial, Calibri;
 	font-weight: 900;
@@ -338,11 +369,15 @@ footer a:active, footer a:hover{
 	padding: 0 25pt 0 25pt;
 }
 
-#left_guide:active, #right_guide:active{
-	transition: 0.2s;
+.left_guide:active, .right_guide:active{
+	transition: 0.3s;
 }
 
-#guide_selected{
+.guide_selected{
 	transition: 0.5s;
+	color: #EAD160;
+}
+
+#phone_number{
 	color: #EAD160;
 }
