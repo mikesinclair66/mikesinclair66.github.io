@@ -41,10 +41,9 @@
 				<span id="phone_number">(+1) 604-217-0279</span>. We look forward to providing you with
 				your new rental home!
 			</p>
+			<br />
 			
-			<div style="text-align: center">
-				APPLICATION FORM WILL APPEAR HERE
-			</div>
+			<a class="btn" id="form_btn">Inquire a property</a>
 		</div>
 		
 		<footer>
@@ -56,5 +55,18 @@
 		</footer>
 		
 		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript">
+			iframe.src = "./application.html";
+			function requestForm(ev){
+				if(!formToggled && ev.pageX >= formBtn.offsetLeft && ev.pageX <= formBtn.offsetLeft + formBtn.offsetWidth
+					&& ev.pageY >= formBtn.offsetTop && ev.pageY <= formBtn.offsetTop + formBtn.offsetHeight)
+					toggleForm();
+			}
+			
+			if(formBtn){
+				window.addEventListener("click", ev => requestForm(ev));
+				window.addEventListener("touchend", ev => requestForm(ev));
+			}
+		</script>
 	</body>
 </html>

@@ -103,12 +103,12 @@ body{
 	color: #EAD160;
 }
 
-#property_banner{
-	text-align: center;
-}
-
 #header_banner span{
 	font-style: italic;
+}
+
+#banner_sub_header{
+	text-align: center;
 }
 
 .btn{
@@ -381,4 +381,15 @@ footer a:active, footer a:hover{
 
 #phone_number{
 	color: #EAD160;
+}
+
+#application_form{
+	width: 95%;
+	height: 95%;
+	position: fixed;
+	top: 25pt;
+	left: 2.5%;
+	z-index: 1;
+	transform: rotate(0deg);
+	text-align: center;
 }

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="scripts/signature-pad.css">
+		<style type="text/css">
+			form{
+				width: 105%;
+				height: 100%;
+				background-color: white;
+				font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
+				font-size: 25pt;
+				padding: 10pt 30pt 10pt 30pt;
+				margin: -10pt -40pt -40pt -10pt;
+				position: relative;
+				transform: rotate(0deg);
+				z-index: 100;
+			}
+			
+			input{
+				background: none;
+				background-color: #EAD160;
+			}
+			
+			input[type=radio]{
+				width: 30pt;
+				height: 30pt;
+			}
+			
+			input[type=input]{
+				width: 100pt;
+				padding: 50pt 0 50pt 0;
+			}
+			
+			input[type=submit]{
+				width: 300pt;
+				height: 150pt;
+				font-size: 30pt;
+				text-align: center;
+				margin-top: 20pt;
+			}
+			
+			.btn{
+				height: 40pt;
+				font-size: 30pt;
+			}
+			
+			i{
+				text-align: center;
+			}
+			
+			.esignature_here, .esignature_here2{
+				width: 400pt;
+				height: 250pt;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form>
+			<h1>APPLICATION FOR TENANCY</h1>
+			
+			<i>
+				To apply for a rental application or make a general inquiry via phone, please give us a call
+				at (+1) 604-217-0279.
+			</i>
+			
+			<h3>INSTRUCTIONS</h3>
+			<ol>
+				<li>Landlord must complete all of Section A (Offer to Rent).</li>
+
+				<li>If possible, remainder of form to be completed by Landlord interviewing Applicant.</li>
+
+				<li>Full legal names of all Applicants are required.</li>
+
+				<li>For credit reporting or other reference purposes, the two pages of this Application for Tenancy
+				can be separated.</li>
+
+				<li>If the pages are separated, the Landlord should enter the Applicant's name(s) and date of
+				application on the second page.</li>
+			</ol>
+			
+			<h3>NOTE TO APPLICANTS:</h3>
+			<span><b>Do not</b> sign this Application for Tenancy unless:</span>
+			<ul>
+				<li>You have read agree with all the information provided by the Landlord in Section A.</li>
+				<li>All the information you have provided is true and correct.</li>
+			</ul>
+			
+			<h3>NOTES TO LANDLORDS:</h3>
+			<ul>
+				<li><b>Do</b> ensure the Applicant(s) sign this Application, giving you consent to do credit and reference checks.</li>
+				<li><b>Do not</b> sign this Application for Tenancy unless and until you decide to accept the Applicant(s) as your new tenant(s).</li>
+			</ul>
+			
+			<br /><br /><br /><br />
+			
+			<div id="landlord_section">
+				<span>THE LANDLORD OR LANDLORD'S AUTHORIZED AGENT (called the “Landlord”) MUST COMPLETE ALL BLANKS IN THIS SECTION</span>
+				<h4>A. OFFER TO RENT</h4>
+				<span>I/We, the undersigned (called the “Applicant”), offer to rent a rental unit in British Columbia known as:</span><br />
+				
+				<label for="suite_no">Suite no.</label>
+				<input type="number" id="suite_no" />
+				<label for="building_address">Building Address</label>
+				<input type="text" id="building_address" /><br />
+				
+				<label for="monthly_rent">at a monthly rent of $</label>
+				<input type="number" id="monthly_rent" />
+				<label for="parking_fees">plus parking fees of $</label>
+				<input type="number" id="parking_fees" />
+				<label for="other_fees">plus other fees of $</label>
+				<input type="number" id="other_fees" />
+				<label for="total_monthly_cost">for a total monthly cost of $</label>
+				<input type="number" id="total_monthly_cost" /><br />
+				
+				<span>The above rent includes only the utilities below. Payment for all other utilities is the tenant's responsibility.</span><br />
+				
+				<label for="heat">Heat</label>
+				<input type="checkbox" name="utility" />
+				<label for="water">Water Supply</label>
+				<input type="checkbox" name="utility" />
+				<label for="hot_water">Hot Water</label>
+				<input type="checkbox" name="utility" />
+				<label for="electricity">Electricity</label>
+				<input type="checkbox" name="utility" />
+				<label for="cable">Cablevision</label>
+				<input type="checkbox" name="utility" />
+				<label for="gas">Gas to Fireplace</label>
+				<input type="checkbox" name="utility" />
+				<label for="waste">Waste Collection</label>
+				<input type="checkbox" name="utility" />
+				<label for="sewage">Sewage Disposal</label>
+				<input type="checkbox" name="utility" />
+				<label for="other">Other</label>
+				<input type="text" name="utility" /><br />
+				
+				<label for="date_of_occupancy">DATE OCCUPANCY DESIRED</label>
+				<input type="text" id="date_of_occupancy" /><br />
+				
+				<table>
+					<tr>
+						<td><input type="text" id="landlord_name" /></td>
+						<td><input type="text" id="landlord_address" /></td>
+						<td><input type="text" id="landlord_phone" /></td>
+					</tr>
+					<tr>
+						<td><label for="landlord_name">LANDLORD'S NAME</label></td>
+						<td><label for="landlord_address">LANDLORD'S ADDRESS</label></td>
+						<td><label for="landlord_phone" />LANDLORD'S PHONE NO.</label></td>
+					</tr>
+				</table>
+				
+				<span>
+					The Applicant agrees that if this offer is accepted, it becomes a binding agreement and the Applicant will subsequently sign the Landlord's Residential Tenancy
+					Agreement that the Applicant has had an opportunity to examine. The Applicant acknowledges that <b>pets, barbecues, waterbeds and aquariums are not
+					allowed</b> without advance written permission of the Landlord. The Tenancy Agreement will include these specific terms:
+				</span><br />
+				
+				<textarea rows="3" cols="40"></textarea><br />
+				
+				<span>
+					If this offer is accepted and the Applicant fails to sign the Landlord's Residential Tenancy Agreement, or to take possession of the rental unit, the Applicant will
+					be liable for the payment of the equivalent of up to one month's rent to the Landlord and any related expenses incurred by the Landlord.
+				</span>
+				
+				<span>
+					If this offer is accepted, the Applicant will pay a <b>Security Deposit</b> of $<input type="text" id="security_deposit" /> to the Landlord. If the Landlord permits
+					the Applicant to have a pet, an additional <b>Pet Damage Deposit</b> of $<input type="text" id="pet_damage_deposit" /> will be paid to the Landlord. The Landlord
+					will hold the Deposit(s) until the tenancy ends. This offer is subject to acceptance by the Landlord and is open for acceptance until 5:00 pm on <input type="text" />.<!--Date here-->
+					If not accepted by that time, this offer is void.
+				</span>
+			</div>
+			
+			<br /><br />
+			
+			<div id="applicant">
+				<h4>B. FIRST APPLICANT'S PRIMARY INFORMATION</h4>
+				<label for="applicant_lastname">Last Name</label>
+				<input type="text" id="applicant_lastname" />
+				<label for="applicant_firstname">First Name</label>
+				<input type="text" id="applicant_firstname" />
+				<label for="applicant_middlename">Middle Name</label>
+				<input type="text" id="applicant_middlename" /><br />
+				
+				<label for="applicant_birthdate">Date of Birth</label>
+				<input type="date" id="applicant_birthdate" />
+				<label for="applicant_sin">Social Insurance Number (optional)</label>
+				<input type="text" id="applicant_sin" /><br />
+				
+				<!--Present-->
+				<label for="applicant_address">Present Address</label>
+				<input type="text" id="applicant_address" />
+				<label for="applicant_city">City</label>
+				<input type="text" id="applicant_city" />
+				<label for="applicant_postal">Postal Code</label>
+				<input type="text" id="applicant_postal" />
+				<label for="applicant_phone">Primary Phone No.</label>
+				<input type="text" id="applicant_phone" /><br />
+				
+				<label for="rent">Rent</label>
+				<input type="radio" name="rent" class="rent" />
+				<label for="own">Own</label>
+				<input type="radio" name="rent" class="rent" />
+				<label for="occupancy">How long?</label>
+				<input type="text" id="occupancy" />
+				<label for="leave_reason">Reason for Leaving</label>
+				<input type="text" class="leave_reason" />
+				<label for="current_rate">Current Rent $</label>
+				<input type="text" id="current_rate" /><br />
+				
+				<!--Previous-->
+				<label for="applicant_address_previous">Previous Address</label>
+				<input type="text" id="applicant_address_previous" />
+				<label for="applicant_city_previous">City</label>
+				<input type="text" id="applicant_city_previous" />
+				<label for="applicant_postal_previous">Postal Code</label>
+				<input type="text" id="applicant_postal_previous" /><br />
+				
+				<label for="rent_previous">Rent</label>
+				<input type="radio" name="rent_previous" class="rent_previous" />
+				<label for="own_previous">Own</label>
+				<input type="radio" name="rent_previous" class="rent_previous" />
+				<label for="occupancy_previous">How long?</label>
+				<input type="text" id="occupancy_previous" />
+				<label for="leave_reason">Reason for Leaving</label>
+				<input type="text" class="leave_reason" />
+				<label for="current_rate_previous">Previous Rent $</label>
+				<input type="text" id="current_rate_previous" /><br />
+			</div>
+			
+			<div id="coapplicant">
+				<h4>C. CO-APPLICANT'S PRIMARY INFORMATION <small>(Complete only where different from First Applicant.)</small></h4>
+				<label for="coapplicant_lastname">Last Name</label>
+				<input type="text" id="coapplicant_lastname" />
+				<label for="coapplicant_firstname">First Name</label>
+				<input type="text" id="coapplicant_firstname" />
+				<label for="coapplicant_middlename">Middle Name</label>
+				<input type="text" id="coapplicant_middlename" /><br />
+				
+				<label for="coapplicant_birthdate">Date of Birth</label>
+				<input type="text" id="coapplicant_birthdate" /><!--Date picker here-->
+				<label for="coapplicant_sin">Social Insurance Number (optional)</label>
+				<input type="text" id="coapplicant_sin" /><br />
+				
+				<!--Present-->
+				<label for="coapplicant_address">Present Address</label>
+				<input type="text" id="coapplicant_address" />
+				<label for="coapplicant_city">City</label>
+				<input type="text" id="coapplicant_city" />
+				<label for="coapplicant_postal">Postal Code</label>
+				<input type="text" id="coapplicant_postal" />
+				<label for="coapplicant_phone">Primary Phone No.</label>
+				<input type="text" id="coapplicant_phone" /><br />
+				
+				<label for="rent">Rent</label>
+				<input type="radio" name="rent" class="rent" />
+				<label for="own">Own</label>
+				<input type="radio" name="rent" class="rent" />
+				<label for="cooccupancy">How long?</label>
+				<input type="text" id="cooccupancy" />
+				<label for="leave_reason">Reason for Leaving</label>
+				<input type="text" class="leave_reason" />
+				<label for="cocurrent_rate">Current Rent $</label>
+				<input type="text" id="cocurrent_rate" /><br />
+				
+				<!--Previous-->
+				<label for="coapplicant_address_previous">Previous Address</label>
+				<input type="text" id="coapplicant_address_previous" />
+				<label for="coapplicant_city_previous">City</label>
+				<input type="text" id="coapplicant_city_previous" />
+				<label for="coapplicant_postal_previous">Postal Code</label>
+				<input type="text" id="coapplicant_postal_previous" /><br />
+				
+				<label for="rent_previous">Rent</label>
+				<input type="radio" name="rent_previous" class="rent_previous" />
+				<label for="own_previous">Own</label>
+				<input type="radio" name="rent_previous" class="rent_previous" />
+				<label for="cooccupancy_previous">How long?</label>
+				<input type="text" id="cooccupancy_previous" />
+				<label for="leave_reason">Reason for Leaving</label>
+				<input type="text" class="leave_reason" />
+				<label for="cocurrent_rate_previous">Previous Rent $</label>
+				<input type="text" id="cocurrent_rate_previous" /><br />
+			</div>
+			
+			<div id="applicant_statements">
+				<h4>D. APPLICANT'S STATEMENTS</h4>
+				<label for="no_pets">I/We do not own any pets</label>
+				<input type="radio" name="petsyn" id="no_pets" />
+				<label for="yes_pets">I/We own a pet or pets</label>
+				<input type="radio" name="petsyn" id="yes_pets" />
+				<label for="pets_desc">If owned, describe pet(s)</label>
+				<input type="text" id="pets_desc" /><br />
+				
+				<label for="no_smoke">I/We are non smokers</label>
+				<input type="radio" name="smokeyn" id="no_smoke" />
+				<label for="yes_smoke">I/We are smokers</label>
+				<input type="radio" name="smokeyn" id="yes_smoke" /><br />
+				
+				<span>NOTE: Landlord's are not responsible for tenants' possessions. If accepted, you must carry tenants'
+				insurance covering your possessions and protecting you against liability.</span>
+				
+				<label for="possession_insurance">I/We presently insure our belongings and for third party liability</label><br />
+				<label for="yes_insurance">Yes</label>
+				<input type="radio" name="insuranceyn" id="yes_insurance" />
+				<label for="no_insurance">No</label>
+				<input type="radio" name="insuranceyn" id="no_insurance" />
+			</div>
+			
+			<div id="consent">
+				<h4>E. CONSENT</h4>
+				<span>
+					The Applicant consents to the Landlord obtaining credit, personal and employment information on the Applicant from one or more consumer reporting
+					agencies and from other sources of such information. The Applicant authorizes the reporting agencies and any other person, including personnel from any
+					government ministry or agency, to disclose relevant information about the Applicant to the Landlord. If this application is accepted, the Applicant understands
+					that the above information will also be used and disclosed for responding to emergencies, ensuring the orderly management of the tenancy and complying with
+					legal requirements. 
+				</span>
+			</div>
+			
+			<div id="applicant_signatures">
+				<h4>F. APPLICANT'S SIGNATURES</h4>
+				<span><b>NOTE:</b> Do not sign this application unless Section A is complete and you have read it.
+				<b>I/We certify that all information provided by me/us in this Application is true and correct.</b></span>
+				<br /><br />
+				
+				<b>APPLICANT SIGNATURE(S)</b><br /><br /><br /><br />
+				
+				<div id="e-signature1" class="e-signature">
+					<div id="signature-pad" class="signature-pad">
+						<div class="signature-pad--body">
+							<canvas></canvas>
+						</div>
+						<div class="signature-pad--footer">
+							<div class="description">SIGN HERE</div>
+
+							<div class="signature-pad--actions">
+								<div>
+									<button type="button" class="button clear" data-action="clear">Clear</button>
+									<button type="button" class="button" data-action="undo">Undo</button>
+								</div>
+								<div>
+									<button type="button" class="button save" data-action="save-jpg" style="margin-right: 5pt">Upload<br /><br />applicant signature</button>
+									<button type="button" class="button save" data-action="save-jpg2" style="margin-left: 5pt">Upload<br />co-applicant signature</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><br /><br /><br />
+				
+				<b>Applicant's Signature:</b><br />
+				<img class="esignature_here" alt="Applicant's custom signature" /><br />
+				
+				<b>Co-Applicant's Signature:</b><br />
+				<img class="esignature_here2" alt="Co-Applicant's custom signature" /><br />
+				
+				<label for="sign_date">Date</label>
+				<input type="date" id="sign_date" />
+			</div>
+			
+			<div id="landlord_signatures">
+				<h4>G. LANDLORD'S ACCEPTANCE</h4>
+				<span>
+					<b>NOTE:</b> Do not sign this form unless and until you decide to accept the Applicant(s) as your tenant(s). The above Applicant(s) is/are accepted
+					for tenancy, commencing <input type="text" id="tenant_commence" />
+				</span><br />
+				<table>
+					<tr>
+						<td><input type="text" id="landlord_signature" /></td>
+						<td><input type="text" id="landlord_date" /></td>
+					</tr>
+					<tr>
+						<td><label for="landlord_signature">Landlord's Signature</label></td>
+						<td><label for="landlord_date">Date Signed</label></td>
+					</tr>
+				</table>
+			</div>
+			
+			<div id="supplementary_info">
+				<h4>H. FIRST APPLICANT'S SUPPLEMENTARY INFORMATION</h4>
+				<label for="second_phone">Secondary Phone No.</label>
+				<input type="text" id="second_phone" />
+				<label for="cellphone">Cell No.</label>
+				<input type="text" id="cellphone" />
+				<label for="fax_no">Fax No.</label>
+				<input type="text" id="fax_no" />
+				<label for="work_phone">Work Phone No.</label>
+				<input type="text" id="work_phone" /><br />
+				
+				<label for="email">Email Address:</label>
+				<input type="email" id="email" />
+				<label for="photoID">Photo ID Shown</label>
+				<label for="yes_photoID">Yes</label>
+				<input type="radio" name="photoID" />
+				<label for="no_photoID">No</label>
+				<input type="radio" name="photoID" /><br />
+				
+				<label for="landlord_current">Present Landlord/Building Manager's Name</label>
+				<input type="text" id="landlord_current" />
+				<label for="landlord_current_address">Address</label>
+				<input type="text" id="landlord_current_address" />
+				<label for="landlord_current_phone">Phone No.</label>
+				<input type="number" id="landlord_current_phone" /><br />
+				
+				<label for="landlord_previous">Previous Landlord/Building Manager's Name</label>
+				<input type="text" id="landlord_previous" />
+				<label for="landlord_previous_address">Address</label>
+				<input type="text" id="landlord_previous_address" />
+				<label for="landlord_previous_phone">Phone No.</label>
+				<input type="number" id="landlord_previous_phone" /><br />
+				
+				<label for="employer">Employer</label>
+				<input type="text" id="employer" />
+				<label for="job">Position</label>
+				<input type="text" id="job" />
+				<label for="monthly_income">Monthly Income</label>
+				<input type="text" id="monthly_income" /><br />
+				
+				<label for="supervisor">Supervisor's Name</label>
+				<input type="text" id="supervisor" />
+				<label for="supervisor_phone">Supervisor's Phone No.</label>
+				<input type="text" id="supervisor_phone" />
+				<label for="employment_length">Length of employment</label>
+				<input type="text" id="employment_length" /><br />
+				
+				<label for="employer_previous">Previous Employer</label>
+				<input type="text" id="employer_previous" />
+				<label for="job_previous">Position</label>
+				<input type="text" id="job_previous" />
+				<label for="monthly_income_previous">Monthly Income</label>
+				<input type="text" id="monthly_income_previous" /><br />
+				
+				<label for="supervisor_previous">Previous Supervisor's Name</label>
+				<input type="text" id="supervisor_previous" />
+				<label for="supervisor_phone_previous">Previous Supervisor's Phone No.</label>
+				<input type="text" id="supervisor_phone_previous" />
+				<label for="employment_length_previous">Length of employment</label>
+				<input type="text" id="employment_length_previous" /><br />
+				
+				<label for="vehicle_make">Vehicle Make</label>
+				<input type="text" id="vehicle_make" />
+				<label for="model">Model</label>
+				<input type="text" id="model" />
+				<label for="vehicle_color">Colour</label>
+				<input type="text" id="vehicle_color" />
+				<label for="license_no">License Number</label>
+				<input type="text" id="license_no" /><br />
+				
+				<label for="vehicle_make_previous">Second Vehicle Make</label>
+				<input type="text" id="vehicle_make_previous" />
+				<label for="model_previous">Model</label>
+				<input type="text" id="model_previous" />
+				<label for="vehicle_color_previous">Colour</label>
+				<input type="text" id="vehicle_color_previous" />
+				<label for="license_no_previous">License Number</label>
+				<input type="text" id="license_no_previous" /><br />
+				
+				<b>Please give the name of a business or personal reference:</b>
+				<label for="ref_name">Name</label>
+				<input type="text" id="ref_name" />
+				<label for="ref_address">Address</label>
+				<input type="text" id="ref_address" />
+				<label for="ref_phone">Phone No.</label>
+				<input type="text" id="ref_phone" /><br />
+				
+				<b>Please give the name of next of kin, doctor or other person for emergency contact purposes:</b>
+				<label for="emergency_name">Name</label>
+				<input type="text" id="emergency_name" />
+				<label for="emergency_address">Address</label>
+				<input type="text" id="emergency_address" />
+				<label for="emergency_phone">Phone No.</label>
+				<input type="text" id="emergency_phone" /><br />
+				
+				<label for="emergency_name2">Name</label>
+				<input type="text" id="emergency_name2" />
+				<label for="emergency_address2">Address</label>
+				<input type="text" id="emergency_address2" />
+				<label for="emergency_phone">Phone No.</label>
+				<input type="text" id="emergency_phone" /><br />
+			</div>
+			
+			<div id="cosupplementary_info">
+				<h4>I. CO-APPLICANT'S SUPPLEMENTARY INFORMATION <small>(Complete only where different from First Applicant)</small></h4>
+				<label for="cosecond_phone">Secondary Phone No.</label>
+				<input type="text" id="cosecond_phone" />
+				<label for="cocellphone">Cell No.</label>
+				<input type="text" id="cocellphone" />
+				<label for="cofax_no">Fax No.</label>
+				<input type="text" id="cofax_no" />
+				<label for="cowork_phone">Work Phone No.</label>
+				<input type="text" id="cowork_phone" /><br />
+				
+				<label for="coemail">Email Address:</label>
+				<input type="email" id="coemail" />
+				<label for="photoID">Photo ID Shown</label>
+				<label for="yes_photoID">Yes</label>
+				<input type="radio" name="photoID" />
+				<label for="no_photoID">No</label>
+				<input type="radio" name="photoID" /><br />
+				
+				<label for="colandlord_current">Present Landlord/Building Manager's Name</label>
+				<input type="text" id="colandlord_current" />
+				<label for="colandlord_current_address">Address</label>
+				<input type="text" id="colandlord_current_address" />
+				<label for="colandlord_current_phone">Phone No.</label>
+				<input type="number" id="colandlord_current_phone" /><br />
+				
+				<label for="colandlord_previous">Previous Landlord/Building Manager's Name</label>
+				<input type="text" id="colandlord_previous" />
+				<label for="colandlord_previous_address">Address</label>
+				<input type="text" id="colandlord_previous_address" />
+				<label for="colandlord_previous_phone">Phone No.</label>
+				<input type="number" id="colandlord_previous_phone" /><br />
+				
+				<label for="coemployer">Employer</label>
+				<input type="text" id="coemployer" />
+				<label for="cojob">Position</label>
+				<input type="text" id="cojob" />
+				<label for="comonthly_income">Monthly Income</label>
+				<input type="text" id="comonthly_income" /><br />
+				
+				<label for="cosupervisor">Supervisor's Name</label>
+				<input type="text" id="cosupervisor" />
+				<label for="cosupervisor_phone">Supervisor's Phone No.</label>
+				<input type="text" id="cosupervisor_phone" />
+				<label for="coemployment_length">Length of employment</label>
+				<input type="text" id="coemployment_length" /><br />
+				
+				<label for="coemployer_previous">Previous Employer</label>
+				<input type="text" id="coemployer_previous" />
+				<label for="cojob_previous">Position</label>
+				<input type="text" id="cojob_previous" />
+				<label for="comonthly_income_previous">Monthly Income</label>
+				<input type="text" id="comonthly_income_previous" /><br />
+				
+				<label for="cosupervisor_previous">Previous Supervisor's Name</label>
+				<input type="text" id="cosupervisor_previous" />
+				<label for="cosupervisor_phone_previous">Previous Supervisor's Phone No.</label>
+				<input type="text" id="cosupervisor_phone_previous" />
+				<label for="coemployment_length_previous">Length of employment</label>
+				<input type="text" id="coemployment_length_previous" /><br />
+				
+				<label for="covehicle_make">Vehicle Make</label>
+				<input type="text" id="covehicle_make" />
+				<label for="comodel">Model</label>
+				<input type="text" id="comodel" />
+				<label for="covehicle_color">Colour</label>
+				<input type="text" id="covehicle_color" />
+				<label for="colicense_no">License Number</label>
+				<input type="text" id="colicense_no" /><br />
+				
+				<label for="covehicle_make_previous">Second Vehicle Make</label>
+				<input type="text" id="covehicle_make_previous" />
+				<label for="comodel_previous">Model</label>
+				<input type="text" id="comodel_previous" />
+				<label for="covehicle_color_previous">Colour</label>
+				<input type="text" id="covehicle_color_previous" />
+				<label for="colicense_no_previous">License Number</label>
+				<input type="text" id="colicense_no_previous" /><br />
+				
+				<b>Please give the name of a business or personal reference:</b>
+				<label for="coref_name">Name</label>
+				<input type="text" id="coref_name" />
+				<label for="coref_address">Address</label>
+				<input type="text" id="coref_address" />
+				<label for="coref_phone">Phone No.</label>
+				<input type="text" id="coref_phone" /><br />
+				
+				<b>Please give the name of next of kin, doctor or other person for emergency contact purposes:</b>
+				<label for="coemergency_name">Name</label>
+				<input type="text" id="coemergency_name" />
+				<label for="coemergency_address">Address</label>
+				<input type="text" id="coemergency_address" />
+				<label for="coemergency_phone">Phone No.</label>
+				<input type="text" id="coemergency_phone" /><br />
+				
+				<label for="coemergency_name2">Name</label>
+				<input type="text" id="coemergency_name2" />
+				<label for="coemergency_address2">Address</label>
+				<input type="text" id="coemergency_address2" />
+				<label for="coemergency_phone">Phone No.</label>
+				<input type="text" id="coemergency_phone" /><br />
+			</div>
+			
+			<div id="other_adults">
+				<h4>J. OTHER ADULT OCCUPANTS <small>-Full names of <b>all other adult persons</b> (age 19 or older) to occupy
+				this rental unit</small></h4>
+				<label for="adult1_last">Last Name</label>
+				<input type="text" id="adult1_last" />
+				<label for="adult1_first">First Name</label>
+				<input type="text" id="adult1_first" />
+				<label for="adult1_middle">Middle Name</label>
+				<input type="text" id="adult1_middle" />
+				
+				<label for="adult2_last">Last Name</label>
+				<input type="text" id="adult2_last" />
+				<label for="adult2_first">First Name</label>
+				<input type="text" id="adult2_first" />
+				<label for="adult2_middle">Middle Name</label>
+				<input type="text" id="adult2_middle" /><br />
+				
+				<label for="adult3_last">Last Name</label>
+				<input type="text" id="adult3_last" />
+				<label for="adult3_first">First Name</label>
+				<input type="text" id="adult3_first" />
+				<label for="adult3_middle">Middle Name</label>
+				<input type="text" id="adult3_middle" />
+				
+				<label for="adult4_last">Last Name</label>
+				<input type="text" id="adult4_last" />
+				<label for="adult4_first">First Name</label>
+				<input type="text" id="adult4_first" />
+				<label for="adult4_middle">Middle Name</label>
+				<input type="text" id="adult4_middle" />
+			</div><br />
+			
+			<div id="other_kids">
+				<h4>J. OTHER ADULT OCCUPANTS <small>-Full names of <b>all other adult persons</b> (age 19 or older) to occupy
+				this rental unit</small></h4>
+				<label for="kid1_last">Last Name</label>
+				<input type="text" id="kid1_last" />
+				<label for="kid1_first">First Name</label>
+				<input type="text" id="kid1_first" />
+				<label for="kid1_middle">Middle Name</label>
+				<input type="text" id="kid1_middle" />
+				
+				<label for="kid2_last">Last Name</label>
+				<input type="text" id="kid2_last" />
+				<label for="kid2_first">First Name</label>
+				<input type="text" id="kid2_first" />
+				<label for="kid2_middle">Middle Name</label>
+				<input type="text" id="kid2_middle" /><br />
+				
+				<label for="kid3_last">Last Name</label>
+				<input type="text" id="kid3_last" />
+				<label for="kid3_first">First Name</label>
+				<input type="text" id="kid3_first" />
+				<label for="kid3_middle">Middle Name</label>
+				<input type="text" id="kid3_middle" />
+				
+				<label for="kid4_last">Last Name</label>
+				<input type="text" id="kid4_last" />
+				<label for="kid4_first">First Name</label>
+				<input type="text" id="kid4_first" />
+				<label for="kid4_middle">Middle Name</label>
+				<input type="text" id="kid4_middle" />
+			</div><br />
+			
+			<div id="applicant_notes">
+				<h4>NOTES TO APPLICANT(S)</h4>
+				<ol>
+					<li>Social Insurance Numbers are requested for the sole purpose of obtaining credit reports.</li>
+					<li>The information you provided on this pages continues as part of your Application for tenancy. Your signature on the 1st page confirms all information
+						on both pages is true and correct.</li>
+				</ol>
+			</div>
+			
+			<input type="submit" value="Submit Application" />
+		</form>
+		
+		<script src="scripts/signature_pad.umd.js"></script>
+		<script src="scripts/signature_pad_app.js"></script>
+	</body>
+</html>

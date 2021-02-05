@@ -283,3 +283,37 @@ class SectionFlippableSet{
 		propertyInfo.insertBefore(this.captions[index], propertyInfo.firstChild);
 	}
 }
+
+var formExitBtn = document.createElement("span");
+formExitBtn.style.fontSize = "50pt";
+formExitBtn.style.position = "fixed";
+formExitBtn.style.top = "40pt";
+formExitBtn.style.right = "35pt";
+formExitBtn.style.color = "red";
+formExitBtn.innerHTML = "X";
+formExitBtn.style.transform = "rotate(0deg)";
+formExitBtn.style.zIndex = "2";
+formExitBtn.onclick = () => toggleForm();
+
+//toggle form
+var formToggled = false;
+var formBtn = document.getElementById("form_btn");
+var iframe = document.createElement("iframe");
+if(formBtn){
+	formBtn.onclick = () => toggleForm();
+}
+
+function toggleForm(){
+	if(!formToggled){
+		iframe.id = "application_form";
+		iframe.src = "../application.html";
+		
+		document.getElementsByClassName("info")[0].appendChild(iframe);
+		document.body.appendChild(formExitBtn);
+		formToggled = true;
+	} else {
+		document.getElementsByClassName("info")[0].removeChild(document.getElementById("application_form"));
+		document.body.removeChild(formExitBtn);
+		formToggled = false;
+	}
+}
