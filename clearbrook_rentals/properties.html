@@ -3,6 +3,14 @@
 	<head>
 		<title>Clearbrook Rental Properties Ltd.</title>
 		<link rel="stylesheet" type="text/css" href="scripts/main_style.css" />
+		<link rel="stylesheet" type="text/css" href="scripts/main_desktop.css" />
+		<style type="text/css">
+			@media only screen and (min-width: 1000px){
+				#header_banner{
+					margin-left: 75pt;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div id="navbar">
@@ -17,7 +25,7 @@
 			<div id="navbar_menu">
 				<a href="./index.html" class="link">Home</a>
 				<a href="./about.html" class="link">About Us</a>
-				<a href="./properties.html" class="link">Our Properties</a>
+				<a href="./properties.html" id="properties_link" class="link">Our Properties</a>
 				<div id="properties_dropdown_link">^</div>
 				<div id="properties_dropdown">
 					<a href="property_pages/property1.html" class="link">Property 1</a>
@@ -128,7 +136,7 @@
 						<a href="property_pages/property3.html"><button>View property</button></a>
 					</div>
 				</div>
-			</div>
+			</div><br class="desktop_break" />
 			<div class="section_flippable">
 				<div class="section_flippable_inner">
 					<div class="section_flippable_front">
@@ -222,10 +230,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
-		<div class="info">
-			Our clearbrook rental properties provide clean and convenient experiences.
 		</div>
 		
 		<footer>

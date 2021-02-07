@@ -3,6 +3,7 @@
 	<head>
 		<title>Clearbrook Rental Properties Ltd.</title>
 		<link rel="stylesheet" type="text/css" href="scripts/main_style.css" />
+		<link rel="stylesheet" type="text/css" href="scripts/main_desktop.css" />
 	</head>
 	<body>
 		<div id="navbar">
@@ -17,7 +18,7 @@
 			<div id="navbar_menu">
 				<a href="./index.html" class="link">Home</a>
 				<a href="./about.html" class="link">About Us</a>
-				<a href="./properties.html" class="link">Our Properties</a>
+				<a href="./properties.html" id="properties_link" class="link">Our Properties</a>
 				<div id="properties_dropdown_link">^</div>
 				<div id="properties_dropdown">
 					<a href="property_pages/property1.html" class="link">Property 1</a>
@@ -41,7 +42,7 @@
 				our tenants are proud to call home. With cheap pricing and quality service, you
 				can expect to have a great environment to work, relax, play, and sleep.
 			</p><br />
-			<a href="./properties.html" class="btn" id="properties_link">View our properties</a>
+			<a href="./properties.html" class="btn">View our properties</a>
 		</div>
 		
 		<footer>
@@ -54,13 +55,13 @@
 		
 		<script type="text/javascript" src="./scripts/main.js"></script>
 		<script type="text/javascript">
-			//fixes properties link
+			/*//fixes properties link
 			var propertiesLink = document.getElementById("properties_link");
 			window.addEventListener("click", ev => {
 				if(ev.pageX >= propertiesLink.offsetLeft && ev.pageX <= propertiesLink.offsetLeft + propertiesLink.offsetWidth
 					&& ev.pageY >= propertiesLink.offsetTop && ev.pageY <= propertiesLink.offsetTop + propertiesLink.offsetHeight)
 					window.location.href = "./properties.html";
-			});
+			});*/
 		</script>
 	</body>
 </html>

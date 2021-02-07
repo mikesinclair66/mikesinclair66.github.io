@@ -61,7 +61,9 @@ var propertiesDropdownToggled = false;
 var contactLink = document.getElementById("contact_link");
 var propertiesDropdown = document.getElementById("properties_dropdown");
 var propertiesDropdownLink = document.getElementById("properties_dropdown_link");
-propertiesDropdownLink.onclick = () => {
+propertiesDropdownLink.onclick = e => {
+	e.preventDefault();
+	
 	if(!propertiesDropdownToggled){
 		propertiesDropdownLink.style.transform = "rotate(0deg)";
 		propertiesDropdownLink.style.color = "#EAD160";
@@ -74,6 +76,17 @@ propertiesDropdownLink.onclick = () => {
 		propertiesDropdownToggled = false;
 	}
 };
+
+//desktop listener
+var propertiesLink = document.getElementById("properties_link");
+propertiesDropdownLink.addEventListener("click", () => {
+	if(window.innerWidth > 1000)
+		propertiesDropdown.style.left = propertiesLink.offsetLeft + 'px';
+});
+window.addEventListener("resize", () => {
+	if(propertiesDropdownToggled && window.innerWidth > 1000)
+		propertiesDropdown.style.left = propertiesLink.offsetLeft + 'px';
+});
 
 //slideshow script
 class Slideshow{
@@ -213,8 +226,10 @@ class Slideshow{
 			
 			this.guideDiv.insertBefore(dotsDiv, this.guideDiv.getElementsByClassName("right_guide")[0])
 			
-			window.addEventListener("click", ev => this.requestGuideListen(ev));
-			window.addEventListener("touchend", ev => this.requestGuideListen(ev));
+			if(window.innerWidth <= 1000){
+				window.addEventListener("click", ev => this.requestGuideListen(ev));
+				window.addEventListener("touchend", ev => this.requestGuideListen(ev));
+			}
 		}
 	}
 	
@@ -222,15 +237,23 @@ class Slideshow{
 		let left = this.guideDiv.getElementsByClassName("left_guide")[0];
 		let right = this.guideDiv.getElementsByClassName("right_guide")[0];
 		
+		console.log("ev.pageX: " + ev.pageX);
+		console.log("left start: " + left.offsetLeft);
+		console.log("left end: " + left.style.offsetLeft + 45);
+		
+		console.log("ev.pageY: " + ev.pageY);
+		console.log("left start: " + left.offsetTop);
+		console.log("left end: " + left.offsetTop + left.offsetHeight);
+		
 		if(ev.pageX >= left.offsetLeft && ev.pageX <= left.offsetLeft + left.offsetWidth
 			&& ev.pageY >= left.offsetTop && ev.pageY <= left.offsetTop + left.offsetHeight){
 			left.style.backgroundColor = "white";
 			left.style.color = "black";
 			let interval = window.setInterval(() => {
-				left.style.backgroundColor = "black";
-				left.style.color = "white";
 				this.previous();
 				this.count = 4;
+				left.style.backgroundColor = "black";
+				left.style.color = "white";
 				window.clearInterval(interval);
 			}, 300);
 		} else if(ev.pageX >= right.offsetLeft && ev.pageX <= right.offsetLeft + right.offsetWidth
@@ -238,10 +261,10 @@ class Slideshow{
 			right.style.backgroundColor = "white";
 			right.style.color = "black";
 			let interval = window.setInterval(() => {
-				right.style.backgroundColor = "black";
-				right.style.color = "white";
 				this.next();
 				this.count = 4;
+				right.style.backgroundColor = "black";
+				right.style.color = "white";
 				window.clearInterval(interval);
 			}, 300);
 		}
@@ -269,6 +292,16 @@ class SectionFlippableSet{
 		
 		for(let i = 0; i < this.sections.length; i++){
 			this.captions.push(document.createElement("span"));
+			this.sections[i].onclick = () => {
+				let stopRotate = false;
+				let inner = this.sections[i].getElementsByClassName("section_flippable_inner")[0];
+				if(inner.style.transform == "rotateY(180deg)"){
+					inner.style.transform = "none";
+					stopRotate = true;
+				}
+				if(!stopRotate)
+					inner.style.transform = "rotateY(180deg)";
+			};
 		}
 	}
 	
@@ -304,6 +337,7 @@ if(formBtn){
 }
 
 function toggleForm(){
+	/*
 	if(!formToggled){
 		iframe.id = "application_form";
 		iframe.src = "../application.html";
@@ -316,4 +350,15 @@ function toggleForm(){
 		document.body.removeChild(formExitBtn);
 		formToggled = false;
 	}
+	*/
+	
+	if(!formToggled){
+		document.getElementById("temp_form").style.display = "block";
+		formToggled = true;
+	}
+	
+	document.getElementById("exit_temp").onclick = () => {
+		document.getElementById("temp_form").style.display = "none";
+		formToggled = false;
+	};
 }

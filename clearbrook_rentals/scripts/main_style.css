@@ -111,6 +111,10 @@ body{
 	text-align: center;
 }
 
+#property_title{
+	text-align: center;
+}
+
 .btn{
 	transition: 0.5s;
 	font-size: 50pt;
@@ -151,8 +155,35 @@ body{
 	color: white;
 }
 
+#values{
+	background-color: #6D6D6D;
+	color: white;
+	margin: 70pt -57pt 0 -91pt;
+	padding: 2pt 91pt 40pt 91pt;
+}
+
+#values h2{
+	text-align: center;
+	margin-bottom: -30pt;
+	margin-left: 45pt;
+}
+
+#values h4{
+	transition: 0.5s;
+	color: #d0d0d0;
+}
+
+#values hr{
+	transition: 0.5s;
+	background-color: white;
+	width: 100pt;
+	height: 1pt;
+}
+
 .info ul{
 	margin-left: 15pt;
+	text-align: center;
+	list-style: none;
 }
 
 #table_info{
@@ -239,6 +270,7 @@ footer a:active, footer a:hover{
 	padding-bottom: 580pt;
 	position: relative;
 	left: calc(50% - 300pt);
+	cursor: pointer;
 }
 
 /* This container is needed to position the front and back side */
@@ -253,7 +285,7 @@ footer a:active, footer a:hover{
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
 .section_flippable:hover .section_flippable_inner {
-	transform: rotateY(180deg);
+	
 }
 
 /* Position the front and back side */
@@ -312,6 +344,7 @@ footer a:active, footer a:hover{
 	width: 275pt;
 	height: 125pt;
 	padding-bottom: 140pt;
+	margin-top: 50pt;
 	color: black;
 	border: solid black 10pt;
 	font-family: "Tahoma Regular";
@@ -392,4 +425,29 @@ footer a:active, footer a:hover{
 	z-index: 1;
 	transform: rotate(0deg);
 	text-align: center;
+}
+
+.desktop_break{
+	display: none;
+}
+
+#temp_form{
+	display: none;
+	background-color: #6D6D6D;
+	border: solid #969696 10pt;
+	border-radius: 80pt;
+	padding: 25pt;
+	padding-top: 75pt;
+	width: 80%;
+	position: fixed;
+	top: 20%;
+	left: 5%;
+}
+
+#temp_form #exit_temp{
+	color: #EAD160;
+	font-size: 70pt;
+	position: fixed;
+	top: 21%;
+	right: 12%;
 }

@@ -1,0 +1,378 @@
+@media only screen and (min-width: 1000px){
+	body{
+		font-size: 20pt;
+		overflow-x: hidden;
+	}
+
+	#navbar{
+		height: 75pt;
+	}
+
+	#logo{
+		margin-top: -12pt;
+		margin-left: 5pt;
+		width: 100pt;
+		height: 100pt;
+	}
+
+	#hamburger_btn{
+		display: none;
+	}
+
+	.hamburger_slot{
+		
+	}
+
+	#navbar_menu{
+		filter: alpha(opacity=100);
+		opacity: 1.0;
+		background: none;
+		height: 250pt;
+		padding-top: 15pt;
+	}
+
+	.link{
+		display: inline-block;
+		font-size: 20pt;
+		padding: 0 10pt 0 10pt;
+	}
+
+	.link:hover, .link:active{
+		
+	}
+
+	#properties_dropdown_link{
+		font-size: 30pt;
+		margin: 0 0 0 -10pt;
+		cursor: pointer;
+		display: inline-block;
+	}
+	
+	#properties_dropdown_link:hover{
+		transition: 0.5s;
+		color: #EAD160;
+	}
+
+	#properties_dropdown{/* Height: 1172 */
+		margin: 0;
+		border: solid 1pt #969696;
+		width: 160pt;
+		position: absolute;
+		top: 75pt;
+		left: 415pt;
+		z-index: 300;
+		transform: rotate(0deg);
+	}
+
+	#properties_dropdown .link{
+		display: block;
+		padding-top: 10pt;
+		border-bottom: solid 1pt #969696;
+		font-size: 15pt;
+	}
+
+	#properties_dropdown .link:hover, #properties_dropdown .link:active{
+		
+	}
+
+	/* Page content */
+	#header_banner{
+		text-align: left;
+		padding: 0 75pt 0 75pt;
+		margin: 0 10pt 0 10pt;
+	}
+
+	#header_banner span{
+		
+	}
+
+	#banner_sub_header{
+		position: relative;
+		right: 200pt;
+	}
+	
+	#property_title{
+		text-align: center;
+	}
+
+	.btn{
+		transition: 0.5s;
+		padding: 10pt;
+		font-size: 20pt;
+		border: solid white 4pt;
+		cursor: pointer;
+	}
+	
+	.btn:hover{
+		transition: 0.5s;
+		border: solid black 4pt;
+		background-color: white;
+		color: black;
+	}
+
+	.btn img{
+		width: 35pt;
+		height: 35pt;
+	}
+
+	.info{
+		padding: 0 75pt 0 75pt;
+		margin: 0 10pt 0 10pt;
+	}
+
+	.info table{
+		position: absolute;
+		top: 130pt;
+		right: calc(50% - 350pt);
+	}
+
+	.info th, .info td{
+		padding: 5pt;
+	}
+
+	.info th{
+		
+	}
+
+	.info td{
+		
+	}
+	
+	#values{
+		margin: 40pt -91pt 0 -91pt;
+		padding-bottom: 0;
+	}
+	
+	#values h2{
+		margin-left: 0;
+	}
+	
+	#values h4{
+		
+	}
+	
+	#values hr{
+		
+	}
+
+	.info ul{
+		margin-left: 0;
+	}
+	
+	.info li{
+		transition: 1s;
+		display: inline-block;
+		width: 200pt;
+		padding: 30pt;
+		margin-left: -25pt;
+		text-align: center;
+	}
+
+	#table_info{
+		
+	}
+
+	#table_info .btn{
+		
+	}
+
+	#table_info .btn:active, #table_info .btn:hover{
+		
+	}
+
+	footer{
+		font-size: 13pt;
+		padding: 0 0 20pt 0;
+		margin-top: 50pt;
+		margin-left: -10pt;
+	}
+
+	footer img{
+		width: 180pt;
+		height: 180pt;
+		margin: -15pt 0 -20pt 0;
+	}
+
+	footer a{
+		
+	}
+
+	footer a:active, footer a:hover{
+		
+	}
+
+	/* Property section views */
+	#property_section_flippables{
+		text-align: center;
+		position: static;
+	}
+
+	.property_info{
+		
+	}
+
+	.property_info #first_child{
+		padding: 5pt 50pt 5pt 50pt;
+	}
+
+	.property_info #third_child{
+		position: relative;
+		bottom: 15pt;
+	}
+
+	.property_info table, .property_info #last_child{
+		
+	}
+
+	.property_info td{
+		
+	}
+
+	/* The flip box container - set the width and height to whatever you want.*/
+	.section_flippable {
+		height: 250pt;
+		width: 208pt;
+		margin: 0;
+		display: inline-block;
+		padding: 0;
+		padding-bottom: 115pt;
+		position: static;
+	}
+
+	/* This container is needed to position the front and back side */
+	.section_flippable_inner {
+		
+	}
+
+	/* Do an horizontal flip when you move the mouse over the flip box container */
+	.section_flippable:hover .section_flippable_inner {
+		
+	}
+
+	/* Position the front and back side */
+	.section_flippable_front, .section_flippable_back {
+		
+	}
+
+	/* Style the front side (fallback if image is missing) */
+	.section_flippable_front {
+		
+	}
+
+	.section_flippable_front img{
+		width: 208pt;
+	}
+
+	/* Style the back side */
+	.section_flippable_back {
+		padding-bottom: 107pt;
+	}
+
+	.section_flippable_front button{
+		
+	}
+
+	.section_flippable_back td{
+		
+	}
+
+	.section_flippable_back th, .section_flippable_back td, .section_flippable_back span{
+		font-size: 20pt;
+		padding: 0;
+	}
+
+	.section_flippable_back #address{
+		
+	}
+
+	.section_flippable_back button{
+		font-size: 20pt;
+		width: 80%;
+		height: 30pt;
+		padding-top: 5pt;
+		padding-bottom: 30pt;
+		border: solid black 4pt;
+	}
+
+	.section_flippable_back button:hover, .section_flippable_back button:active{
+		
+	}
+
+	/* Property slideshows */
+	.slideshow{
+		
+	}
+
+	.slide{
+		position: relative;
+		right: 200pt;
+	}
+
+	.slide img{
+		width: 200pt;
+	}
+
+	.sub_info{
+		margin-top: 20pt;
+		padding-bottom: 0;
+	}
+
+	.guide{
+		display: none;
+		font-size: 80pt;
+		padding-bottom: 0;
+		margin-top: -15pt;
+		position: relative;
+		right: 200pt;
+	}
+
+	.dots{
+		right: 10pt;
+		bottom: 11pt;
+	}
+
+	.left_guide, .right_guide{
+		font-size: 45pt;
+		border-radius: 50pt;
+		border: solid white 5pt;
+		padding: 0 13pt 0 13pt;
+		cursor: pointer;
+	}
+
+	.left_guide:hover, .right_guide:hover{
+		
+	}
+
+	.guide_selected{
+		
+	}
+
+	#phone_number{
+		
+	}
+
+	#application_form{
+		
+	}
+	
+	.desktop_break{
+		display: block;
+	}
+	
+	#temp_form{
+		border: solid #969696 5pt;
+		border-radius: 80pt;
+		width: 60%;
+		height: 150pt;
+		top: 20%;
+		left: 16%;
+	}
+
+	#temp_form #exit_temp{
+		cursor: pointer;
+		font-size: 50pt;
+		position: fixed;
+		top: 25%;
+		right: 22%;
+	}
+}

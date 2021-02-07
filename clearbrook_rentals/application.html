@@ -53,7 +53,33 @@
 				height: 250pt;
 				display: none;
 			}
+			
+			#confirmation_window{
+				background-color: white;
+				border-radius: 100pt;
+				border: solid black 5pt;
+				width: 600pt;
+				height: 500pt;
+				z-index: 200;
+				position: fixed;
+				top: calc(50% - 250pt);
+				left: calc(50% - 300pt);
+				transform: rotate(0deg);
+				padding: 40pt 10pt 0 30pt;
+				font-size: 40pt;
+				font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
+				text-align: center;
+				display: none;
+			}
+			
+			#confirmation_window a{
+				padding-right: 25pt;
+				padding-left: 25pt;
+			}
 		</style>
+		
+		<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
+		<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
 	</head>
 
 	<body>
@@ -63,6 +89,11 @@
 			<i>
 				To apply for a rental application or make a general inquiry via phone, please give us a call
 				at (+1) 604-217-0279.
+			</i>
+			
+			<i>
+				To fill our application out in writing, please print out and fill our form
+				<a href="https://clearbrookrentals.ca/fillable_application.pdf" target="_blank">here</a>
 			</i>
 			
 			<h3>INSTRUCTIONS</h3>
@@ -651,15 +682,309 @@
 				<h4>NOTES TO APPLICANT(S)</h4>
 				<ol>
 					<li>Social Insurance Numbers are requested for the sole purpose of obtaining credit reports.</li>
-					<li>The information you provided on this pages continues as part of your Application for tenancy. Your signature on the 1st page confirms all information
-						on both pages is true and correct.</li>
+					<li>The information you provided on this pages continues as part of your Application for tenancy.
+						Your signature on the 1st page confirms all information on both pages is true and correct.</li>
 				</ol>
 			</div>
 			
-			<input type="submit" value="Submit Application" />
+			<a href="#" target="_blank" id="submit_btn">Submit</a>
 		</form>
 		
-		<script src="scripts/signature_pad.umd.js"></script>
-		<script src="scripts/signature_pad_app.js"></script>
+		<div id="confirmation_window">
+			<b>
+				Are you sure you want to submit this form? All your information will be assumed true by law.
+			</b>
+			<br /><br />
+			<a href="#" id="confirmation_yes">Yes</a>
+			<a href="#" id="confirmation_no">No</a>
+		</div>
+		
+		<script src="scripts/signature_pad.umd.js" type="text/javascript"></script>
+		<script src="scripts/signature_pad_app.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			var confirmationWindow = document.getElementById("confirmation_window");
+			var confirmationActive = false;
+			var pdfUrl;
+			
+			const { PDFDocument, StandardFonts } = PDFLib;
+			
+			function innerText(id){
+				return document.getElementById(id).textContent;
+			}
+			
+			function writeText(page, textFont, text, textX, textY){
+				page.drawText(text, {
+					x: textX,
+					y: textY,
+					size: 30,
+					font: textFont
+				});
+			}
+			
+			async function modifyPage(page2, page3, font){
+				//skip section A as it's filled by the landlord.
+				let firstSec = 1000;
+				
+				
+				
+				//B
+				//name
+				writeText(page2, font, "ELLO", 75, 400);
+				writeText(page2, font, "ELLO", 150, 400);
+				writeText(page2, font, "ELLO", 225, 400);
+				/*
+				//dob
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//sin
+				writeText(page, font, , , );
+				//presentproperty
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//previousproperty
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				
+				//C
+				//name
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//dob
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//sin
+				writeText(page, font, , , );
+				//presentproperty
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//previousproperty          
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				
+				//D
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				writeText(page, font, , , );//radio
+				
+				//F
+				//blob for primary signature
+				writeText(page, font, , , );
+				//blob for secondary signature
+				writeText(page, font, , , );
+				
+				//H
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//radio
+				//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//vehiclesec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//refsec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//emergencysec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				
+				//I
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//radio
+				//radio
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//vehiclesec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//refsec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				//emergencysec
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				
+				//J
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				
+				//K
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				writeText(page, font, , , );
+				*/
+			}
+			
+			async function copyPages() {
+				/*
+				// Fetch first existing PDF document
+				const firstDonorPdfBytes = await fetch("https://clearbrookrentals.ca/fillable_application.pdf").then(res => res.arrayBuffer());
+	
+				// Load a PDFDocument from each of the existing PDFs
+				const firstDonorPdfDoc = await PDFDocument.load(firstDonorPdfBytes);
+				
+				// Create a new PDFDocument
+				const pdfDoc = await PDFDocument.create();
+				const tnrFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+	
+				// Copy the 1st page from the first donor document, and 
+				// the 743rd page from the second donor document
+				const [page] = await pdfDoc.copyPages(firstDonorPdfDoc, [0]);
+				
+				await modifyPage(page, tnrFont);
+	
+				// Add the first copied page
+				pdfDoc.addPage(page);
+	
+				// Serialize the PDFDocument to bytes (a Uint8Array)
+				const pdfBytes = await pdfDoc.save();*/
+				
+				const pdfDoc = await PDFDocument.create();
+				const page = pdfDoc.addPage(), page2 = pdfDoc.addPage(), page3 = pdfDoc.addPage();
+				const tnrFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+				await modifyPage(page2, page3, tnrFont);
+				
+				const pdfBytes = await pdfDoc.save();
+	
+				// Trigger the browser to download the PDF document
+				const confirmationYes = document.getElementById("confirmation_yes");
+				var blob = new Blob([pdfBytes], {type: 'application/pdf'});
+				var url = window.URL.createObjectURL(blob);
+				window.open(url, "newPdf.pdf", "height=700, width=700");
+			}
+			
+			document.getElementById("submit_btn").addEventListener("click", e => {
+				e.preventDefault();
+				copyPages();
+				confirmationWindow.style.display = "block";
+				confirmationActive = true;
+			});
+			
+			document.getElementById("confirmation_no").onclick = e => {
+				e.preventDefault();
+				confirmationWindow.style.display = "none";
+				confirmationActive = false;
+			};
+			
+			document.getElementById("confirmation_yes").onclick = e => {
+				e.preventDefault();
+				confirmationActive = false;
+				window.URL.revokeObjectURL(document.getElementById("confirmation_yes").href);
+			};
+		</script>
 	</body>
 </html>
