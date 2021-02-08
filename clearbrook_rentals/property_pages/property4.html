@@ -4,6 +4,13 @@
 		<title>Clearbrook Rental Properties Ltd.</title>
 		<link rel="stylesheet" type="text/css" href="../scripts/main_style.css" />
 		<link rel="stylesheet" type="text/css" href="../scripts/main_desktop.css" />
+		<style type="text/css">
+			@media only screen and (min-width: 1000px){
+				body{
+					background-color: white;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<div id="navbar">
@@ -37,7 +44,7 @@
 		</div>
 		
 		<div id="slideshow">
-		<h3 id="banner_sub_header">33499 Marshall Rd</h3>
+			<h3 id="banner_sub_header">33499 Marshall Rd</h3>
 			<div class="slide">
 				<img src="../images/stock_img.jpg" alt="Property 1" />
 				<div class="sub_info">3 bedrooms</div>
@@ -68,7 +75,12 @@
 			</div>
 		</div>
 		
-		<div class="info">
+		<div class="info" id="property_info_view">
+			<div id="property_title_desktop">
+				<h2>Property 4</h2>
+			</div>
+			<h3 id="banner_sub_header_desktop">33499 Marshall Rd</h3>
+			
 			<table align="center">
 				<tr>
 					<th>Bedrooms</th>
@@ -101,7 +113,7 @@
 			by hand, please find our form and print it <a href="https://clearbrookrentals.ca/fillable_application.pdf" target="_blank">Here</a>.
 		</div>
 		
-		<footer>
+		<footer id="property_footer">
 			<img src="../images/logo_transparent.png" alt="Clearbrook Rental Properties Ltd." />
 			<br />
 			© Copyright 2020 | Clearbrook Rental Properties Ltd. | All Rights Reserved
@@ -112,7 +124,7 @@
 		<script type="text/javascript" src="../scripts/main.js"></script>
 		<script type="text/javascript">
 			//activate the slideshow
-			slideshow = new Slideshow("slideshow", "slide");
+			var slideshow = new Slideshow("slideshow", "slide");
 			slideshow.start();
 			
 			var menuActive = false;
@@ -120,9 +132,11 @@
 				if(!menuActive){
 					menuActive = true;
 					slideshow.pause();
+					slideshowDesktop.pause();
 				} else {
 					menuActive = false;
 					slideshow.start();
+					slideshowDesktop.start();
 				}
 			});
 		</script>

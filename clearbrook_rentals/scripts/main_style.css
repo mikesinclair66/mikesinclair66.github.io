@@ -111,8 +111,16 @@ body{
 	text-align: center;
 }
 
+#banner_sub_header_desktop{
+	display: none;
+}
+
 #property_title{
 	text-align: center;
+}
+
+#property_title_desktop{
+	display: none;
 }
 
 .btn{
@@ -131,13 +139,16 @@ body{
 	margin-bottom: -10pt;
 }
 
+#property_info_view{
+	
+}
+
 .info{
 	padding: 0 40pt 0 40pt;
 	margin: 0 10pt 0 10pt;
 }
 
 .info table{
-	margin-top: 50pt;
 	color: black;
 }
 
@@ -178,6 +189,10 @@ body{
 	background-color: white;
 	width: 100pt;
 	height: 1pt;
+}
+
+#covid_disclaimer{
+	padding-top: 10pt;
 }
 
 .info ul{
@@ -410,6 +425,10 @@ footer a:active, footer a:hover{
 .guide_selected{
 	transition: 0.5s;
 	color: #EAD160;
+}
+
+#desktop_slideshow{
+	color: black;
 }
 
 #phone_number{

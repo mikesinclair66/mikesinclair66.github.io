@@ -6,6 +6,9 @@
 
 	#navbar{
 		height: 75pt;
+		z-index: 3;
+		position: relative;
+		transform: rotate(0deg);
 	}
 
 	#logo{
@@ -71,13 +74,24 @@
 	}
 
 	#banner_sub_header{
-		position: relative;
-		right: 150pt;
+		display: none;
+	}
+	
+	#banner_sub_header_desktop{
+		color: black;
+		text-align: center;
+		margin-top: -10pt;
+		display: block;
 	}
 	
 	#property_title{
+		display: none;
+	}
+	
+	#property_title_desktop{
+		display: block;
 		text-align: center;
-		padding-bottom: 6pt;
+		color: black;
 	}
 
 	.btn{
@@ -99,6 +113,16 @@
 		width: 35pt;
 		height: 35pt;
 	}
+	
+	#property_info_view{
+		background-image: linear-gradient(to right, white, #969696);
+		padding-bottom: 25pt;
+		width: 45%;
+		height: 550pt;
+		position: absolute;
+		top: 75pt;
+		right: -10pt;
+	}
 
 	.info{
 		padding: 0 75pt 0 75pt;
@@ -106,13 +130,12 @@
 	}
 
 	.info table{
-		position: absolute;
-		top: 160pt;
-		right: calc(50% - 300pt);
+		
 	}
 
 	.info th, .info td{
 		padding: 5pt;
+		border: solid black 5pt;
 	}
 	
 	#values{
@@ -123,9 +146,17 @@
 	#values h2{
 		margin-left: 0;
 	}
+	
+	#covid_disclaimer{
+		padding-top: 0.5pt;
+	}
 
 	.info ul{
 		margin-left: 0;
+	}
+	
+	#table_info, #table_info .btn{
+		border: solid black 5pt;
 	}
 	
 	.info li{
@@ -142,12 +173,19 @@
 		padding: 0 0 20pt 0;
 		margin-top: 50pt;
 		margin-left: -10pt;
+		z-index: 2;
+		transform: rotate(0deg);
+		position: relative;
 	}
 
 	footer img{
 		width: 180pt;
 		height: 180pt;
 		margin: -15pt 0 -20pt 0;
+	}
+	
+	#property_footer{
+		margin-top: -25pt;
 	}
 
 	/* Property section views */
@@ -201,16 +239,16 @@
 
 	.slide{
 		position: relative;
-		right: 150pt;
+		right: calc(50% - 178pt);
 	}
 
 	.slide img{
-		width: 200pt;
+		margin-top: -1pt;
+		width: 380pt;
 	}
 
 	.sub_info{
-		margin-top: 20pt;
-		padding-bottom: 0;
+		display: none;
 	}
 
 	.guide{
@@ -260,5 +298,18 @@
 @media only screen and (min-width: 1500px){
 	footer{
 		margin-top: 120pt;
+	}
+	
+	#property_footer{
+		margin-top: -35pt;
+	}
+	
+	.slide img{
+		width: 32%;
+	}
+	
+	#property_info_view{
+		width: 60%;
+		right: -4%;
 	}
 }
