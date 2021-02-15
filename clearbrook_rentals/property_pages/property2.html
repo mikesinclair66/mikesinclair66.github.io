@@ -106,12 +106,14 @@
 			</table>
 		</div>
 		
+		<!--
 		<div id="temp_form">
 			<span id="exit_temp">X</span>
 			Our online application is currently in development and will arrive soon. For applications or inquiries by phone,
 			please call <span id="phone_number">(+1) 604-217-0279</span>. If you would like to fill our rental application
 			by hand, please find our form and print it <a href="https://clearbrookrentals.ca/fillable_application.pdf" target="_blank">Here</a>.
 		</div>
+		-->
 		
 		<footer id="property_footer">
 			<img src="../images/logo_transparent.png" alt="Clearbrook Rental Properties Ltd." />
@@ -122,6 +124,7 @@
 		</footer>
 		
 		<script type="text/javascript" src="../scripts/main.js"></script>
+		<script type="text/javascript" src="../scripts/application_script.js"></script>
 		<script type="text/javascript">
 			//activate the slideshow
 			var slideshow = new Slideshow("slideshow", "slide");
@@ -132,11 +135,9 @@
 				if(!menuActive){
 					menuActive = true;
 					slideshow.pause();
-					slideshowDesktop.pause();
 				} else {
 					menuActive = false;
 					slideshow.start();
-					slideshowDesktop.start();
 				}
 			});
 		</script>

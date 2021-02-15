@@ -130,7 +130,7 @@
 	}
 
 	.info table{
-		
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.38);
 	}
 
 	.info th, .info td{
@@ -292,6 +292,12 @@
 		position: fixed;
 		top: 25%;
 		right: 22%;
+	}
+	
+	iframe{
+		border: solid white 5pt;
+		margin: -20pt 0 0 -12.5pt;
+		padding: 0 0 0 15pt;
 	}
 }
 

@@ -6,7 +6,7 @@ Aside from the signature_pad html document and signature_pad scripts, all files 
 Intiva Technologies.
 */
 
-var wrapper = document.getElementById("signature-pad");
+var wrapper = document.getElementById("e-signature1");
 var clearButton = wrapper.querySelector("[data-action=clear]");
 var undoButton = wrapper.querySelector("[data-action=undo]");
 var saveJPGButton = wrapper.querySelector("[data-action=save-jpg]");
@@ -15,6 +15,8 @@ var canvas = wrapper.querySelector("canvas");
 var signaturePad = new SignaturePad(canvas, {
   backgroundColor: 'rgb(255, 255, 255)'
 });
+var sig1 = signaturePad.toDataURL("image/jpeg"), sig2 = signaturePad.toDataURL("image/jpeg");
+var sig1Signed = false, sig2Signed = false;
 
 function resizeCanvas() {
 	var ratio =  Math.max(window.devicePixelRatio || 1, 1);
@@ -29,8 +31,11 @@ window.onresize = resizeCanvas;
 resizeCanvas();
 
 function upload(dataURL, filename, filler) {
-	//window.open(dataURL);
 	var blob = dataURLToBlob(dataURL);
+	if(filler === "esignature_here")
+		sig1 = blob;
+	else if(filler === "esignature_here2");
+		sig2 = blob;
 	
 	var signaturePlaceholders = document.getElementsByClassName(filler);
 	if(signaturePlaceholders){
@@ -75,6 +80,7 @@ saveJPGButton.addEventListener("click", function (event) {
 	} else {
 		var dataURL = signaturePad.toDataURL("image/jpeg");
 		upload(dataURL, "signature.jpg", "esignature_here");
+		sig1Signed = true;
 	}
 });
 
@@ -84,5 +90,6 @@ saveJPGButton2.addEventListener("click", function (event) {
 	} else {
 		var dataURL = signaturePad.toDataURL("image/jpeg");
 		upload(dataURL, "signature.jpg", "esignature_here2");
+		sig2Signed = true;
 	}
 });

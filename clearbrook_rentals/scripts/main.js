@@ -5,6 +5,7 @@ var hamburgerSlots = [];
 hamburgerSlots.push(document.getElementById("slot1"));
 hamburgerSlots.push(document.getElementById("slot2"));
 hamburgerSlots.push(document.getElementById("slot3"));
+var navbar = document.getElementById("navbar");
 var navbarMenu = document.getElementById("navbar_menu");
 var links = document.getElementsByClassName("link");
 
@@ -237,14 +238,6 @@ class Slideshow{
 		let left = this.guideDiv.getElementsByClassName("left_guide")[0];
 		let right = this.guideDiv.getElementsByClassName("right_guide")[0];
 		
-		console.log("ev.pageX: " + ev.pageX);
-		console.log("left start: " + left.offsetLeft);
-		console.log("left end: " + left.style.offsetLeft + 45);
-		
-		console.log("ev.pageY: " + ev.pageY);
-		console.log("left start: " + left.offsetTop);
-		console.log("left end: " + left.offsetTop + left.offsetHeight);
-		
 		if(ev.pageX >= left.offsetLeft && ev.pageX <= left.offsetLeft + left.offsetWidth
 			&& ev.pageY >= left.offsetTop && ev.pageY <= left.offsetTop + left.offsetHeight){
 			left.style.backgroundColor = "white";
@@ -315,50 +308,4 @@ class SectionFlippableSet{
 		this.captions[index].style.left = "0";
 		propertyInfo.insertBefore(this.captions[index], propertyInfo.firstChild);
 	}
-}
-
-var formExitBtn = document.createElement("span");
-formExitBtn.style.fontSize = "50pt";
-formExitBtn.style.position = "fixed";
-formExitBtn.style.top = "40pt";
-formExitBtn.style.right = "35pt";
-formExitBtn.style.color = "red";
-formExitBtn.innerHTML = "X";
-formExitBtn.style.transform = "rotate(0deg)";
-formExitBtn.style.zIndex = "2";
-formExitBtn.onclick = () => toggleForm();
-
-//toggle form
-var formToggled = false;
-var formBtn = document.getElementById("form_btn");
-var iframe = document.createElement("iframe");
-if(formBtn){
-	formBtn.onclick = () => toggleForm();
-}
-
-function toggleForm(){
-	/*
-	if(!formToggled){
-		iframe.id = "application_form";
-		iframe.src = "../application.html";
-		
-		document.getElementsByClassName("info")[0].appendChild(iframe);
-		document.body.appendChild(formExitBtn);
-		formToggled = true;
-	} else {
-		document.getElementsByClassName("info")[0].removeChild(document.getElementById("application_form"));
-		document.body.removeChild(formExitBtn);
-		formToggled = false;
-	}
-	*/
-	
-	if(!formToggled){
-		document.getElementById("temp_form").style.display = "block";
-		formToggled = true;
-	}
-	
-	document.getElementById("exit_temp").onclick = () => {
-		document.getElementById("temp_form").style.display = "none";
-		formToggled = false;
-	};
 }

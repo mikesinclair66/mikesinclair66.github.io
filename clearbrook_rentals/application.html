@@ -6,29 +6,48 @@
 			form{
 				width: 105%;
 				height: 100%;
-				background-color: white;
+				background-color: black;
+				border: none;
 				font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
-				font-size: 25pt;
-				padding: 10pt 30pt 10pt 30pt;
+				font-size: 50pt;
+				padding: 50pt;
 				margin: -10pt -40pt -40pt -10pt;
+				color: white;
 				position: relative;
 				transform: rotate(0deg);
-				z-index: 100;
+				z-index: 999;
+			}
+			
+			#instructions, #applicant_notes{
+				margin-left: 25pt;
 			}
 			
 			input{
+				transition: 0.5s;
 				background: none;
 				background-color: #EAD160;
+				font-size: 45pt;
+			}
+			
+			input[type=text], input[type=date], input[type=number], input[type=email]{
+				border: none;
+				background: none;
+				color: #EAD160;
+				border-bottom: solid white 3pt;
 			}
 			
 			input[type=radio]{
-				width: 30pt;
-				height: 30pt;
+				width: 50pt;
+				height: 50pt;
+				margin-top: 25pt;
+				background: red;
+				display: inline-block;
 			}
 			
-			input[type=input]{
-				width: 100pt;
-				padding: 50pt 0 50pt 0;
+			input[type=date]{
+				background-color: white;
+				padding-left: 10pt;
+				padding-top: 5pt;
 			}
 			
 			input[type=submit]{
@@ -44,6 +63,10 @@
 				font-size: 30pt;
 			}
 			
+			h1{
+				color: #EAD160;
+			}
+			
 			i{
 				text-align: center;
 			}
@@ -56,25 +79,105 @@
 			
 			#confirmation_window{
 				background-color: white;
+				color: black;
 				border-radius: 100pt;
 				border: solid black 5pt;
 				width: 600pt;
 				height: 500pt;
 				z-index: 200;
-				position: fixed;
-				top: calc(50% - 250pt);
-				left: calc(50% - 300pt);
 				transform: rotate(0deg);
 				padding: 40pt 10pt 0 30pt;
 				font-size: 40pt;
 				font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
 				text-align: center;
 				display: none;
+				margin-top: 50pt;
 			}
 			
 			#confirmation_window a{
+				transition: 0.5s;
 				padding-right: 25pt;
 				padding-left: 25pt;
+			}
+			
+			#confirmation_window a:active, #confirmation_window a:hover{
+				transition: 0.5s;
+				color: black;
+			}
+			
+			a{
+				transition: 0.5s;
+				color: #EAD160;
+			}
+			
+			a:active, a:hover{
+				transition: 0.5s;
+				color: white;
+			}
+			
+			label{
+				display: block;
+				margin-top: -40pt;
+				padding-top: 80pt;
+			}
+			
+			#hotbar{
+				margin-top: -125pt;
+				margin-bottom: 75pt;
+				width: 525pt;
+			}
+			
+			#hotbar_bottom{
+				margin-top: -40pt;
+				margin-bottom: -75pt;
+			}
+			
+			.button{
+				transition: 0.5s;
+				padding: 10pt;
+				border-radius: 35pt;
+				border: solid #EAD160 4pt;
+				color: #EAD160;
+				background: none;
+				text-align: center;
+				font-size: 40pt;
+			}
+			
+			.button:hover, .button:active{
+				transition: 0.5s;
+				background-color: #EAD160;
+				color: white;
+			}
+			
+			@media only screen and (min-width: 1000px){
+				form{
+					padding: 25pt;
+					margin: 0;
+					margin-left: -8pt;
+					width: 100%;
+					height: 100%;
+					font-size: 20pt;
+				}
+				
+				input{
+					font-size: 25pt;
+				}
+				
+				.button{
+					font-size: 30pt;
+					cursor: pointer;
+				}
+				
+				#hotbar{
+					margin-top: 0;
+					width: 525pt;
+				}
+				
+				#hotbar_bottom{
+					width: 500pt;
+					margin-left: 10pt;
+					margin-bottom: 5pt;
+				}
 			}
 		</style>
 		
@@ -97,7 +200,7 @@
 			</i>
 			
 			<h3>INSTRUCTIONS</h3>
-			<ol>
+			<ol id="instructions">
 				<li>Landlord must complete all of Section A (Offer to Rent).</li>
 
 				<li>If possible, remainder of form to be completed by Landlord interviewing Applicant.</li>
@@ -126,82 +229,9 @@
 			
 			<br /><br /><br /><br />
 			
-			<div id="landlord_section">
-				<span>THE LANDLORD OR LANDLORD'S AUTHORIZED AGENT (called the “Landlord”) MUST COMPLETE ALL BLANKS IN THIS SECTION</span>
-				<h4>A. OFFER TO RENT</h4>
-				<span>I/We, the undersigned (called the “Applicant”), offer to rent a rental unit in British Columbia known as:</span><br />
-				
-				<label for="suite_no">Suite no.</label>
-				<input type="number" id="suite_no" />
-				<label for="building_address">Building Address</label>
-				<input type="text" id="building_address" /><br />
-				
-				<label for="monthly_rent">at a monthly rent of $</label>
-				<input type="number" id="monthly_rent" />
-				<label for="parking_fees">plus parking fees of $</label>
-				<input type="number" id="parking_fees" />
-				<label for="other_fees">plus other fees of $</label>
-				<input type="number" id="other_fees" />
-				<label for="total_monthly_cost">for a total monthly cost of $</label>
-				<input type="number" id="total_monthly_cost" /><br />
-				
-				<span>The above rent includes only the utilities below. Payment for all other utilities is the tenant's responsibility.</span><br />
-				
-				<label for="heat">Heat</label>
-				<input type="checkbox" name="utility" />
-				<label for="water">Water Supply</label>
-				<input type="checkbox" name="utility" />
-				<label for="hot_water">Hot Water</label>
-				<input type="checkbox" name="utility" />
-				<label for="electricity">Electricity</label>
-				<input type="checkbox" name="utility" />
-				<label for="cable">Cablevision</label>
-				<input type="checkbox" name="utility" />
-				<label for="gas">Gas to Fireplace</label>
-				<input type="checkbox" name="utility" />
-				<label for="waste">Waste Collection</label>
-				<input type="checkbox" name="utility" />
-				<label for="sewage">Sewage Disposal</label>
-				<input type="checkbox" name="utility" />
-				<label for="other">Other</label>
-				<input type="text" name="utility" /><br />
-				
-				<label for="date_of_occupancy">DATE OCCUPANCY DESIRED</label>
-				<input type="text" id="date_of_occupancy" /><br />
-				
-				<table>
-					<tr>
-						<td><input type="text" id="landlord_name" /></td>
-						<td><input type="text" id="landlord_address" /></td>
-						<td><input type="text" id="landlord_phone" /></td>
-					</tr>
-					<tr>
-						<td><label for="landlord_name">LANDLORD'S NAME</label></td>
-						<td><label for="landlord_address">LANDLORD'S ADDRESS</label></td>
-						<td><label for="landlord_phone" />LANDLORD'S PHONE NO.</label></td>
-					</tr>
-				</table>
-				
-				<span>
-					The Applicant agrees that if this offer is accepted, it becomes a binding agreement and the Applicant will subsequently sign the Landlord's Residential Tenancy
-					Agreement that the Applicant has had an opportunity to examine. The Applicant acknowledges that <b>pets, barbecues, waterbeds and aquariums are not
-					allowed</b> without advance written permission of the Landlord. The Tenancy Agreement will include these specific terms:
-				</span><br />
-				
-				<textarea rows="3" cols="40"></textarea><br />
-				
-				<span>
-					If this offer is accepted and the Applicant fails to sign the Landlord's Residential Tenancy Agreement, or to take possession of the rental unit, the Applicant will
-					be liable for the payment of the equivalent of up to one month's rent to the Landlord and any related expenses incurred by the Landlord.
-				</span>
-				
-				<span>
-					If this offer is accepted, the Applicant will pay a <b>Security Deposit</b> of $<input type="text" id="security_deposit" /> to the Landlord. If the Landlord permits
-					the Applicant to have a pet, an additional <b>Pet Damage Deposit</b> of $<input type="text" id="pet_damage_deposit" /> will be paid to the Landlord. The Landlord
-					will hold the Deposit(s) until the tenancy ends. This offer is subject to acceptance by the Landlord and is open for acceptance until 5:00 pm on <input type="text" />.<!--Date here-->
-					If not accepted by that time, this offer is void.
-				</span>
-			</div>
+			<span>
+				THE LANDLORD OR LANDLORD'S AUTHORIZED AGENT (called the &#8220;Landlord&#8221;) will complete Section A.
+			</span>
 			
 			<br /><br />
 			
@@ -230,13 +260,13 @@
 				<input type="text" id="applicant_phone" /><br />
 				
 				<label for="rent">Rent</label>
-				<input type="radio" name="rent" class="rent" />
+				<input type="radio" name="rent" class="rent" id="rent1" />
 				<label for="own">Own</label>
-				<input type="radio" name="rent" class="rent" />
+				<input type="radio" name="rent" class="rent" id="rent2" />
 				<label for="occupancy">How long?</label>
 				<input type="text" id="occupancy" />
 				<label for="leave_reason">Reason for Leaving</label>
-				<input type="text" class="leave_reason" />
+				<input type="text" id="leave_reason" />
 				<label for="current_rate">Current Rent $</label>
 				<input type="text" id="current_rate" /><br />
 				
@@ -249,13 +279,13 @@
 				<input type="text" id="applicant_postal_previous" /><br />
 				
 				<label for="rent_previous">Rent</label>
-				<input type="radio" name="rent_previous" class="rent_previous" />
+				<input type="radio" name="rent_previous" class="rent_previous" id="rent_previous1" />
 				<label for="own_previous">Own</label>
-				<input type="radio" name="rent_previous" class="rent_previous" />
+				<input type="radio" name="rent_previous" class="rent_previous" id="rent_previous2" />
 				<label for="occupancy_previous">How long?</label>
 				<input type="text" id="occupancy_previous" />
-				<label for="leave_reason">Reason for Leaving</label>
-				<input type="text" class="leave_reason" />
+				<label for="leave_reason2">Reason for Leaving</label>
+				<input type="text" id="leave_reason2" />
 				<label for="current_rate_previous">Previous Rent $</label>
 				<input type="text" id="current_rate_previous" /><br />
 			</div>
@@ -270,7 +300,7 @@
 				<input type="text" id="coapplicant_middlename" /><br />
 				
 				<label for="coapplicant_birthdate">Date of Birth</label>
-				<input type="text" id="coapplicant_birthdate" /><!--Date picker here-->
+				<input type="date" id="coapplicant_birthdate" /><!--Date picker here-->
 				<label for="coapplicant_sin">Social Insurance Number (optional)</label>
 				<input type="text" id="coapplicant_sin" /><br />
 				
@@ -284,14 +314,14 @@
 				<label for="coapplicant_phone">Primary Phone No.</label>
 				<input type="text" id="coapplicant_phone" /><br />
 				
-				<label for="rent">Rent</label>
-				<input type="radio" name="rent" class="rent" />
-				<label for="own">Own</label>
-				<input type="radio" name="rent" class="rent" />
+				<label for="corent">Rent</label>
+				<input type="radio" name="corent" class="corent" id="corent1" />
+				<label for="coown">Own</label>
+				<input type="radio" name="corent" class="corent" id="corent2" />
 				<label for="cooccupancy">How long?</label>
 				<input type="text" id="cooccupancy" />
-				<label for="leave_reason">Reason for Leaving</label>
-				<input type="text" class="leave_reason" />
+				<label for="coleave_reason">Reason for Leaving</label>
+				<input type="text" id="coleave_reason" />
 				<label for="cocurrent_rate">Current Rent $</label>
 				<input type="text" id="cocurrent_rate" /><br />
 				
@@ -303,14 +333,14 @@
 				<label for="coapplicant_postal_previous">Postal Code</label>
 				<input type="text" id="coapplicant_postal_previous" /><br />
 				
-				<label for="rent_previous">Rent</label>
-				<input type="radio" name="rent_previous" class="rent_previous" />
-				<label for="own_previous">Own</label>
-				<input type="radio" name="rent_previous" class="rent_previous" />
+				<label for="corent_previous">Rent</label>
+				<input type="radio" name="corent_previous" class="corent_previous" id="corent_previous1" />
+				<label for="coown_previous">Own</label>
+				<input type="radio" name="corent_previous" class="corent_previous" id="corent_previous2" />
 				<label for="cooccupancy_previous">How long?</label>
 				<input type="text" id="cooccupancy_previous" />
-				<label for="leave_reason">Reason for Leaving</label>
-				<input type="text" class="leave_reason" />
+				<label for="coleave_reason2">Reason for Leaving</label>
+				<input type="text" id="coleave_reason2" />
 				<label for="cocurrent_rate_previous">Previous Rent $</label>
 				<input type="text" id="cocurrent_rate_previous" /><br />
 			</div>
@@ -359,54 +389,37 @@
 				<b>APPLICANT SIGNATURE(S)</b><br /><br /><br /><br />
 				
 				<div id="e-signature1" class="e-signature">
+					<div id="hotbar" class="signature-pad--actions">
+						<button type="button" class="button clear" data-action="clear">Clear</button>
+						<button id="hotbar_undo" type="button" class="button" data-action="undo">Undo</button>
+					</div>
 					<div id="signature-pad" class="signature-pad">
 						<div class="signature-pad--body">
 							<canvas></canvas>
 						</div>
 						<div class="signature-pad--footer">
 							<div class="description">SIGN HERE</div>
-
-							<div class="signature-pad--actions">
-								<div>
-									<button type="button" class="button clear" data-action="clear">Clear</button>
-									<button type="button" class="button" data-action="undo">Undo</button>
-								</div>
-								<div>
-									<button type="button" class="button save" data-action="save-jpg" style="margin-right: 5pt">Upload<br /><br />applicant signature</button>
-									<button type="button" class="button save" data-action="save-jpg2" style="margin-left: 5pt">Upload<br />co-applicant signature</button>
-								</div>
-							</div>
 						</div>
+					</div>
+					<div id="hotbar_bottom" class="signature-pad--actions">
+						<button type="button" class="button save" data-action="save-jpg" style="margin-right: 5pt">Upload<br />applicant signature</button>
+						<button id="bottom_cosign" type="button" class="button save" data-action="save-jpg2" style="margin-left: 5pt">Upload<br />co-applicant signature</button>
 					</div>
 				</div><br /><br /><br />
 				
 				<b>Applicant's Signature:</b><br />
-				<img class="esignature_here" alt="Applicant's custom signature" /><br />
+				<img src="" class="esignature_here" alt="Applicant's custom signature" /><br />
 				
 				<b>Co-Applicant's Signature:</b><br />
-				<img class="esignature_here2" alt="Co-Applicant's custom signature" /><br />
+				<img src="" class="esignature_here2" alt="Co-Applicant's custom signature" /><br />
 				
 				<label for="sign_date">Date</label>
 				<input type="date" id="sign_date" />
 			</div>
 			
-			<div id="landlord_signatures">
-				<h4>G. LANDLORD'S ACCEPTANCE</h4>
-				<span>
-					<b>NOTE:</b> Do not sign this form unless and until you decide to accept the Applicant(s) as your tenant(s). The above Applicant(s) is/are accepted
-					for tenancy, commencing <input type="text" id="tenant_commence" />
-				</span><br />
-				<table>
-					<tr>
-						<td><input type="text" id="landlord_signature" /></td>
-						<td><input type="text" id="landlord_date" /></td>
-					</tr>
-					<tr>
-						<td><label for="landlord_signature">Landlord's Signature</label></td>
-						<td><label for="landlord_date">Date Signed</label></td>
-					</tr>
-				</table>
-			</div>
+			<span>
+				THE LANDLORD OR LANDLORD'S AUTHORIZED AGENT (called the &#8220;Landlord&#8221;) will complete Section G.
+			</span>
 			
 			<div id="supplementary_info">
 				<h4>H. FIRST APPLICANT'S SUPPLEMENTARY INFORMATION</h4>
@@ -423,9 +436,9 @@
 				<input type="email" id="email" />
 				<label for="photoID">Photo ID Shown</label>
 				<label for="yes_photoID">Yes</label>
-				<input type="radio" name="photoID" />
+				<input type="radio" name="photoID" id="yes_photoID1" />
 				<label for="no_photoID">No</label>
-				<input type="radio" name="photoID" /><br />
+				<input type="radio" name="photoID" id="no_photoID1" /><br />
 				
 				<label for="landlord_current">Present Landlord/Building Manager's Name</label>
 				<input type="text" id="landlord_current" />
@@ -507,8 +520,8 @@
 				<input type="text" id="emergency_name2" />
 				<label for="emergency_address2">Address</label>
 				<input type="text" id="emergency_address2" />
-				<label for="emergency_phone">Phone No.</label>
-				<input type="text" id="emergency_phone" /><br />
+				<label for="emergency_phone2">Phone No.</label>
+				<input type="text" id="emergency_phone2" /><br />
 			</div>
 			
 			<div id="cosupplementary_info">
@@ -525,10 +538,10 @@
 				<label for="coemail">Email Address:</label>
 				<input type="email" id="coemail" />
 				<label for="photoID">Photo ID Shown</label>
-				<label for="yes_photoID">Yes</label>
-				<input type="radio" name="photoID" />
-				<label for="no_photoID">No</label>
-				<input type="radio" name="photoID" /><br />
+				<label for="yes_photoID2">Yes</label>
+				<input type="radio" name="photoID2" id="yes_photoID2" />
+				<label for="no_photoID2">No</label>
+				<input type="radio" name="photoID2" id="no_photoID2" /><br />
 				
 				<label for="colandlord_current">Present Landlord/Building Manager's Name</label>
 				<input type="text" id="colandlord_current" />
@@ -610,8 +623,8 @@
 				<input type="text" id="coemergency_name2" />
 				<label for="coemergency_address2">Address</label>
 				<input type="text" id="coemergency_address2" />
-				<label for="coemergency_phone">Phone No.</label>
-				<input type="text" id="coemergency_phone" /><br />
+				<label for="coemergency_phone2">Phone No.</label>
+				<input type="text" id="coemergency_phone2" /><br />
 			</div>
 			
 			<div id="other_adults">
@@ -647,7 +660,7 @@
 			</div><br />
 			
 			<div id="other_kids">
-				<h4>J. OTHER ADULT OCCUPANTS <small>-Full names of <b>all other adult persons</b> (age 19 or older) to occupy
+				<h4>K. OTHER MINOR OCCUPANTS <small>-Full names of <b>all other persons under age 19</b> (including infants) to occupy
 				this rental unit</small></h4>
 				<label for="kid1_last">Last Name</label>
 				<input type="text" id="kid1_last" />
@@ -687,303 +700,143 @@
 				</ol>
 			</div>
 			
-			<a href="#" target="_blank" id="submit_btn">Submit</a>
+			<a href="#" class="button" id="submit_btn">Submit</a>
+			
+			<div id="confirmation_window">
+				<b>
+					Are you sure you want to submit this form? All your information will be assumed true by law.
+				</b>
+				<br /><br />
+				<a href="#" id="confirmation_yes">Yes</a>
+				<a href="#" id="confirmation_no">No</a>
+			</div>
 		</form>
-		
-		<div id="confirmation_window">
-			<b>
-				Are you sure you want to submit this form? All your information will be assumed true by law.
-			</b>
-			<br /><br />
-			<a href="#" id="confirmation_yes">Yes</a>
-			<a href="#" id="confirmation_no">No</a>
-		</div>
 		
 		<script src="scripts/signature_pad.umd.js" type="text/javascript"></script>
 		<script src="scripts/signature_pad_app.js" type="text/javascript"></script>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script src="scripts/pdf_maker.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			var confirmationWindow = document.getElementById("confirmation_window");
 			var confirmationActive = false;
-			var pdfUrl;
+			var success = false;
 			
-			const { PDFDocument, StandardFonts } = PDFLib;
-			
-			function innerText(id){
-				return document.getElementById(id).textContent;
-			}
-			
-			function writeText(page, textFont, text, textX, textY){
-				page.drawText(text, {
-					x: textX,
-					y: textY,
-					size: 30,
-					font: textFont
-				});
-			}
-			
-			async function modifyPage(page2, page3, font){
-				//skip section A as it's filled by the landlord.
-				let firstSec = 1000;
+			async function sendEmail(){
+			    var reader = new FileReader();
+				reader.readAsBinaryString(blob);
+				let lastName = document.getElementById("applicant_lastname").textContent;
+				let firstName = document.getElementById("applicant_firstname").textContent;
 				
-				
-				
-				//B
-				//name
-				writeText(page2, font, "ELLO", 75, 400);
-				writeText(page2, font, "ELLO", 150, 400);
-				writeText(page2, font, "ELLO", 225, 400);
-				/*
-				//dob
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//sin
-				writeText(page, font, , , );
-				//presentproperty
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//previousproperty
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				
-				//C
-				//name
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//dob
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//sin
-				writeText(page, font, , , );
-				//presentproperty
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//previousproperty          
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				
-				//D
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				writeText(page, font, , , );//radio
-				
-				//F
-				//blob for primary signature
-				writeText(page, font, , , );
-				//blob for secondary signature
-				writeText(page, font, , , );
-				
-				//H
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//radio
-				//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//vehiclesec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//refsec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//emergencysec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				
-				//I
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//radio
-				//radio
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//vehiclesec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//refsec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				//emergencysec
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				
-				//J
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				
-				//K
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				writeText(page, font, , , );
-				*/
-			}
-			
-			async function copyPages() {
-				/*
-				// Fetch first existing PDF document
-				const firstDonorPdfBytes = await fetch("https://clearbrookrentals.ca/fillable_application.pdf").then(res => res.arrayBuffer());
-	
-				// Load a PDFDocument from each of the existing PDFs
-				const firstDonorPdfDoc = await PDFDocument.load(firstDonorPdfBytes);
-				
-				// Create a new PDFDocument
-				const pdfDoc = await PDFDocument.create();
-				const tnrFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-	
-				// Copy the 1st page from the first donor document, and 
-				// the 743rd page from the second donor document
-				const [page] = await pdfDoc.copyPages(firstDonorPdfDoc, [0]);
-				
-				await modifyPage(page, tnrFont);
-	
-				// Add the first copied page
-				pdfDoc.addPage(page);
-	
-				// Serialize the PDFDocument to bytes (a Uint8Array)
-				const pdfBytes = await pdfDoc.save();*/
-				
-				const pdfDoc = await PDFDocument.create();
-				const page = pdfDoc.addPage(), page2 = pdfDoc.addPage(), page3 = pdfDoc.addPage();
-				const tnrFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-				await modifyPage(page2, page3, tnrFont);
-				
-				const pdfBytes = await pdfDoc.save();
-	
-				// Trigger the browser to download the PDF document
-				const confirmationYes = document.getElementById("confirmation_yes");
-				var blob = new Blob([pdfBytes], {type: 'application/pdf'});
-				var url = window.URL.createObjectURL(blob);
-				window.open(url, "newPdf.pdf", "height=700, width=700");
+				reader.onload = function(){
+					Email.send({
+				        SecureToken: "ad221474-ef35-4564-a7a7-1027133abd3d",
+						To: 'michaelkevin.sinclair@gmail.com', 
+						From: "intiva.technologies@gmail.com", 
+						Subject: "Filled rental application form", 
+						Body: "Attached is a rental application form filled and signed through the site.",
+						Attachments: [
+						{
+							name: "Application_" + lastName + "_" + firstName + ".pdf",
+							data: "type:application/pdf;base64," + btoa(reader.result)
+						}
+						]
+					}).then(function (message){
+						alert("mail sent successfully");
+						window.location.replace("https://clearbrookrentals.ca/");
+					}); 
+				};
 			}
 			
 			document.getElementById("submit_btn").addEventListener("click", e => {
 				e.preventDefault();
+				
+				//ensure all fields are required
+				let Binputs = document.getElementById("applicant").getElementsByTagName("input");
+				//let Cinputs = document.getElementById("coapplicant").getElementsByTagName("input");
+				let Dinputs = document.getElementById("applicant_statements").getElementsByTagName("input");
+				let Finput = document.getElementById("applicant_signatures").getElementsByTagName("input")[0];
+				let Hinputs = document.getElementById("supplementary_info").getElementsByTagName("input");
+				//let Iinputs = document.getElementById("cosupplementary_info").getElementsByTagName("input");
+				
+				let inputs = [];
+				for(let i = 0; i < Binputs.length; i++)
+					inputs.push(Binputs[i]);
+				//for(let i = 0; i < Cinputs.length; i++)
+					//inputs.push(Cinputs[i]);
+				for(let i = 0; i < Dinputs.length; i++){
+					if(Dinputs[i].id !== "pets_desc")
+						inputs.push(Dinputs[i]);
+				}
+				inputs.push(Finput);
+				for(let i = 0; i < Hinputs.length; i++)
+					inputs.push(Hinputs[i]);
+				//for(let i = 0; i < Iinputs.length; i++)
+					//inputs.push(Iinputs[i]);
+				
+				let allFilled = -1;
+				for(let i = 0; i < inputs.length; i++){
+					let el = inputs[i];
+					if((el.type === "text" || el.type === "number" || el.type === "email" || el.type === "date") && el.value.trim() === ""){
+						el.style.backgroundColor = "red";
+						allFilled = i;
+					} else if((el.type === "text" || el.type === "number" || el.type === "email" || el.type === "date") && el.value.trim() !== "")
+						el.style.background = "none";
+					
+					if(el.type === "radio" && inputs[i + 1].type === "radio" && el.name === inputs[i + 1].name){
+						if(!el.checked && !inputs[i + 1].checked){
+							el.style.border = "solid red 5pt";
+							inputs[i + 1].style.border = "solid red 5pt";
+							allFilled = i;
+						} else {
+							el.style.border = "none";
+							inputs[i + 1].style.border = "none";
+						}
+					}
+				}
+				
+				if(allFilled !== -1){
+					window.alert("One or more fields was left unfilled. Please ensure all fields are filled before submitting the application.");
+					window.scrollTo({
+						top: 0,
+						behaviour: 'smooth'
+					});
+					allFilled = -1;
+					return;
+				}
+				
+				if(!sig1Signed || !sig2Signed){
+					window.alert("This application was left unsigned. Please ensure that both applications give their signature.");
+					window.scrollTo({
+						top: 0,
+						behaviour: 'smooth'
+					});
+					return;
+				}
+				
 				copyPages();
 				confirmationWindow.style.display = "block";
 				confirmationActive = true;
+				window.scrollBy(0, 1000);
+				success = true;
 			});
-			
+
 			document.getElementById("confirmation_no").onclick = e => {
 				e.preventDefault();
 				confirmationWindow.style.display = "none";
 				confirmationActive = false;
 			};
-			
+
 			document.getElementById("confirmation_yes").onclick = e => {
 				e.preventDefault();
 				confirmationActive = false;
 				window.URL.revokeObjectURL(document.getElementById("confirmation_yes").href);
+				sendEmail();
+			};
+			
+			window.onbeforeunload = () => {
+				if(!success)
+					return "Are you sure you want to leave this page? All progress will be lost.";
+				return;
 			};
 		</script>
 	</body>
