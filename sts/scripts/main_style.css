@@ -348,15 +348,54 @@ footer a:active, .info a:active, footer a:hover, .info a:hover{
 	padding: 10pt;
 }
 
+.showcase_container{
+	background-color: #3D3D3D;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	display: none;
+}
+
+.showcase_img{
+	border: solid white 5pt;
+	width: 98%;
+	text-align: center;
+	position: absolute;
+	left: calc(1% - 4pt);
+}
+
+#showcase_exit{
+	font-family: "Tahoma Regular", Tahoma, Aharoni, Arial, "Times New Roman";
+	color: white;
+	background-color: #6D6D6D;
+	border-radius: 50pt;
+	font-size: 100pt;
+	padding: 5pt 30pt 5pt 30pt;
+	position: absolute;
+	left: calc(50% - 40pt);
+	top: 50%;
+}
+
 @media (min-device-width: 280px){
 	.lake_swan{
 		top: 3275pt;
+	}
+	
+	.showcase_img{
+		left: calc(1% - 5pt);
 	}
 }
 
 @media (min-device-width: 320px){
 	.lake_swan{
 		top: 2750pt;
+	}
+	
+	.showcase_img{
+		left: calc(1% - 5pt);
 	}
 }
 

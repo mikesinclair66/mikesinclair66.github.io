@@ -230,6 +230,32 @@
 	.desktop_break{
 		display: block;
 	}
+	
+	.showcase_container{
+		
+	}
+
+	.showcase_img{
+		top: 0.8%;
+		width: auto;
+		height: 96%;
+	}
+	
+	.showcase, .slide img{
+		cursor: pointer;
+	}
+
+	#showcase_exit{
+		left: 75%;
+		top: calc(50% - 60pt);
+		cursor: pointer;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		border: solid white 3pt;
+		left: calc(75% - 3pt);
+		top: calc(50% - 63pt);
+	}
 }
 
 /*Tablet portrait*/
@@ -237,12 +263,25 @@
 	.lake_swan{
 		top: 2175pt;
 	}
+	
+	.showcase_img{
+		top: 1%;
+	}
+	
+	#showcase_exit{
+		top: 60%;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		border: solid white 3pt;
+		left: calc(45% - 6pt);
+		top: calc(60% - 3pt);
+	}
 }
 
 /*Tablet landscape*/
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
 	body{
-		background-color: yellow;
 		font-size: 30pt;
 	}
 	
@@ -250,46 +289,418 @@
 		font-size: 24pt;
 	}
 	
+	#anchor{
+		left: 85%;
+		bottom: 4%;
+	}
+	
 	#logo{
-		width: 150pt;
-		height: 150pt;
+		width: 110pt;
+		height: 110pt;
+	}
+	
+	#navbar{
+		width: 100%;
+		height: 90pt;
+		border-bottom: none;
+	}
+	
+	#navbar_menu{
+		
 	}
 	
 	#site_title{
-		font-size: 45pt;
+		font-size: 35pt;
+		margin-right: 2%;
+		left: 10pt;
+		top: 5pt;
+	}
+	
+	.link{
+		font-size: 20pt;
 	}
 	
 	#header_banner{
-		padding: 0 25pt 0 25pt;
+		padding: 0 25pt 0 15pt;
+	}
+	
+	#index_info{
+		width: 60%;
 	}
 	
 	.info{
-		padding: 0 25pt 0 25pt;
+		padding: 0 25pt 0 15pt;
+		width: 803pt;
+	}
+	
+	.info ul, .info a{
+		font-size: 24pt;
+	}
+	
+	.side_display{
+		left: 55%;
+		bottom: 800pt;
+	}
+	
+	#viewer_discretion{
+		margin-top: -285pt;
+	}
+	
+	#values{
+		margin: -8pt 0 0 -32pt;
+		width: 776pt;
+	}
+	
+	#values h2{
+		margin-top: -25pt;
+		margin-bottom: -30pt;
+	}
+	
+	#values h4{
+		font-size: 35pt;
+	}
+	
+	#values li{
+		transition: 1s;
+		display: inline-block;
+		width: 200pt;
+		padding: 30pt;
+		margin-left: -25pt;
+		text-align: center;
 	}
 	
 	.lake_swan{
-		top: 1050pt;
+		top: 725pt;
+	}
+	
+	#wave, #transparent_wave{
+		margin: 0 0 0 -32pt;
+		width: 900pt;
+	}
+	
+	#transparent_wave{
+		margin-bottom: -30pt;
+	}
+	
+	.parallax{
+		width: 893pt;
+	}
+	
+	footer, footer a{
+		font-size: 18pt;
+	}
+	
+	footer{
+		width: 895pt;
+	}
+	
+	.slide{
+		top: 130pt;
+		left: 63%;
+	}
+	
+	.slide img{
+		top: 130pt;
+		left: 63%;
+	}
+	
+	.showcase_img{
+		width: 98%;
+		top: calc(1% + 1.5pt);
+	}
+	
+	#showcase_exit{
+		top: 3%;
+		left: 89%;
+		font-size: 50pt;
+		padding: 10pt 30pt 10pt 30pt;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		left: calc(89% - 3pt);
+		top: calc(3% - 3pt);
 	}
 }
 
 /*Ipad pro portrait*/
 @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
 	body{
-		background-color: orange;
+		font-size: 30pt;
+	}
+	
+	p{
+		font-size: 24pt;
+	}
+	
+	#anchor{
+		left: 85%;
+		bottom: 4%;
+	}
+	
+	#logo{
+		width: 110pt;
+		height: 110pt;
+	}
+	
+	#navbar{
+		width: 100%;
+		height: 90pt;
+		border-bottom: none;
+	}
+	
+	#navbar_menu{
+		
+	}
+	
+	#site_title{
+		font-size: 35pt;
+		margin-right: 2%;
+		left: 10pt;
+		top: 5pt;
+	}
+	
+	.link{
+		font-size: 20pt;
+	}
+	
+	#header_banner{
+		padding: 0 25pt 0 15pt;
+	}
+	
+	#index_info{
+		width: 60%;
+	}
+	
+	.info{
+		padding: 0 25pt 0 15pt;
+		width: 803pt;
+	}
+	
+	.info ul, .info a{
+		font-size: 24pt;
+	}
+	
+	.side_display{
+		left: 55%;
+		bottom: 800pt;
+	}
+	
+	#viewer_discretion{
+		margin-top: -285pt;
+	}
+	
+	#values{
+		margin: -8pt 0 0 -32pt;
+		width: 776pt;
+	}
+	
+	#values h2{
+		margin-top: -25pt;
+		margin-bottom: -30pt;
+	}
+	
+	#values h4{
+		font-size: 35pt;
+	}
+	
+	#values li{
+		transition: 1s;
+		display: inline-block;
+		width: 200pt;
+		padding: 30pt;
+		margin-left: -25pt;
+		text-align: center;
 	}
 	
 	.lake_swan{
-		top: 550pt;
+		top: 725pt;
+	}
+	
+	#wave, #transparent_wave{
+		margin: 0 0 0 -32pt;
+		width: 900pt;
+	}
+	
+	#transparent_wave{
+		margin-bottom: -30pt;
+	}
+	
+	.parallax{
+		width: 893pt;
+	}
+	
+	footer, footer a{
+		font-size: 18pt;
+	}
+	
+	footer{
+		width: 895pt;
+	}
+	
+	.slide{
+		top: 130pt;
+		left: 63%;
+	}
+	
+	.slide img{
+		top: 130pt;
+		left: 63%;
+	}
+	
+	.showcase_img{
+		width: auto;
+		height: 55%;
+	}
+	
+	#showcase_exit{
+		left: 46%;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		left: calc(46% - 3pt);
 	}
 }
 
 /*Ipad pro landscape*/
 @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape) {
 	body{
-		background-color: purple;
+		font-size: 30pt;
+	}
+	
+	p{
+		font-size: 24pt;
+	}
+	
+	#anchor{
+		left: 88%;
+		bottom: 2%;
+	}
+	
+	#logo{
+		width: 125pt;
+		height: 125pt;
+	}
+	
+	#navbar{
+		width: 100%;
+		height: 90pt;
+		border-bottom: none;
+	}
+	
+	#navbar_menu{
+		
+	}
+	
+	#site_title{
+		font-size: 40pt;
+		margin-right: 2%;
+		left: 15pt;
+		top: 15pt;
+	}
+	
+	.link{
+		font-size: 30pt;
+		position: relative;
+		top: 12pt;
+	}
+	
+	#header_banner{
+		padding: 0 25pt 0 15pt;
+	}
+	
+	#index_info{
+		width: 60%;
+	}
+	
+	.info{
+		padding: 0 25pt 0 15pt;
+		width: 1052pt;
+	}
+	
+	.info ul, .info a{
+		font-size: 24pt;
+	}
+	
+	.side_display{
+		left: 58%;
+		bottom: 500pt;
+	}
+	
+	#viewer_discretion{
+		margin-top: -285pt;
+	}
+	
+	#values{
+		margin: -8pt 0 0 -32pt;
+		width: 1025pt;
+	}
+	
+	#values h2{
+		margin-top: -25pt;
+		margin-bottom: -30pt;
+	}
+	
+	#values h4{
+		font-size: 35pt;
+	}
+	
+	#values li{
+		transition: 1s;
+		display: inline-block;
+		width: 200pt;
+		padding: 30pt;
+		margin-left: -25pt;
+		text-align: center;
 	}
 	
 	.lake_swan{
-		top: 475pt;
+		top: 690pt;
+	}
+	
+	#wave, #transparent_wave{
+		width: 1125pt;
+	}
+	
+	#transparent_wave{
+		margin-bottom: -328pt;
+	}
+	
+	.parallax{
+		width: 1140pt;
+	}
+	
+	footer, footer a{
+		font-size: 18pt;
+	}
+	
+	footer{
+		width: 1143pt;
+	}
+	
+	.slide{
+		top: 130pt;
+		left: 68%;
+	}
+	
+	.slide img{
+		top: 130pt;
+		left: 68%;
+	}
+	
+	.showcase_img{
+		width: 98%;
+		top: calc(1% + 1.5pt);
+	}
+	
+	#showcase_exit{
+		top: 3%;
+		left: 89%;
+		font-size: 50pt;
+		padding: 10pt 30pt 10pt 30pt;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		left: calc(89% - 3pt);
+		top: calc(3% - 3pt);
 	}
 }

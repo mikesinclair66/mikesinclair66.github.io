@@ -48,6 +48,46 @@ hamburgerBtn.onclick = () => {
 	}
 };
 
+//image showcase
+class Showcase{
+	constructor(){
+		this.container = document.createElement("div");
+		this.container.className = "showcase_container";
+		this.showcase = document.createElement("img");
+		this.showcase.className = "showcase_img";
+		this.exitBtn = document.createElement("span");
+		this.exitBtn.textContent = "X";
+		this.exitBtn.id = "showcase_exit";
+		this.container.appendChild(this.showcase);
+		this.container.appendChild(this.exitBtn);
+		this.toggled = false;
+		
+		this.init("showcases");
+		
+		document.body.appendChild(this.container);
+	}
+	
+	init(showcasesClass){
+		this.showcases = document.getElementsByClassName(showcasesClass);
+		for(let el of this.showcases)
+			el.onclick = () => {
+				this.attach(el.src);
+			};
+		
+		this.exitBtn.onclick = () => {
+			this.container.style.display = "none";
+		};
+	}
+	
+	attach(src){
+		this.showcase.src = src;
+		this.container.style.display = "block";
+		this.toggled = true;
+	}
+}
+var showcase = new Showcase();
+showcase.init("showcase");
+
 var anchorEl = document.getElementById("anchor");
 var anchorToggled = false;
 anchorEl.onclick = () => window.scrollTo({
@@ -270,39 +310,5 @@ class Slideshow{
 					this.guideDots[i].className = "guide_selected";
 			}
 		}
-	}
-}
-
-//flippable sections script
-class SectionFlippableSet{
-	constructor(id){
-		this.id = document.getElementById(id);
-		this.sections = this.id.getElementsByClassName("section_flippable");
-		this.captions = [];
-		
-		for(let i = 0; i < this.sections.length; i++){
-			this.captions.push(document.createElement("span"));
-			this.sections[i].onclick = () => {
-				let stopRotate = false;
-				let inner = this.sections[i].getElementsByClassName("section_flippable_inner")[0];
-				if(inner.style.transform == "rotateY(180deg)"){
-					inner.style.transform = "none";
-					stopRotate = true;
-				}
-				if(!stopRotate)
-					inner.style.transform = "rotateY(180deg)";
-			};
-		}
-	}
-	
-	enableCaption(caption, index){
-		let propertyInfo = document.getElementsByClassName("property_info")[index];
-		this.captions[index].width = propertyInfo.offsetWidth;
-		this.captions[index].innerHTML = caption;
-		this.captions[index].id = "first_child";
-		this.captions[index].style.position = "absolute";
-		this.captions[index].style.top = this.sections[index].offsetTop - this.sections[index].offsetTop;
-		this.captions[index].style.left = "0";
-		propertyInfo.insertBefore(this.captions[index], propertyInfo.firstChild);
 	}
 }
