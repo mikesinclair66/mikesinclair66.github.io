@@ -18,7 +18,7 @@ var docDisplay = new Anim(document.getElementById("doc_display"), "info", "info_
 docDisplay.toggled = true;
 
 var curDate = new Date();
-var dueDate = new Date(2021, 09, 19, 17, 0, 0, 0);
+var dueDate = new Date(2021, 09, 20, 17, 0, 0, 0);
 var published = true;
 if(curDate < dueDate){
 	docDisplay.el.getElementsByTagName("embed")[0].style.display = "none";
