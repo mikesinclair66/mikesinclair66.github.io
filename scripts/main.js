@@ -49,4 +49,5 @@ async function revertToDir(){
 
 var docLinks = document.getElementsByClassName("doc_link");
 docLinks[0].onclick = () => displayDoc("Case_Study_Kingdom_Rush.pdf");
+docLinks[1].onclick = () => displayDoc("Case_Study_Polytopia.pdf");
 document.getElementsByClassName("back_link")[0].onclick = () => revertToDir();
