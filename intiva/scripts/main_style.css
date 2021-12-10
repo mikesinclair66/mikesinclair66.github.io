@@ -41,7 +41,7 @@ nav{
 	transition: 0.5s;
 	width: 100%;
 	height: 300pt;
-	font-family: consolas;
+	font-family: consolas, "Lucida Console", courier, monaco;
 	font-weight: 600;
 	text-align: center;
 	position: absolute;
@@ -79,4 +79,14 @@ nav{
 	position: absolute;
 	transform: translate(-50%, 65%);
 	/*display: none;*/
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: Tahoma, "Trebuchet MS", "Yu Gothic UI Semibold", "Nirmala UI", "Microsoft Yahei", "Lucida Sans", "News Gothic", Calibri, Arial;
+}
+
+.info{
+	margin: 25pt;
+	font-family: Calibri, Helvetica, Arial, Sans-Serif;
+	font-size: 16pt;
 }
