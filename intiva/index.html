@@ -10,6 +10,8 @@
 		
 		<link rel="stylesheet" type="text/css" href="./scripts/main_style.css" />
 		<link rel="stylesheet" type="text/css" href="./scripts/desktop_style.css" />
+		<link rel="stylesheet" type="text/css" href="./scripts/index_style.css" />
+		<link rel="stylesheet" type="text/css" href="./scripts/index_desktop_style.css" />
 	</head>
 	<body>
 		<div id="nav_links">
@@ -25,7 +27,6 @@
 		</div>
 		<nav>
 			<a href="./index.html"><img src="./images/logo.png" alt="Intiva Technologies" id="logo" /></a>
-			<a href="./index.html"><img src="./images/logo.png" alt="Intiva Technologies" id="logo_black" /></a>
 			<img src="./images/nav_btn.png" alt="Open the menu" id="nav_btn" />
 		</nav>
 		
@@ -33,12 +34,105 @@
 			<h1>Avoid Limitations</h1>
 			<p>
 				Intiva Technologies designs and builds solutions in an intuitive fashion that will bring your project
-				to the next era of technology. At Intiva Technologies, we make our websites and applications from the
-				ground up using custom scripts. In other words, if you choose us, you&#39;ll experience a solution that
-				is intuitive, unique, efficient, and invulnerable.
+				into the next era of technology. At Intiva Technologies, we make our websites and apps from the
+				ground up using custom scripts. In other words, if you choose us, you&#39;ll experience a solution that&#39;s
+				intuitive, unique, efficient, and invulnerable.
 			</p>
 		</div>
 		
+		<div id="office_index">
+			<img src="./images/worklog.png" alt="Worklog" />
+			<a href="./software.html" id="office_index_link"><img src="./images/nav_btn.png" alt="Office Software" /></a>
+		</div>
+		
+		<div class="info" id="worklog_paragraph_index">
+			<h2>Our Worklog is here</h2>
+			<p>
+				Keep track of your budgets, charts, and calculations.
+			</p>
+		</div>
+		
+		<div class="info" id="services_index">
+			<h1>Services</h1>
+			<div class="service_index">
+				<img src="./images/serviceWebsite.png" alt="Website Delivery" />
+				<h2>Website Delivery</h2>
+				<p>
+					Intiva Technologies makes your website using custom scripts from the ground up. This means that we can
+					design and build your website without the limi<a class="seemore" href="./softwareServices.html#websites">&#8230; See More &#62;</a>
+				</p>
+			</div>
+			<div class="service_index">
+				<img src="./images/serviceMobile.png" alt="Mobile App Delivery" />
+				<h2>Mobile App Delivery</h2>
+				<p>
+					Intiva Technologies keeps your app up to date by building your solution through using the same frameworks as
+					Facebook, Wix, and Walmart. By making your app as secure, efficient<a class="seemore" href="./softwareServices.html#websites">&#8230; See More &#62;</a>
+				</p>
+			</div>
+			<div class="service_index">
+				<img src="./images/serviceDesktop.png" alt="Desktop App Delivery" />
+				<h2>Desktop App Delivery</h2>
+				<p>
+					If you want your own information system, game, office tool, or customized project, you&#39;ve come to the right place.
+					With extensive experience developing software projects<a class="seemore" href="./softwareServices.html#websites">&#8230; See More &#62;</a>
+				</p>
+			</div>
+			<div class="service_index">
+				<img src="./images/serviceGraphical.png" alt="Art Delivery" />
+				<h2>Graphic Design &#38; Logos</h2>
+				<p>
+					Just because someone has been doing graphical design for a long time doesn&#39;t make them good at it. It takes passion, skill,
+					and a little bit of luck. Using the best<a class="seemore" href="./softwareServices.html#websites">&#8230; See More &#62;</a>
+				</p>
+			</div>
+		</div>
+		
+		<footer>
+			<img src="./images/logo.png" alt="Intiva Technologies" />
+			<br /><br />
+			&#169; Copyright 2021 | Intiva Technologies | All Rights Reserved
+		</footer>
+		
 		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript">
+			var popups = [];
+			popups.push(new Popup(document.getElementById("office_index").getElementsByTagName("img")[0],
+				1, 10, document.getElementById("office_index")));
+			popups.push(new Popup(document.getElementById("office_index_link"),
+				3, 10, document.getElementById("office_index")));
+			popups.push(new Popup(document.getElementById("worklog_paragraph_index"), 2, 30));
+			popups[2].setScrollDist(450);
+			
+			var officeIndexImg = new CustomAnim(document.getElementById("office_index_link").getElementsByTagName("img")[0],
+				initMods={ "transform": "rotate(0deg)", "left": "7pt" },
+				animMods={ "transform": "rotate(270deg)", "left": "9pt" });
+			var officeIndexLinkAnimated = false;
+
+			var serviceColors = [
+				new Rgba(0, 178, 210),
+				new Rgba(0, 198, 210),
+				new Rgba(0, 210, 208),
+				new Rgba(0, 210, 193),
+				new Rgba(0, 210, 168)
+			];
+			var services = document.getElementsByClassName("service_index");
+			var serviceGRs = [];
+			for(let i = 0; i < serviceColors.length - 1; i++){
+				serviceGRs.push(new GradientRotation(services[i], serviceColors[i], serviceColors[i + 1]));
+				serviceGRs[i].toggle();
+			}
+			
+			window.addEventListener("scroll", async () => {
+				for(el of popups)
+					el.request();
+					
+				if(!officeIndexLinkAnimated && popups[1].activated){
+					officeIndexLinkAnimated = true;
+					await pSleep(400);
+					officeIndexImg.toggle();
+				}
+			});
+		</script>
 	</body>
 </html>

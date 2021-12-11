@@ -1,0 +1,56 @@
+#office_index{
+	background: radial-gradient(white, #E6E6E6);
+	box-shadow: 3px 5px 9px #888888;
+}
+
+#office_index img{
+	transition: 0.4s;
+	width: 125pt;
+	position: relative;
+	left: 10pt;
+}
+
+#office_index_link{
+	transition: 0.4s;
+	position: absolute;
+	text-decoration: none;
+	background: linear-gradient(to bottom, #E6E6E6, white, #E6E6E6);
+	border-radius: 50%;
+	box-shadow: 1px 3px 5px #888888;
+	padding: 12pt 13pt 8pt 0;
+	right: 20pt;
+	margin-top: 36pt;
+}
+
+#office_index_link img{
+	transition: 0.4s;
+	width: 40pt;
+	transform: rotate(270deg);
+	left: 9pt;
+}
+
+#worklog_paragraph_index{
+	transition: 0.4s;
+}
+
+.service_index{
+	text-align: center;
+	border: solid black 1pt;
+	border-radius: 20pt;
+	margin-top: 15pt;
+	padding: 10pt;
+}
+
+.service_index:first-child{
+	margin-top: 0;
+}
+
+.service_index img{
+	width: 125pt;
+}
+
+.seemore{
+	text-decoration: none;
+	color: black;
+	font-weight: 600;
+}

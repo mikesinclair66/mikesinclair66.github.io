@@ -264,5 +264,103 @@ async function toggleNavSublinks(){
 	}
 }
 navBtnBlack.el.addEventListener("click", async () => toggleNavSublinks());
+document.getElementById("software_link").addEventListener("click", () => {
+	if(!navSublinksTransitioning)
+		window.location.href = "./software.html";
+});
+
+class Popup{
+	constructor(el, dir, offset, referenceEl=null){
+		this.el = el;
+		this.dir = dir;
+		this.offset = offset;
+		this.scrollDist = 400;//range for popup to activate
+		this.activated = false;
+		this.referenceEl = referenceEl;
+		el.style.opacity = "0.0";
+		
+		switch(dir){
+			case 0:
+				break;
+			case 1:
+				el.style.marginLeft = -offset + "px";
+				break;
+			case 2:
+				el.style.position = "relative";
+				el.style.top = offset + "px";
+				break;
+			case 3:
+				el.style.marginLeft = offset + "px";
+				break;
+		}
+	}
+	
+	setScrollDist(dist){
+		this.scrollDist = dist;
+	}
+	
+	activate(){
+		this.el.style.opacity = "1.0";
+		switch(this.dir){
+			case 0:
+				break;
+			case 1:
+				this.el.style.marginLeft = "0";
+				break;
+			case 2:
+				this.el.style.top = "0";
+				break;
+			case 3:
+				this.el.style.marginLeft = "0";
+				break;
+		}
+		this.activated = true;
+	}
+	
+	request(){
+		/*if(!this.activated && window.scrollY > this.el.offsetTop - this.scrollDist)
+			this.activate();*/
+		if(!this.activated){
+			if((this.referenceEl !== null && window.scrollY > this.referenceEl.offsetTop - this.scrollDist)
+				|| (this.referenceEl === null && window.scrollY > this.el.offsetTop - this.scrollDist))
+			this.activate();
+		}
+	}
+}
+
+class CustomAnim{
+	constructor(el, initMods={}, animMods={}){
+		this.el = el;
+		this.initMods = initMods;
+		this.animMods = animMods;
+		this.toggled = false;
+		
+		if(this.initMods.transform)
+			this.el.style.transform = this.initMods.transform;
+		if(this.initMods.left)
+			this.el.style.left = this.initMods.left;
+	}
+	
+	toggle(){
+		this.toggled = !this.toggled;
+		if(this.toggled){
+			if(this.animMods.transform)
+				this.el.style.transform = this.animMods.transform;
+			if(this.animMods.left)
+				this.el.style.left = this.animMods.left;
+		} else {
+			if(this.initMods.transform)
+				this.el.style.transform = this.initMods.transform;
+			if(this.initMods.left)
+				this.el.style.left = this.initMods.left;
+		}
+	}
+}
 
 window.onload = () => navShadow.toggle();
+window.onscroll = () => {
+	if(navToggled){
+		navBtn.toggle();
+		toggleNav();
+	}
+};

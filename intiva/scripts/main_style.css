@@ -2,14 +2,17 @@ body{
 	margin: 0;
 }
 
+nav, footer{
+	background: linear-gradient(to bottom, white, #E6E6E6);
+}
+
 nav{
 	background: linear-gradient(to bottom, white, #E6E6E6);
 	position: relative;
 	z-index: 10;
-	/*box-shadow: 3px 5px 9px #888888;*//*5px 10px 18px*/
 }
 
-#logo, #logo_black{
+#logo{
 	width: 70pt;
 	padding: 10pt;
 	border-radius: 50%;
@@ -19,10 +22,6 @@ nav{
 	top: 5pt;
 	left: 8pt;
 	margin-bottom: -10pt;
-}
-
-#logo_black{
-	display: none;
 }
 
 #nav_btn, #nav_btn_anim{
@@ -81,7 +80,7 @@ nav{
 	/*display: none;*/
 }
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, footer{
 	font-family: Tahoma, "Trebuchet MS", "Yu Gothic UI Semibold", "Nirmala UI", "Microsoft Yahei", "Lucida Sans", "News Gothic", Calibri, Arial;
 }
 
@@ -89,4 +88,15 @@ h1, h2, h3, h4, h5, h6{
 	margin: 25pt;
 	font-family: Calibri, Helvetica, Arial, Sans-Serif;
 	font-size: 16pt;
+}
+
+footer{
+	text-align: center;
+	box-shadow: 3px 5px 9px #888888;
+	padding: 25pt;
+	font-size: 8pt;
+}
+
+footer img{
+	width: 150pt;
 }
