@@ -13,8 +13,8 @@ nav{
 }
 
 #logo{
-	width: 70pt;
-	padding: 10pt;
+	width: 80pt;
+	padding: 5pt;
 	border-radius: 50%;
 	border: solid black 2pt;
 	background-color: white;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6, footer{
 .info{
 	margin: 25pt;
 	font-family: Calibri, Helvetica, Arial, Sans-Serif;
-	font-size: 16pt;
+	font-size: 14pt;
 }
 
 footer{
