@@ -1,7 +1,6 @@
 @media only screen and (min-width: 1025px) and (orientation: landscape){
 	#office_index_link:hover, #office_index_link:active{
 		transition: 0.4s;
-		/*background: linear-gradient(to bottom, #B8B8B8, #E6E6E6, #B8B8B8);*/
 		box-shadow: 0 0 1px #888888;
 		background: none;
 	}

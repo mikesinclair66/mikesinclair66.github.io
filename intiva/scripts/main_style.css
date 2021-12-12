@@ -70,13 +70,13 @@ nav{
 
 .nav_sublink{
 	transition: 0.4s;
-	height: 34pt;
+	background: linear-gradient(to bottom, white, #E6E6E6, #B9B9B9);
 }
 
 .nav_sublink span{
 	transition: 0.2s;
 	position: absolute;
-	transform: translate(-50%, 65%);
+	transform: translate(-50%, 78%);
 	/*display: none;*/
 }
 
@@ -90,6 +90,40 @@ h1, h2, h3, h4, h5, h6, footer{
 	font-size: 14pt;
 }
 
+.service{
+	text-align: center;
+	border: solid black 1pt;
+	border-radius: 20pt;
+	margin-top: 15pt;
+	padding: 14pt;
+}
+
+.service:first-child{
+	margin-top: 0;
+}
+
+.service img{
+	width: 125pt;
+}
+
+#anchor{
+	cursor: pointer;
+	background: linear-gradient(-45deg, rgba(128, 128, 128, 0.5),
+		rgba(230, 230, 230, 0.5), rgba(255, 255, 255, 0.5));
+	color: rgba(0, 0, 0, 0.5);
+	border: solid rgba(0, 0, 0, 0.5) 1pt;
+	border-right: 0;
+	border-bottom: 0;
+	width: 40pt;
+	height: 40pt;
+	font-size: 30pt;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	display: none;
+}
+
 footer{
 	text-align: center;
 	box-shadow: 3px 5px 9px #888888;
@@ -99,4 +133,42 @@ footer{
 
 footer img{
 	width: 150pt;
+}
+
+@media only screen and (orientation: landscape){
+	#logo{
+		width: 60pt;
+		border: solid 1.5pt black;
+	}
+	
+	#nav_btn, #nav_btn_anim{
+		width: 38pt;
+		top: 22pt;
+	}
+
+	.info{
+		font-size: 12pt;
+	}
+
+	#nav_links{
+		font-size: 10pt;
+	}
+	
+	#nav_links a:first-child{
+		border-top: solid black 1.5pt;
+	}
+	
+	#nav_links a{
+		border: solid black 1.5pt;
+		border-top: none;
+		padding: 6pt 0 6pt 0;
+	}
+
+	#nav_btn_black, #nav_btn_black_anim{
+		width: 22pt;
+	}
+
+	.nav_sublink{
+		height: 26pt;
+	}
 }

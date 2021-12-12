@@ -1,3 +1,10 @@
 @media only screen and (min-width: 1025px) and (orientation: landscape){
-	
+    #anchor:hover, #anchor:active{
+        background: linear-gradient(-45deg, rgb(128, 128, 128),
+            rgb(230, 230, 230), rgb(255, 255, 255));
+        color: rgb(0, 0, 0);
+        border: solid rgb(0, 0, 0) 1pt;
+        border-right: 0;
+        border-bottom: 0;
+    }
 }

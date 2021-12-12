@@ -4,6 +4,16 @@
 	margin: 30pt 0 30pt 0;
 }
 
+#office_index_parallax{
+	position: absolute;
+	width: 100%;
+	height: 128pt;
+	background-image: url('../images/worklog.png');
+	background-repeat: no-repeat;
+	background-position: -12% 25%;
+	background-size: 160pt;
+}
+
 #office_index img{
 	transition: 0.4s;
 	width: 125pt;
@@ -34,24 +44,31 @@
 	transition: 0.4s;
 }
 
-.service_index{
-	text-align: center;
-	border: solid black 1pt;
-	border-radius: 20pt;
-	margin-top: 15pt;
-	padding: 14pt;
-}
-
-.service_index:first-child{
-	margin-top: 0;
-}
-
-.service_index img{
-	width: 125pt;
-}
-
 .seemore{
 	text-decoration: none;
 	color: black;
 	font-weight: 600;
+}
+
+@media only screen and (orientation: landscape){
+	#office_index{
+		margin: 25pt 0 25pt 0;
+	}
+
+	#office_index img{
+		left: 14pt;
+	}
+
+	#worklog_paragraph_index{
+		display: none;
+	}
+
+	#worklog_paragraph_index_parallax{
+		transition: 0.4s;
+		width: 175pt;
+		position: relative;
+		left: 125pt;
+		top: 0;
+		margin-top: 0;
+	}
 }

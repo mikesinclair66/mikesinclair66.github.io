@@ -210,6 +210,14 @@ async function toggleNav(){
 }
 navBtn.el.addEventListener("click", async () => toggleNav());
 
+function getSizeQuery(){
+	let isPortrait = window.innerWidth <= window.innerHeight;
+
+	if(window.innerWidth < 1025){
+		return ((isPortrait) ? "mobile" : "mobile_landscape");
+	}
+}
+
 for(let i = 0; i < navSublinks.length; i++){
 	let span = navSublinks[i].getElementsByTagName("span")[0];
 	span.style.opacity = "0.0";
@@ -226,8 +234,14 @@ async function toggleNavSublinks(){
 		navSublinksToggled = !navSublinksToggled;
 		if(navSublinksToggled){
 			for(let i = 0; i < navSublinks.length; i++){
-				navSublinks[i].style.height = "34pt";
-				navSublinks[i].style.border = "solid black 2pt";
+				let sizeQuery = getSizeQuery();
+				if(sizeQuery === "mobile"){
+					navSublinks[i].style.height = "34pt";
+					navSublinks[i].style.border = "solid black 2pt";
+				} else if(sizeQuery === "mobile_landscape"){
+					navSublinks[i].style.height = "26pt";
+					navSublinks[i].style.border = "solid black 1.5pt";
+				}
 				navSublinks[i].style.borderTop = "none";
 			}
 			await pSleep(400);
@@ -277,22 +291,8 @@ class Popup{
 		this.scrollDist = 400;//range for popup to activate
 		this.activated = false;
 		this.referenceEl = referenceEl;
-		el.style.opacity = "0.0";
-		
-		switch(dir){
-			case 0:
-				break;
-			case 1:
-				el.style.marginLeft = -offset + "px";
-				break;
-			case 2:
-				el.style.position = "relative";
-				el.style.top = offset + "px";
-				break;
-			case 3:
-				el.style.marginLeft = offset + "px";
-				break;
-		}
+		this.disabled = false;
+		this.clear();
 	}
 	
 	setScrollDist(dist){
@@ -316,15 +316,39 @@ class Popup{
 		}
 		this.activated = true;
 	}
+
+	clear(){
+		this.activated = false;
+		this.el.style.opacity = "0.0";
+		
+		switch(this.dir){
+			case 0:
+				break;
+			case 1:
+				this.el.style.marginLeft = -this.offset + "px";
+				break;
+			case 2:
+				this.el.style.position = "relative";
+				this.el.style.top = this.offset + "px";
+				break;
+			case 3:
+				this.el.style.marginLeft = this.offset + "px";
+				break;
+		}
+	}
 	
 	request(){
-		/*if(!this.activated && window.scrollY > this.el.offsetTop - this.scrollDist)
-			this.activate();*/
-		if(!this.activated){
+		if(!this.activated && !this.disabled){
 			if((this.referenceEl !== null && window.scrollY > this.referenceEl.offsetTop - this.scrollDist)
 				|| (this.referenceEl === null && window.scrollY > this.el.offsetTop - this.scrollDist))
 			this.activate();
 		}
+	}
+
+	setDisabled(disabled){
+		this.disabled = disabled;
+		if(this.disabled)
+			this.clear();
 	}
 }
 
@@ -357,10 +381,28 @@ class CustomAnim{
 	}
 }
 
+var anchor = document.getElementById("anchor");
+var anchorToggled = false;
+anchor.onclick = () => {
+	window.scrollTo({
+		top: 0,
+		left: 0,
+		behavior: 'smooth'
+	})
+};
+
 window.onload = () => navShadow.toggle();
 window.onscroll = () => {
 	if(navToggled){
 		navBtn.toggle();
 		toggleNav();
+	}
+
+	if(!anchorToggled && window.scrollY > 400){
+		anchorToggled = true;
+		anchor.style.display = "block";
+	} else if(anchorToggled && window.scrollY <= 400){
+		anchorToggled = false;
+		anchor.style.display = "none"
 	}
 };
