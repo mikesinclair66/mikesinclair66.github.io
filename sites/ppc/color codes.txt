@@ -1,0 +1,4 @@
+Light purple:
+#604C8F
+Dark purple:
+#442D7B

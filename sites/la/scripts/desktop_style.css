@@ -1,0 +1,821 @@
+@media only screen and (min-width: 1025px){
+	.mobile_break{
+		display: none;
+	}
+	
+	.desktop_break{
+		display: block;
+	}
+	
+	#anchor{
+		width: 20pt;
+		height: 25pt;
+		padding: 15pt;
+		padding-top: 12.5pt;
+	}
+	
+	p, li{
+		font-size: 15pt;
+	}
+	
+	nav{
+		height: 75pt;
+	}
+	
+	#logo_sec img{
+		width: 120pt;
+		margin-left: 15pt;
+		margin-top: 5pt;
+	}
+	
+	#logo_background_window{
+		width: 120pt;
+		left: 15pt;
+		top: 5pt;
+	}
+	
+	#hamburger_btn, #hamburger_btn_animated{
+		display: none;
+	}
+	
+	#nav_content, #nav_content_animated{
+		display: block;
+		height: 75pt;
+		background: none;
+		background-image: none;
+		filter: alpha(opacity=100);
+		opacity: 1.0;
+		padding-top: 22pt;
+	}
+	
+	#nav_content_animated{
+		
+	}
+	
+	#logo_label{
+		left: 150pt;
+		top: 22.5pt;
+	}
+	
+	.link{
+		font-size: 23pt;
+	}
+	
+	.link button{
+		cursor: pointer;
+	}
+
+	.link button:hover, .link button:active{
+		transition: 0.5s;
+		border-bottom: solid #0060BA 3pt;
+	}
+	
+	nav .link{
+		transition: 0.5s;
+		color: #0060BA;
+		display: inline-block;
+		margin-right: 20pt;
+		position: relative;
+		left: 220pt;
+		bottom: 34pt;
+	}
+	
+	nav .link:hover, nav .link:active{
+		transition: 0.5s;
+		color: black;
+	}
+	
+	.info img{
+		width: 350pt;
+	}
+	
+	#about_sec{
+		margin-top: 60pt;
+	}
+	
+	#about_sec .first_paragraph{
+		padding-right: 10%;
+	}
+	
+	#about_sec img{
+		margin-top: 75pt;
+		margin-left: -25pt;
+		width: 300pt;
+		height: 240pt;
+	}
+	
+	#about_continued{
+		display: flex;
+	}
+	
+	#about_continued div{
+		padding-right: 12.5%;
+	}
+	
+	#about_continued img{
+		flex: 25%;
+		width: 300pt;
+	}
+	
+	#history_resume img{
+		width: 400pt;
+	}
+	
+	#intro{
+		padding-top: 170pt;
+		padding-bottom: 350pt;
+	}
+	
+	#intro h3{
+		font-size: 28pt;
+	}
+	
+	#intro img{
+		top: 210pt;
+		width: 250pt;
+		left: calc(50% - 125pt);
+	}
+	
+	#logo_ring{
+		-webkit-animation: ring_spin 15s linear infinite;
+		-moz-animation: ring_spin 15s linear infinite;
+		animation: ring_spin 15s linear infinite;
+	}
+	
+	#covid_notice{
+		margin-top: 125pt;
+		margin-bottom: -30pt;
+	}
+	
+	#photo_gallery_link{
+		position: relative;
+		left: 70pt;
+		top: 270pt;
+		z-index: 5;
+	}
+	
+	#photo_gallery_link button{
+		color: white;
+	}
+	
+	#photo_gallery_back{
+		margin-left: 60pt;
+	}
+	
+	#cardholder{
+		display: block;
+	}
+	
+	#cardholder_front{
+		margin: 0;
+		left: 42pt;
+		width: 857pt;
+		display: block;
+		box-shadow:
+			0 2.5px 2.5px rgba(0, 0, 0, 0.035),
+			0 6.5px 5px rgba(0, 0, 0, 0.045),
+			0 12.5px 9px rgba(0, 0, 0, 0.06),
+			0 22px 18px rgba(0, 0, 0, 0.07),
+			0 41.5px 33.5px rgba(0, 0, 0, 0.085),
+			0 105px 75px rgba(0, 0, 0, 0.1);
+	}
+	
+	#intro_slides{
+		text-align: center;
+		padding: 5.5pt 1.5pt 1pt 1.5pt;
+	}
+	
+	#intro_slides img{
+		width: 30%;
+		border: solid white 3pt;
+	}
+	
+	#info_slideshow_arrow{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		cursor: pointer;
+		z-index: 2;
+	}
+	
+	#info_slideshow_arrow:hover{
+		transition: 0.5s;
+		color: black;
+	}
+	
+	#desktop_table{
+		font-size: 15pt;
+		margin-bottom: 20pt;
+	}
+	
+	#desktop_table th, #desktop_table td{
+		padding: 5pt;
+	}
+	
+	#services, #about_sec .first_paragraph_div{
+		display: flex;
+	}
+	
+	#services{
+		padding-right: 10%;
+	}
+	
+	#services_sec .link button:hover, #services_sec .link button:active{
+		transition: 0.5s;
+		border-bottom: solid #0060BA 3pt;
+		color: #0060BA;
+	}
+	
+	.service_minimize{
+		display: none;
+	}
+	
+	#services_sec img{
+		width: 450pt;
+		margin-left: calc(50% - 225pt);
+	}
+	
+	#services img{
+		display: block;
+		height: 425pt;
+		border: solid white 3pt;
+		margin-top: 75pt;
+		margin-right: -80pt;
+		margin-left: 5%;
+	}
+	
+	#collab{
+		display: flex;
+	}
+	
+	#collab div{
+		margin-right: 70pt;
+	}
+	
+	#collab img{
+		width: 300pt;
+		height: 225pt;
+		margin-left: 0;
+		position: relative;
+		right: 25pt;
+	}
+	
+	#history_parallax{
+		margin-top: 0;
+		padding-bottom: 550pt;
+	}
+	
+	#history_parallax2{
+		padding-top: 300pt;
+	}
+	
+	#history_intro, #history_resume{
+		padding-right: 45%;
+	}
+	
+	#history_intro img{
+		position: absolute;
+		right: 30pt;
+		margin-top: 75pt;
+	}
+	
+	#history_duties_img{
+		width: 350pt;
+		height: 225pt;
+		margin: 0;
+	}
+	
+	#contact_sec{
+		padding-top: 130pt;
+		padding-right: 50%;
+	}
+	
+	#contact_sec img{
+		width: 200pt;
+		position: absolute;
+		left: 70%;
+		top: 115pt;
+	}
+	
+	#gallery{
+		display: none;
+	}
+	
+	#gallery_desktop{
+		display: block;
+		text-align: center;
+		width: 95%;
+		margin-left: 2.5%;
+	}
+	
+	#gallery_desktop img{
+		width: 95%;
+		border: solid black 3pt;
+		box-shadow: 3px 5px 4px #888888;
+		cursor: pointer;
+	}
+	
+	#gallery_desktop .gallery_photo_vertical{
+		width: 70%;
+	}
+	
+	#gallery_desktop_showcase{
+		background: rgba(127, 127, 127, 0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+	}
+	
+	#showcase_img{
+		border: solid white 3pt;
+		margin-left: 25pt;
+	}
+	
+	#showcase_exit{
+		font-size: 50pt;
+		padding: 10pt 25pt 10pt 25pt;
+		color: white;
+		background-color: black;
+		border-radius: 50%;
+		cursor: pointer;
+		position: fixed;
+		top: calc(50% - 30pt);
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		border: solid white 2pt;
+		margin: -2pt;
+	}
+	
+	#footer_parallax img{
+		width: 300pt;
+		margin-bottom: -90pt;
+	}
+	
+	footer{
+		padding-top: 50pt;
+		padding-bottom: 50pt;
+	}
+	
+	footer .link{
+		margin-left: 2pt;
+		font-size: 22pt;
+	}
+	
+	footer .link:hover, footer .link:active{
+		transition: 0.5s;
+		color: #0060BA;
+	}
+}
+
+@media only screen and (min-width: 1450px){
+	.info, #services_sec{
+		padding: 50pt;
+	}
+	
+	#about_sec img{
+		margin-left: -75pt;
+	}
+	
+	#intro{
+		padding-top: 190pt;
+		padding-bottom: 370pt;
+	}
+	
+	#intro img{
+		top: 250pt;
+	}
+	
+	#history_intro img{
+		margin-top: 150pt;
+	}
+	
+	#history_duties, #history_outro, #contact_sec{
+		padding: 56pt;
+	}
+	
+	#contact_sec{
+		padding-top: 130pt;
+		padding-right: 55%;
+	}
+	
+	nav .link{
+		left: 300pt;
+	}
+	
+	#cardholder{
+		display: block;
+	}
+	
+	#cardholder_front{
+		display: block;
+		left: 55pt;
+		width: 1067pt;
+	}
+	
+	#photo_gallery_link{
+		top: 330pt;
+	}
+}
+
+@media only screen and (min-width: 1750px){
+	.info, #services_sec{
+		padding: 50pt;
+	}
+	
+	#about_sec img{
+		margin-left: -75pt;
+	}
+	
+	#history_duties, #history_outro, #contact_sec{
+		padding: 56pt;
+	}
+	
+	#history_duties, #contact_sec{
+		padding-right: 55%;
+	}
+	
+	#contact_sec{
+		padding-top: 130pt;
+	}
+	
+	#contact_sec img{
+		width: 175pt;
+	}
+	
+	nav .link{
+		left: 300pt;
+	}
+	
+	#cardholder{
+		display: block;
+	}
+	
+	#cardholder_front{
+		display: block;
+		left: 67pt;
+		width: 1280pt;
+	}
+	
+	#photo_gallery_link{
+		top: 355pt;
+	}
+}
+
+/* Ipad portrait */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait){
+	p, li, span, div, button{
+		font-size: 22pt;
+	}
+	
+	#nav_content, #nav_content_animated{
+		padding-top: 35%;
+	}
+	
+	.link{
+		font-size: 45pt;
+	}
+	
+	#logo_label{
+		left: calc(50% - 150pt);
+		top: 50pt;
+		width: 300pt;
+	}
+	
+	#intro{
+		padding-top: 200pt;
+		padding-bottom: 290pt;
+	}
+	
+	#intro h3{
+		font-size: 50pt;
+	}
+	
+	#intro img{
+		top: 300pt;
+		width: 300pt;
+		left: calc(50% - 150pt);
+	}
+	
+	#photo_gallery_link{
+		margin-left: calc(50% - 175pt);
+	}
+	
+	#photo_gallery_back{
+		margin-left: 26.25%;/* Change to 12.5 if gallery starts with .gallery_photo (horizontal). */
+	}
+	
+	#intro_slides{
+		margin-left: calc(50% - 175pt);
+	}
+	
+	#intro_slides img{
+		width: 350pt;
+		border: solid black 3pt;
+	}
+	
+	#info_slideshow_arrow{
+		margin-left: 157pt;
+	}
+	
+	#desktop_table{
+		font-size: 25pt;
+	}
+	
+	#services_sec img{
+		width: 500pt;
+		margin-left: calc(50% - 250pt);
+		margin-bottom: 20pt;
+	}
+	
+	.info img{
+		width: 400pt;
+	}
+
+	#gallery .gallery_photo img{
+		width: 75%;
+		margin: 0;
+		border: solid black 3pt;
+	}
+	
+	#gallery .gallery_photo_vertical img{
+		width: 47.5%;
+		margin: 0;
+		border: solid black 3pt;
+	}
+	
+	#gallery .gallery_photo p, #gallery .gallery_photo_vertical p{
+		padding-left: 25pt;
+		padding-right: 25pt;
+	}
+	
+	footer .link{
+		font-size: 40pt;
+	}
+	
+	#gallery_desktop_showcase{
+		background: rgba(127, 127, 127, 0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+	}
+	
+	#showcase_img{
+		border: solid white 3pt;
+		margin-left: 25pt;
+	}
+	
+	#showcase_exit{
+		font-size: 50pt;
+		padding: 10pt 25pt 10pt 25pt;
+		color: white;
+		background-color: black;
+		border-radius: 50%;
+		cursor: pointer;
+		position: fixed;
+		top: calc(50% - 30pt);
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		border: solid white 2pt;
+		margin: -2pt;
+	}
+}
+
+/* Ipad landscape */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape){
+	p, li, span, div, button{
+		font-size: 22pt;
+	}
+	
+	#nav_content, #nav_content_animated{
+		padding-top: 20%;
+	}
+	
+	.link{
+		font-size: 45pt;
+	}
+	
+	#logo_label{
+		left: calc(50% - 150pt);
+		top: 50pt;
+		width: 300pt;
+	}
+	
+	#intro{
+		padding-top: 200pt;
+		padding-bottom: 290pt;
+	}
+	
+	#intro h3{
+		font-size: 50pt;
+	}
+	
+	#intro img{
+		top: 300pt;
+		width: 300pt;
+		left: calc(50% - 150pt);
+	}
+	
+	#photo_gallery_link{
+		margin-left: calc(50% - 175pt);
+	}
+	
+	#photo_gallery_back{
+		margin-left: 26.25%;/* Change to 12.5 if gallery starts with .gallery_photo (horizontal). */
+	}
+	
+	#intro_slides{
+		margin-left: calc(50% - 175pt);
+	}
+	
+	#intro_slides img{
+		width: 350pt;
+		border: solid black 3pt;
+	}
+	
+	#info_slideshow_arrow{
+		margin-left: -210pt;
+		display: block;
+	}
+	
+	#desktop_table{
+		font-size: 25pt;
+	}
+	
+	#services_sec img{
+		width: 500pt;
+		margin-left: calc(50% - 250pt);
+		margin-bottom: 20pt;
+	}
+	
+	.info img{
+		width: 400pt;
+	}
+
+	#gallery .gallery_photo img{
+		width: 75%;
+		margin: 0;
+		border: solid black 3pt;
+	}
+	
+	#gallery .gallery_photo_vertical img{
+		width: 47.5%;
+		margin: 0;
+		border: solid black 3pt;
+	}
+	
+	#gallery .gallery_photo p, #gallery .gallery_photo_vertical p{
+		padding-left: 25pt;
+		padding-right: 25pt;
+	}
+	
+	footer .link{
+		font-size: 40pt;
+	}
+	
+	#gallery_desktop_showcase{
+		background: rgba(127, 127, 127, 0.5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1000;
+	}
+	
+	#showcase_img{
+		border: solid white 3pt;
+		margin-left: 25pt;
+	}
+	
+	#showcase_exit{
+		font-size: 50pt;
+		padding: 10pt 25pt 10pt 25pt;
+		color: white;
+		background-color: black;
+		border-radius: 50%;
+		cursor: pointer;
+		position: fixed;
+		top: 2.5%;
+	}
+	
+	#showcase_exit:hover, #showcase_exit:active{
+		border: solid white 2pt;
+		margin: -2pt;
+	}
+}
+
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape){
+	body{
+		font-size: 18pt;
+	}
+	
+	p, li, span, div, button{
+		font-size: 18pt;
+	}
+	
+	#anchor{
+		width: 20pt;
+		height: 25pt;
+		padding: 15pt;
+		padding-top: 10pt;
+	}
+	
+	nav{
+		height: 50pt;
+	}
+	
+	#logo_sec img, #logo_background_window{
+		width: 80pt;
+	}
+	
+	#logo_sec img{
+		margin-left: 5pt;
+		margin-top: 5pt;
+	}
+	
+	#logo_background_window{
+		left: 5pt;
+		top: 5pt;
+	}
+	
+	#hamburger_btn, #hamburger_btn_animated{
+		top: 10.5pt;
+		right: 20pt;
+	}
+	
+	.hamburger_slot{
+		width: 30pt;
+		height: 3pt;
+	}
+	
+	#hamburger_btn_animated #hamburger_slot1{
+		transform: rotate(-45deg);
+		margin-top: 13pt;
+	}
+
+	#hamburger_btn_animated #hamburger_slot3{
+		transform: rotate(45deg);
+		margin-top: -26pt;
+	}
+	
+	#nav_content, #nav_content_animated{
+		padding-top: 75pt;
+	}
+	
+	#logo_label{
+		top: 20pt;
+	}
+	
+	#intro{
+		padding-top: 100pt;
+		padding-bottom: 200pt;
+	}
+	
+	#intro img{
+		top: 120pt;
+		width: 140pt;
+		left: calc(50% - 70pt);
+	}
+	
+	#intro h3{
+		color: black;
+		font-size: 18pt;
+	}
+	
+	#logo_ringless, #logo_ring{
+		top: 20pt;
+	}
+	
+	.info img{
+		width: 225pt;
+	}
+	
+	#history_parallax{
+		margin-top: 50pt;
+	}
+	
+	#contact_sec{
+		margin-top: 55pt;
+	}
+	
+	.link{
+		font-size: 25pt;
+	}
+	
+	#services_sec img{
+		width: 300pt;
+		margin-left: calc(50% - 150pt);
+	}
+}

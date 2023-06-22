@@ -1,0 +1,98 @@
+@media only screen and (orientation: landscape){
+	html{
+		height: 100%;
+	}
+	
+	body{
+		font-size: 12pt;
+	}
+	
+	button{
+		margin-top: 10pt;
+		margin-bottom: 0;
+		font-size: 12pt;
+		width: 175pt;
+		height: 40pt;
+	}
+	
+	button:hover{
+		transition: 0.4s;
+		outline: 0;
+		color: black;
+		border: solid black 1pt;
+		background: none;
+	}
+	
+	a{
+		padding: 5pt 0 5pt 0;
+	}
+	
+	.landscape_slideshow{
+		transition: opacity 0.5s, filter 0.5s;
+		display: block;
+		width: 120%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		margin-left: -20%;
+	}
+	
+	#main_el{
+		font-size: 12pt;
+		border-radius: 25pt;
+		width: 650pt;
+		height: 225pt;
+		padding: 130pt 30pt 30pt 30pt;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background: rgba(255, 255, 255, 0.8);
+	}
+	
+	.inquiry, #main_el_back a{
+		font-size: 15pt;
+	}
+	
+	.inquiry, #main_el_back a{
+		color: #00B3D3;
+	}
+	
+	#main_el_back a{
+		transition: 0.5s;
+	}
+	
+	#main_el_back a:hover, #main_el_back a:active{
+		transition: 0.5s;
+		color: black;
+	}
+	
+	#phone_no{
+		color: #00B3D3;
+	}
+	
+	#logo, #logo_black{
+		width: 110pt;
+		border: solid black 2pt;
+	}
+	
+	#logo_black{
+		border: solid white 2pt;
+	}
+	
+	#logo_container{
+		top: 40pt;
+	}
+	
+	#loading_page{
+		display: block;
+	}
+	
+	.loader{
+		width: 100px;
+		height: 100px;
+		left: calc(50% - 65px);
+		top: calc(50% - 75px);
+	}
+}

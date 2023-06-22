@@ -2,24 +2,58 @@
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="./scripts/main_style.css" />
-		<title>COMP 7903 Case Studies</title>
+		<title>My Older Portfolio</title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				font-family: Arial;
+				background-image: url("./bg.jpg");
+			}
+
+			#sheet{
+				background: rgba(255, 255, 255, 0.5);
+				margin: 50pt;
+				padding: 50pt;
+			}
+
+			.doc_link{
+				transition: 0.2s;
+				color: blue;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+
+			.doc_link:hover, .doc_link:active{
+				transition: 0.2s;
+				color: black;
+				padding-left: 6pt;
+			}
+			
+			footer{
+				background-color: black;
+				color: white;
+				margin: 0 -50pt -50pt -50pt;
+				padding-left: 12pt;
+			}
+			
+			footer a{
+				color: white;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="sheet">
 			<div class="info" id="dir">
-				<h1>Case Studies</h1><br />
-				<span class="doc_link">Kingdom Rush</span><br /><br />
-				<span class="doc_link">Battle of Polytopia</span><br /><br />
-				<span class="doc_link">Levelhead</span>
+				<h1>Previous Work</h1><br />
+				<a class="doc_link" href="./sites/ppc/index.html">Fraser Valley EDA People&#39;s Party of Canada</a><br /><br />
+				<a class="doc_link" href="./sites/amk2/index.html">AMK (Retired)</a><br /><br />
+				<a class="doc_link" href="./sites/charity/index.html">Charity Site (Freelance Bid)</a><br /><br />
+				<a class="doc_link" href="./sites/it_temp/index.html">Intiva Technologies (Previous Temp Site)</a><br /><br />
+				<a class="doc_link" href="./sites/la/index.html">Lothian Aviation Inc. (Retired)</a><br /><br />
 			</div>
 			
-			<div class="info_anim" id="doc_display">
-				<span class="back_link">&#8592; Go back</span><br /><br />
-				<embed src="" width="100%" height="800pt" />
-				<h3 id="date_notice"></h3>
-			</div>
+			<footer><i>Sites are a product of <a href="https://intivatechnologies.ca" target="_blank">Intiva Technologies</a></i>.
+			&#169; Copyright 2023 | All Rights Reserved</footer>
 		</div>
-		
-		<script type="text/javascript" src="./scripts/main.js"></script>
 	</body>
 </html>

@@ -1,0 +1,20 @@
+-Get rid of white buttons
+-My membership - removed
+-Swap max and the three candidates
+-Swap Kevin with new image
+-Fix artifacts at bottom of bios
+-ALL RIGHTS RESERVED = lowercase
+-Fix footer to bottom ~ 6pt font ~ lesser height
+-Change links for donate/buy a membership
+-Contact us ~ direct message to info@, kevin@, tyler@, and rob@
+-Mobile -> Left align social media icons
+-Social media icons for each candidate - None have insta & youtube (link to federal) -> use tooltips
+-Contact Us
+->
+First name, Last name
+email address
+(Optional)
+Phone number (10 character limit)
+Physical address
+
+-Hour & half consult

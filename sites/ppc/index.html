@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta property="og:image" content="https://www.fraservalleyppc.ca/images/ppc_logo.jpg" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Fraser Valley PPC EDA" />
+		<meta charset="UTF-8" />
+		<meta name="description" content="" /><!--TODO-->
+		<meta name="keywords" content="PPC, People, Political, Party, Canada" />
+		<meta name="author" content="People's Party of Canada" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<title>Fraser Valley PPC</title>
+		<link rel="icon" href="./images/ppc_icon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./scripts/main_style.css" type="text/css" />
+		<link rel="stylesheet" href="./scripts/desktop_style.css" type="text/css" />
+		<style type="text/css">
+			.desktop_arrow{
+				display: none;
+			}
+			
+			.highlight_location{
+				color: lightgrey;
+			}
+			
+			.highlight_header{
+				background-color: #442D7B;
+				color: white;
+				padding: 6pt;
+				margin-bottom: 8pt;
+				font-weight: 600;
+			}
+			
+			.highlight_header a{
+				color: white;
+			}
+			
+			#bg_img, #bg_img_animated{
+				transition: 0.5s;
+				height: 130px;
+				width: auto;
+				position: fixed;
+				top: 130pt;
+				left: calc(100% - 125px - 12pt);
+				z-index: -1;
+				filter: alpha(opacity=0);
+				opacity: 0;
+				margin-left: -6pt;
+				right: 0;
+				display: none;
+			}
+			
+			#bg_img_animated{
+				filter: alpha(opacity=100);
+				opacity: 100;
+				margin-left: 0;
+			}
+			
+			#keywords, #keywords_animated{
+				margin-bottom: 25pt;
+			}
+			
+			@media only screen and (min-width: 375px){
+				#bg_img, #bg_img_animated{
+					height: 150px;
+				}
+			}
+			
+			@media only screen and (min-width: 414px){
+				#bg_img, #bg_img_animated{
+					height: 175px;
+				}
+			}
+			
+			@media only screen and (orientation: landscape){
+				#bg_img, #bg_img_animated{
+					transition: 0.5s;
+					width: 40%;
+					height: auto;
+					position: fixed;
+					left: 40%;
+					bottom: -75pt;
+					margin-right: 0;
+					display: block;
+				}
+				
+				#keywords, #keywords_animated{
+					margin-top: 75pt;
+				}
+			}
+			
+			/* Min desktop */
+			@media only screen and (min-width: 1025px){
+				.desktop_arrow{
+					display: inline-block;
+				}
+				
+				#bg_img, #bg_img_animated{
+					transition: 0.5s;
+					width: 45%;
+					height: auto;
+					position: fixed;
+					left: 57.5%;
+					bottom: 0;
+					margin-right: 0;
+					display: block;
+				}
+				
+				#keywords, #keywords_animated{
+					margin-bottom: -40pt;
+				}
+				
+				.highlight_header{
+					display: inline-block;
+				}
+				
+				.highlight_header a{
+					transition: 0.3s;
+					padding: 3pt;
+				}
+				
+				.highlight_header a:hover, .highlight_header a:active{
+					transition: 0.3s;
+					background-color: white;
+					color: #442D7B;
+				}
+				
+				.highlight_location{
+					transition: 0.3s;
+					font-weight: 400;
+					color: lightgrey;
+				}
+				
+				.highlight_location:hover, .highlight_location:active{
+					transition: 0.3s;
+					color: white;
+				}
+				
+				#highlight_table .highlight_header{
+					display: block;
+					width: 450pt;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<nav id="nav_default">
+			<div class="nav_subdisplay">
+				<div class="desktop_content">
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/shop/donations/3?fbclid=IwAR29w5VvhKZH4fzRqnawBOriLenDWDM8K4hO15UkbTwrajKVTfuPq6CZKgE" target="_blank" class="nav_btn">
+						DONATE
+					</a>
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/volunteer" target="_blank">
+						VOLUNTEER
+					</a>
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/" target="_blank">
+						SUBSCRIBE
+					</a>
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/product/memberships/6?fbclid=IwAR0mLG26S6XZzvJzZNyaU2oIuqu-WeQ13fgJzzWyqbufKNymDJf_CPMvMgI" target="_blank" class="nav_btn">
+						BUY A MEMBERSHIP
+					</a>
+					<a href="./events.html">
+						EVENTS
+					</a>
+					<a href="./contact.html">
+						CONTACT US
+					</a>
+					<a href="./about.html">
+						ABOUT US
+					</a>
+					<div class="social_media">
+						<a href="https://www.facebook.com/peoplespca/" target="_blank">
+							<img src="./images/fb.jpg" alt="Facebook for People&#39;s Party of Canada"
+								title="Facebook for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://twitter.com/peoplespca" target="_blank">
+							<img src="./images/twitter.jpg" alt="Twitter for People&#39;s Party of Canada"
+								title="Twitter for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://www.instagram.com/peoplespca/" target="_blank">
+							<img src="./images/insta.jpg" alt="Instagram for People&#39;s Party of Canada"
+								title="Instagram for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://www.youtube.com/channel/UCMR4SQfGkEoiNfyaG_22Baw" target="_blank">
+							<img src="./images/youtube.jpg" alt="YouTube for People&#39;s Party of Canada"
+								title="YouTube for People&#39;s Party of Canada" />
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="nav_display">
+				<a href="./index.html">
+					<img src="./images/logo_white.png" id="logo" alt="People&#39;s Party of Canada"	
+						title="People&#39;s Party of Canada" />
+				</a>
+				<div id="ham_btn">
+					<span class="ham_slot" id="slot1"></span>
+					<span class="ham_slot" id="slot2"></span>
+					<span class="ham_slot" id="slot3"></span>
+				</div>
+				<div class="desktop_content">
+					<a href="https://www.peoplespartyofcanada.ca/covid-health-measures" target="_blank">
+						COVID POLICY!
+					</a>
+					<a href="https://www.peoplespartyofcanada.ca/platform" target="_blank">
+						OUR PLATFORM
+					</a>
+					<a href="https://www.peoplespartyofcanada.ca/news" target="_blank">
+						NEWS &#38; ISSUES
+					</a>
+				</div>
+			</div>
+			<div id="nav_content">
+				<div class="nav_content_display">
+					<a href="https://www.peoplespartyofcanada.ca/covid-health-measures" target="_blank">
+						COVID POLICY!
+					</a><br class="mobile_break" />
+					<a href="https://www.peoplespartyofcanada.ca/platform" target="_blank">
+						OUR PLATFORM
+					</a><br class="mobile_break" />
+					<a href="https://www.peoplespartyofcanada.ca/news" target="_blank">
+						NEWS &#38; ISSUES
+					</a><br class="mobile_break" />
+				</div>
+				<div class="nav_content_subdisplay">
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/shop/donations/3?fbclid=IwAR29w5VvhKZH4fzRqnawBOriLenDWDM8K4hO15UkbTwrajKVTfuPq6CZKgE" target="_blank" class="nav_btn">
+						DONATE
+					</a><br class="mobile_break" />
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/volunteer" target="_blank">
+						VOLUNTEER
+					</a><br class="mobile_break" />
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/" target="_blank">
+						SUBSCRIBE
+					</a><br class="mobile_break" />
+					<a href="https://peoplespartyofcanada-fraservalley.square.site/product/memberships/6?fbclid=IwAR0mLG26S6XZzvJzZNyaU2oIuqu-WeQ13fgJzzWyqbufKNymDJf_CPMvMgI" target="_blank" class="nav_btn">
+						BUY A MEMBERSHIP
+					</a><br class="mobile_break" />
+					<a href="./events.html">
+						EVENTS
+					</a><br class="mobile_break" />
+					<a href="./contact.html">
+						CONTACT US
+					</a><br class="mobile_break" />
+					<a href="./about.html">
+						ABOUT US
+					</a><br class="mobile_break" /><br class="mobile_break" /><br class="mobile_break" /><br class="mobile_break" />
+					<div id="social_media">
+						<a href="https://www.facebook.com/peoplespca/" target="_blank">
+							<img src="./images/fb.jpg" alt="Facebook for People&#39;s Party of Canada"
+								title="Facebook for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://twitter.com/peoplespca" target="_blank">
+							<img src="./images/twitter.jpg" alt="Twitter for People&#39;s Party of Canada"
+								title="Twitter for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://www.instagram.com/peoplespca/" target="_blank">
+							<img src="./images/insta.jpg" alt="Instagram for People&#39;s Party of Canada"
+								title="Instagram for People&#39;s Party of Canada" />
+						</a>
+						<a href="https://www.youtube.com/channel/UCMR4SQfGkEoiNfyaG_22Baw" target="_blank">
+							<img src="./images/youtube.jpg" alt="YouTube for People&#39;s Party of Canada"
+								title="YouTube for People&#39;s Party of Canada" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<img src="./images/candidates.png" alt="PPC candidates" id="bg_img" />
+		
+		<div class="info" id="keywords">
+			<h1 style="color: #442D7B">"We will repeal</h1>
+			<h1 style="color: #604C8F">vaccine mandates!</h1>
+			<h1 style="color: #442D7B">We will repeal</h1>
+			<h1 style="color: #604C8F">vaccine passports!"</h1>
+			<h2 style="color: #442D7B">~ Max Bernier</h2>
+		</div>
+		
+		<div class="info">
+			<div class="highlight_header">
+				Meet your candidates
+			</div>
+			<div id="highlight_table">
+				<div class="highlight_header">
+					<span class="highlight_location">Mission-Matsqui-Fraser Canyon</span><br class="mobile_break" />
+					<span class="desktop_arrow">&#62;</span> <a href="./candidates/tyler.html">Tyler Niles</a>
+				</div>
+				<div class="highlight_header" id="highlight1">
+					<span class="highlight_location">Chilliwack-Hope</span><br class="mobile_break" />
+					<span class="desktop_arrow">&#62;</span> <a href="./candidates/rob.html">Rob Bogunovic</a>
+				</div>
+				<div class="highlight_header">
+					<span class="highlight_location">Abbotsford</span><br class="mobile_break" />
+					<span class="desktop_arrow">&#62;</span> <a href="./candidates/kevin.html">Kevin Sinclair</a>
+				</div>
+			</div>
+		</div>
+		
+		<footer>
+			<span>Fraser Valley PPC EDA &#169; 2021.<br class="mobile_break" /> All rights reserved.</span>
+		</footer>
+		
+		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript">
+			var keywords = new Anim(document.getElementById("keywords"), "keywords_animated", true);
+			var maxime = new Anim(document.getElementById("bg_img"), "bg_img_animated", true);
+			window.addEventListener("load", () => {
+				keywords.toggle();
+				maxime.toggle();
+				if(window.innerWidth < 1025 || window.innerWidth <= window.innerHeight){
+					let maximeHeight = 130;
+					if(window.innerWidth >= 375)
+						maximeHeight = 150;
+					if(window.innerWidth >= 414)
+						maximeHeight = 175;
+					maxime.el.style.top = document.getElementsByClassName("highlight_header")[0].offsetTop - maximeHeight + "px";
+					maxime.el.style.left = (document.getElementsByClassName("highlight_header")[0].offsetLeft
+						+ document.getElementsByClassName("highlight_header")[0].offsetWidth - maxime.el.offsetWidth) + "px";
+				} else {
+					console.log(maxime.el.offsetHeight);
+					maxime.el.style.top = "calc(100% - " + (maxime.el.offsetHeight - 1) + "px)";
+				}
+			});
+			window.addEventListener("resize", () => {
+				if(window.innerWidth < 1025 || window.innerWidth <= window.innerHeight){
+					let maximeHeight = 130;
+					if(window.innerWidth >= 375)
+						maximeHeight = 150;
+					if(window.innerWidth >= 414)
+						maximeHeight = 175;
+					maxime.el.style.top = document.getElementsByClassName("highlight_header")[0].offsetTop - maximeHeight + "px";
+					maxime.el.style.left = (document.getElementsByClassName("highlight_header")[0].offsetLeft
+						+ document.getElementsByClassName("highlight_header")[0].offsetWidth - maxime.el.offsetWidth) + "px";
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,364 @@
+@media only screen and (min-width: 1000px){
+	body{
+		font-size: 25pt;
+		font-family: Calibri, Arial;
+		background-color: white;
+	}
+
+	#anchor{
+		cursor: pointer;
+		transition: 0.5s;
+		display: none;
+		filter: alpha(opacity=0);
+		opacity: 0.0;
+		background: rgba(196, 159, 19, 0.8);
+		border: solid black 3pt;
+		font-size: 30pt;
+		color: black;
+		text-align: center;
+		position: fixed;
+		right: 10pt;
+		bottom: 10pt;
+		width: 40pt;
+		height: 40pt;
+		padding: 10pt;
+		border-radius: 50%;
+		z-index: 100;
+	}
+	
+	#anchor:hover, #anchor:active{
+		background: rgba(196, 159, 19, 0.5);
+	}
+
+	h1{
+		font-size: 28pt;
+	}
+
+	h2{
+		font-size: 22pt;
+	}
+
+	h3{
+		font-size: 18pt;
+	}
+
+	.mobile_break{
+		display: none;
+	}
+
+	.desktop_break{
+		display: block;
+	}
+
+	nav{
+		background-color: black;
+		margin: -6pt;
+	}
+
+	#logo{
+		width: 170pt;
+		margin: 35pt 0 25pt 50pt;
+	}
+
+	#hamburger_btn, #hamburger_btn_animated{
+		position: absolute;
+		right: 5pt;
+		top: 28pt;
+		z-index: 2;
+		display: none;
+	}
+
+	.hamburger_slot, #hamburger_btn_animated .hamburger_slot{
+		transition: 0.35s;
+		width: 25pt;
+		height: 5pt;
+		margin: 10pt;
+		background-color: white;
+		border-radius: 2pt;
+		display: block;
+	}
+
+	#hamburger_slot1{
+		transform: rotate(45deg);
+	}
+
+	#hamburger_slot2{
+		transform: rotate(-45deg);
+	}
+
+	#hamburger_btn_animated #hamburger_slot1{
+		margin-top: 17.5pt;
+	}
+
+	#hamburger_btn_animated #hamburger_slot2{
+		margin-top: -14.75pt;
+	}
+
+	#nav_content{
+		transition: 0.4s;
+		display: inline-block;
+		filter: alpha(opacity=100);
+		text-align: center;
+		opacity: 1.0;
+		width: 100%;
+		height: 50pt;
+		padding-top: 60pt;
+		position: absolute;
+		top: -30pt;
+		left: 0;
+		background: none;
+		z-index: 1;
+	}
+
+	#nav_content .link{
+		transition: 0.5s;
+		cursor: pointer;
+		font-size: 18pt;
+		display: inline-block;
+		color: white;
+		padding-right: 30pt;
+		position: relative;
+		left: 200pt;
+	}
+	
+	#nav_content .link:hover, #nav_content .link:active{
+		transition: 0.5s;
+		color: #BD30FF;
+	}
+
+	#nav_content .mobile_break{
+		width: 75%;
+		background: none;
+		background-color: black;
+	}
+
+	.link{
+		text-decoration: none;
+	}
+
+	p{
+		font-size: 15pt;
+	}
+
+	ul, label{
+		font-size: 15pt;
+	}
+
+	.info{
+		margin: 5pt -6pt 0 -6pt;
+		padding: 75pt;
+	}
+
+	.info img{
+		width: 150pt;
+	}
+
+	#intro h1, #team h1{
+		color: white;
+	}
+
+	#intro{
+		text-align: center;
+		background: linear-gradient(135deg, black, #0d2266, #BD30FF);
+		color: #a8a8a8;
+		border-bottom: solid #C49F13 3pt;
+		box-shadow: 5px 10px 8px #888888;
+	}
+
+	.keyword{
+		color: #C49F13;
+		font-weight: 600;
+	}
+
+	button{
+		border-radius: 50pt;
+		font-size: 18pt;
+		width: 90%;
+		height: 45pt;
+		margin: 7pt;
+		background: none;
+		color: white;
+		border: solid white 1px;
+	}
+
+	#contact_btn{
+		transition: 0.5s;
+		filter: alpha(opacity=0);
+		opacity: 0.0;
+	}
+
+	#contact_btn_animated{
+		transition: 0.5s;
+		filter: alpha(opacity=100);
+		opacity: 1.0;
+		cursor: pointer;
+	}
+	
+	#contact_btn_animated:hover, #contact_btn_animated:active{
+		transition: 0.5s;
+		border: solid #BD30FF 2px;
+		color: #BD30FF;
+	}
+	
+	#contact_btn_animated:focus{
+		outline: 0;
+	}
+
+	#contact_btn, #contact_btn_animated{
+		border: solid #C49F13 2px;
+		background: rgba(0, 0, 0, 0.3);
+	}
+
+	#hook{
+		border-bottom: solid black 3pt;
+		margin-bottom: 5pt;
+	}
+
+	#hook_img{
+		margin: -20pt 0 40pt -40pt;
+	}
+
+	.parallax{
+		margin: -6pt;
+	}
+	
+	.parallax img{
+		width: auto;
+	}
+
+	.first_paragraph, .first_img{
+		margin-top: -70pt;
+	}
+
+	#about_us{
+		text-align: center;
+		background-color: black;
+		color: white;
+	}
+
+	#about_us h1{
+		position: relative;
+		bottom: 300pt;
+		color: white;
+	}
+	
+	#reach_out, #we_create{
+		width: 50%;
+		padding: 0;
+	}
+
+	#reach_out{
+		position: relative;
+		right: 55pt;
+	}
+
+	#we_create{
+		position: absolute;
+		left: calc(50% - 20pt);
+	}
+
+	#team{
+		background: linear-gradient(135deg, black, #0d2266, #BD30FF);
+		border-bottom: solid #C49F13 3pt;
+		color: #a8a8a8;
+		margin-top: -1pt;
+		text-align: center;
+	}
+
+	#services_parallax{
+		margin-top: 0;
+	}
+
+	#team .keyword{
+		font-weight: 600;
+		color: #BD30FF;
+	}
+
+	#services{
+		background: linear-gradient(-45deg, black, #0d2266, #BD30FF);
+		color: white;
+		border-bottom: solid #C49F13 3pt;
+	}
+
+	#services h1{
+		text-align: center;
+		position: relative;
+		bottom: 300pt;
+		color: white;
+	}
+	
+	.popup_file div{
+		transition: 0.5s;
+	}
+
+	#contact{
+		background-color: white;
+		color: black;
+		margin-top: 0;
+	}
+
+	input[type=text], input[type=email]{
+		border: none;
+		background: none;
+		border-bottom: solid black 2px;
+		width: 80%;
+		font-size: 15pt;
+		color: #C49F13;
+	}
+
+	input[type=text]:focus, input[type=email]:focus{
+		outline: 0;
+	}
+
+	input[type=submit]{
+		transition: 0.5s;
+		cursor: pointer;
+		font-size: 15pt;
+		color: black;
+		border: solid black 2pt;
+		border-radius: 10pt;
+		background: none;
+		width: 100pt;
+		height: 30pt;
+	}
+	
+	input[type=submit]:hover{
+		transition: 0.5s;
+		background-color: #C49F13;
+	}
+
+	textarea{
+		border: solid black 2pt;
+		width: 80%;
+	}
+
+	textarea:focus{
+		outline: 0;
+		color: #C49F13;
+		font-size: 15pt;
+	}
+
+	footer{
+		text-align: center;
+		font-size: 14pt;
+		background-color: black;
+		color: white;
+		margin: -6pt;
+		padding: 50pt 20pt 50pt 20pt;
+	}
+
+	footer .link{
+		transition: 0.5s;
+		color: #C49F13;
+	}
+
+	footer .link:hover{
+		transition: 0.5s;
+		color: #BD30FF;
+	}
+
+	footer .link:active{
+		transition: 0.5s;
+		color: #BD30FF;
+	}
+}

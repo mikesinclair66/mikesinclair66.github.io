@@ -1,0 +1,213 @@
+@media only screen and (min-width: 1025px){
+	#logo{
+		width: 150pt;
+		padding-top: 3pt;
+		padding-bottom: 0;
+	}
+	
+	.mobile_break{
+		display: none;
+	}
+	
+	#nav_default #ham_btn, #nav_default #ham_btn_animated,
+		#nav_animated #ham_btn, #nav_animated #ham_btn_animated{
+		display: none;
+	}
+	
+	#nav_animated #ham_btn, #nav_animated #ham_btn_animated{
+		transition: 0.3s;
+		margin-top: -25pt;
+	}
+	
+	.nav_subdisplay, .nav_display{
+		padding-left: 50pt;
+	}
+	
+	.nav_subdisplay{
+		transition: 0.3s;
+		height: 25pt;
+	}
+	
+	#nav_animated .nav_subdisplay,
+		#nav_animated .nav_subdisplay .desktop_content{
+		transition: 0.3s;
+		margin-top: -25pt;
+	}
+	
+	#nav_default .nav_subdisplay,
+		#nav_default .nav_subdisplay .desktop_content{
+		transition: 0.3s;
+		margin-top: 0;
+	}
+	
+	.nav_arrow_mobile{
+		display: none;
+	}
+	
+	.info{
+		padding: 50pt;
+	}
+	
+	.info img{
+		position: absolute;
+		bottom: -1px;
+		left: 70%;
+		width: 30%;
+		margin-top: 0;
+		margin-left: 0;
+	}
+	
+	#keywords, #keywords_animated{
+		transition: 0.5s;
+		margin-top: 10pt;
+		margin-bottom: 10pt;
+	}
+
+	#keywords h1, #keywords_animated h1{
+		margin-bottom: -25pt;
+		font-size: 40pt;
+	}
+	
+	#keywords h2, #keywords_animated h2{
+		font-size: 26pt;
+	}
+	
+	.scroll_block h3{
+		margin-left: 0;
+	}
+
+	.scroll_block .scroll_container{
+		width: 30%;
+		height: 250pt;
+		margin-left: 0;
+	}
+
+	.scroll_container p, .scroll_container ul{
+		font-size: 12pt;
+	}
+	
+	#second_scroll{
+		position: absolute;
+		left: 400pt;
+	}
+	
+	.desktop_content{
+		display: block;
+	}
+	
+	.nav_subdisplay .desktop_content{
+		position: absolute;
+		width: 100%;
+		top: 4.5pt;
+		left: calc(100% - 700pt);
+	}
+	
+	.nav_subdisplay .desktop_content a{
+		transition: 0.3s;
+		font-size: 10pt;
+		margin-right: 12pt;
+	}
+	
+	.nav_subdisplay .desktop_content .social_media{
+		position: relative;
+		left: 506pt;
+		bottom: 16pt;
+	}
+	
+	.nav_subdisplay .desktop_content .social_media img{
+		width: 20pt;
+	}
+	
+	.nav_display .desktop_content{
+		transition: 0.3s;
+		position: fixed;
+		width: 100%;
+		top: 36pt;
+		left: calc(100% - 432pt);
+	}
+	
+	#nav_animated .nav_display .desktop_content{
+		transition: 0.3s;
+		margin-top: -26pt;
+	}
+	
+	.nav_display .desktop_content a{
+		transition: 0.3s;
+		font-size: 15pt;
+		margin-right: 9pt;
+	}
+	
+	.nav_subdisplay .desktop_content a:hover, .nav_subdisplay .desktop_content a:active,
+		.nav_display .desktop_content a:hover, .nav_display .desktop_content a:active{
+		transition: 0.3s;
+		color: lightgrey;
+	}
+	
+	#social_media_candidate{
+		margin-top: 40pt;
+		width: 204pt;
+		height: 39pt;
+	}
+	
+	#social_media_candidate a{
+		top: 6pt;
+		margin-left: 10pt;
+		margin-right: 10pt;
+	}
+
+	#social_media_candidate img{
+		width: 25pt;
+	}
+	
+	#candidate_fb{
+		right: 0;
+		position: static;
+	}
+	
+	#candidate_twitter{
+		right: 0;
+		position: static;
+	}
+	
+	#candidate_insta{
+		left: 0;
+		position: static;
+	}
+	
+	#candidate_youtube{
+		left: 0;
+		position: static;
+	}
+	
+	footer{
+		font-size: 8pt;
+		width: 100%;
+		padding-top: 4pt;
+		padding-bottom: 4pt;
+		position: relative;
+		z-index: 1;
+	}
+	
+	input[type=submit]{
+		transition: 0.3s;
+		cursor: pointer;
+	}
+	
+	input[type=submit]:hover, input[type=submit]:active{
+		transition: 0.3s;
+		background-color: white;
+		color: #442D7B;
+	}
+	
+	.table_mobile{
+		display: none;
+	}
+	
+	.table_desktop{
+		display: block;
+	}
+	
+	.table_desktop td{
+		padding: 5pt;
+	}
+}

@@ -1,0 +1,12 @@
+-Swap max and the three candidates - last
+-Swap Kevin with new image - last
+-Change links for donate/buy a membership
+-Contact us ~ direct message to info@, kevin@, tyler@, and rob@
+->
+First name, Last name
+email address
+(Optional)
+Phone number (10 character limit)
+Physical address
+
+-Hour & half consult

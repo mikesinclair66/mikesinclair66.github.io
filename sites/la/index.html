@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Pilot training and certification with Lothian Aviation Inc." />
+		<meta name="keywords" content="Flight, Pilot, License" />
+		<meta name="author" content="Lothian Aviation Inc." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<title>Lothian Aviation Inc.</title>
+		<link rel="stylesheet" type="text/css" href="./scripts/main_style.css" />
+		<link rel="stylesheet" type="text/css" href="./scripts/desktop_style.css" />
+		<style type="text/css">
+			#loading_screen{
+				transition: 0.5s;
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-image: linear-gradient(to bottom, white, #BABABA);
+				z-index: 2000;
+			}
+			
+			@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+			
+			#loader{
+				border-radius: 50%;
+				border: 10px solid #3d3d3d;
+				border-top: 10px solid #D9C859;
+				width: 90pt;
+				height: 90pt;
+				animation: spin 2s linear infinite;
+				position: absolute;
+				left: calc(50% - 45pt);
+				top: calc(50% - 45pt);
+			}
+			
+			#cloud_nav{
+				background: rgba(0, 0, 0, 0);
+				border-bottom: none;
+			}
+			
+			#cloud_nav .hamburger_slot{
+				background-color: white;
+			}
+			
+			#cloud_nav #logo_background_window, #cloud_nav #logo{
+				filter: alpha(opacity=0);
+				opacity: 0.0;
+			}
+			
+			#gallery_desktop img{
+				cursor: auto;
+			}
+			
+			#certificate_container{
+				text-align: center;
+			}
+			
+			.info #certificate{
+				background-color: white;
+				padding: 0;
+				border: none;
+				transform: rotate(0deg);
+				box-shadow: none;
+				width: calc(100% + 62pt);
+				height: auto;
+				margin-left: -31pt;
+				box-shadow:
+					0 2.5px 2.5px rgba(0, 0, 0, 0.035),
+					0 6.5px 5px rgba(0, 0, 0, 0.045),
+					0 12.5px 9px rgba(0, 0, 0, 0.06),
+					0 22px 18px rgba(0, 0, 0, 0.07),
+					0 41.5px 33.5px rgba(0, 0, 0, 0.085),
+					0 105px 75px rgba(0, 0, 0, 0.1);
+			}
+			
+			@media only screen and (min-width: 1025px){
+				.info #certificate{
+					width: 400pt;
+					margin-left: -6pt;
+				}
+			}
+			
+			/* Ipad portrait */
+			@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait){
+				#certificate_container{
+					margin-top: 30pt;
+					margin-bottom: 35pt;
+				}
+				
+				.info #certificate{
+					margin-left: 0;
+					width: 85%;
+				}
+			}
+
+			/* Ipad landscape */
+			@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape){
+				#certificate_container{
+					margin-top: 30pt;
+					margin-bottom: 35pt;
+				}
+				
+				.info #certificate{
+					margin-left: 0;
+					width: 85%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="loading_screen">
+			<div id="loader"></div>
+		</div>
+		
+		<nav id="cloud_nav">
+			<img src="./images/logo/logo_background_window.png" alt="Lothian Aviation Inc." id="logo_background_window" />
+			<div id="logo_sec">
+				<img src="./images/logo/logo.png" alt="Lothian Aviation Inc." id="logo" />
+			</div>
+			<div id="hamburger_btn">
+				<span id="hamburger_slot1" class="hamburger_slot"></span>
+				<span id="hamburger_slot2" class="hamburger_slot"></span>
+				<span id="hamburger_slot3" class="hamburger_slot"></span>
+			</div>
+			<div id="nav_content">
+				<img src="./images/title.png" id="logo_label" alt="Lothian Aviation Inc." />
+				<a href="./index.html" class="link">Home</a><br class="mobile_break" />
+				<a id="about_link" class="link">About Us</a><br class="mobile_break" /><!--Mission statement-->
+				<a href="./history.html" class="link">Our History</a><br class="mobile_break" />
+				<a id="services_link" class="link">Our Services</a><br class="mobile_break" />
+				<a href="./contact.html" class="link">Contact Us</a>
+			</div>
+		</nav>
+		
+		<div id="intro" class="parallax" style="background-image: url('./images/sky.jpg')">
+			<h3>WELCOME TO</h3>
+			<!--<img src="./images/logo/logo_ring.png" alt="Integrity, Diversity, and Excellence" id="logo_ring" />
+			<img src="./images/logo/logo_ringless.png" alt="Lothian Aviation Inc." id="logo_ringless" />-->
+			
+			<img src="./images/logo/ring_empty.png" alt="Integrity, Diversity, and Excellence" class="ring_rotation" />
+			<img src="./images/logo/ring_cover.png" alt="Integrity, Diversity, and Excellence" />
+			<img src="./images/logo/ring_gold.png" alt="Integrity, Diversity, and Excellence" class="ring_rotation" />
+			<img src="./images/logo/logo_ringless.png" alt="Lothian Aviation Inc." />
+		</div>
+		
+		<br /><br class="desktop_break" />
+		<a href="./gallery.html" class="link" id="photo_gallery_link"><button>Our photo gallery &#8594;</button></a>
+		<br />
+		<div id="intro_slides">
+			<img src="./images/la21.4.jpg" alt="In flight" />
+			<img src="./images/la15.jpg" alt="Jets 23 and 24" />
+			<img src="./images/la18.jpg" alt="Airplane cockpit" />
+		</div>
+		<div id="cardholder">
+			<img src="./images/cardholder_front.png" alt="Cardholder slideshow" id="cardholder_front" />
+		</div>
+		
+		<div id="covid_notice">
+			<h2>Lothian Aviation Response to COVID-19 Protocol</h2>
+			<a href="./covid.html" style="position: relative; z-index: 9"><button class="black_btn">View full details</button></a>
+		</div>
+		
+		<div id="about_sec" class="info">
+			<div id="about_sec_first_col">
+				<h1>About Us</h1><br /><br />
+				<div class="first_paragraph_div">
+					<div>
+						<h2>Captain Bruce Lothian: President of Lothian Aviation Incorporated</h2>
+						<p class="first_paragraph">
+							Bruce Lothian has 48 years of varied aviation experience and has flown aircraft from the very basic to the more sophisticated, high
+							performance aircraft types. Over this time, he has accrued more than 16,000 hours of flying experience covering Canada (from the high
+							Arctic to the 49th parallel), the continental United States, Mexico, the Caribbean, the United Kingdom, Europe, North Africa and Saudi Arabia. As a Company Check
+							Pilot for the Fairchild Hiller FH - 227 with Nordair Airlines, Bruce was responsible for all facets of flight and simulator training,
+							scheduling and evaluation for 42 pilots. His range of duties also included:
+						</p>
+						<ul>
+							<li>Contract training of non-Canadian pilots</li>
+							<li>New-hire pilot interviews</li>
+							<li>Initial and recurrent training of Transport Canada Inspectors</li>
+							<li>Amending and updating Operations Manuals and Ground School <br class="desktop_break" />syllabus criteria for Nordair&#39;s FH-227 Arctic operations.</li>
+						</ul>
+					</div>
+					<img src="./images/img3.jpg" alt="Captain Bruce Lothian" />
+				</div><br class="mobile_break" />
+				<div id="certificate_container">
+					<img src="./images/certificate.jpg" alt="Honourable Company of Air Pilots." id="certificate" /><br /><br />
+					<span>Captain Lothian is also a member of the Honourable Company of Air Pilots.</span>
+				</div>
+				<br class="desktop_break" />
+				<div id="about_continued">
+					<div>
+						<h2>Alistair Beaton: Master Air Pilot &#38; Vice President of Lothian Aviation Incorporated</h2>
+						<p>
+							In addition to being the Chief Flight Instructor at Vancouver Aviation College, Alistair is the Chairman of the Honourable Company of
+							Air Pilots for North America and a director in the College of Professional Pilots of Canada. More than 50 years ago, Alistair embarked
+							on a flying career that he is still pursuing with great enthusiasm today. His aviation career began with the RAF Air Training Corps in
+							the UK and has taken him all over the world. Alistair finally settled in British Columbia in 1982 and since that time has instructed
+							hundreds of students in many of the most highly praised flight schools in the province. He is a well respected instructor within the
+							industry and is held in very high regard by many Transport Canada personnel. Alistair ensures that each student receives highly
+							personalized instruction, instilling the confidence they need for their aviation endeavours. Alistair Beaton is a prime example of a
+							passionate and enthusiastic aviator who is highly focused on safety and flying skills. He too is dedicated to excellence in aviation.
+						</p>
+					</div>
+					<img src="./images/img1.jpg" alt="Alistair Beaton" />
+				</div><br class="mobile_break" />
+				<a href="./history.html" class="link"><button>Our history &#8594;</button></a><br />
+			</div>
+		</div><br />
+		
+		<div id="gallery">
+			<div class="gallery_photo">
+				<img src="./images/substitute27.jpg" alt="Ever see this in the sky and think: &#34;I&#39;d love to be flying that plane.&#34;" />
+				<p>
+					Have you ever watched an aircraft flying overhead and thought, &#34;I&#39;d love to have that job!&#34; We can help you toward your goal.
+				</p>
+			</div>
+			<div class="gallery_photo">
+				<img src="./images/substitute19.jpg" alt="We can help you qualify as a commercial pilot." />
+				<p>
+					Like what you see here? We can help you qualify as a commercial pilot.
+				</p>
+			</div>
+		</div>
+		
+		<table id="gallery_desktop">
+			<tr>
+				<td>
+					<img src="./images/substitute27.jpg" alt="Ever see this in the sky and think: &#34;I&#39;d love to be flying that plane.&#34;" />
+					<p>
+						Have you ever watched an aircraft flying by and though, &#34;I&#39;d love to have that job!&#34; We can help you toward your goal.
+					</p>
+				</td>
+				<td>
+					<img src="./images/substitute19.jpg" alt="We can help you qualify as a commercial pilot." />
+					<p>
+						Like what you see here? We can help you qualify as a commercial pilot.
+					</p>
+				</td>
+			</tr>
+		</table><br class="desktop_break" /><br class="desktop_break" />
+		
+		<div id="services_parallax" class="parallax" style="background-image: url('./images/substitute21.3.jpg')">
+			<h1>Our Services</h1>
+		</div>
+		
+		<div id="services_sec">
+			<img src="./images/facility.jpg" alt="New state of the art facility" /><br />
+			<div style="text-align: center"><span>New state of the art facility</span></div><br class="mobile_break" />
+			<div id="services">
+				<div id="services_col">
+					<div class="service">
+						<button class="service_minimize">Read less</button>
+						<h3>Flight Training</h3>
+						<div class="service_info">
+							Whether you are a young or more mature student and have never been in an aircraft before or are well experienced, we provide
+							high quality training here in Canada. With a combined total flying experience of more than 24,000
+							hours, we offer a very large body of knowledge suited to help you reach your aviation goals and
+							prepare you for the pilot license or rating you desire. We are committed to safety and excellence in all of our programs.
+							<br class="desktop_break" />
+							<table id="desktop_table">
+								<tr>
+									<th>Licenses</th>
+									<th>Ratings</th>
+									<th>Additional Courses</th>
+								</tr>
+								<tr>
+									<td>Private Pilot License</td>
+									<td>Night</td>
+									<td>English as a second language</td>
+								</tr>
+								<tr>
+									<td>Commercial Pilot License</td>
+									<td>Multi engine</td>
+									<td>Dispatcher (coming soon)</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>Instrument</td>
+									<td>Seasonal Refresher (coming soon)</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="service">
+						<button class="service_minimize">Read less</button>
+						<h3>Ground School</h3>
+						<div class="service_info">
+							Learn everything you will need to be a successful pilot. Learn the basics of how an aircraft works and
+							what makes it fly. Learn how to prepare yourself and your aircraft for a safe flight. Learn how to decipher
+							weather data and handle various conditions. Learn how to navigate safely from one place to another, as well
+							as several other aviation-related topics. Simulator instruction also forms part of the training for students.
+						</div>
+					</div>
+					<div class="service" style="border-bottom: none">
+						<button class="service_minimize">Read less</button>
+						<h3>Introductory presentations, interviews &#38; consultations</h3>
+						<div class="service_info">
+							Our knowledge and experience will provide high quality training and boost your confidence in this new field of
+							endeavour. We can identify with your goals and work with you to reach them.
+						</div>
+					</div>
+				</div>
+				<img src="./images/la16.jpg" alt="Black and white aircraft" />
+			</div><br />
+			<img src="./images/student_aircraft.jpg" alt="Aircraft type in which the students will receive instruction." /><br />
+			<div style="text-align: center"><span>This is the aircraft type in which students will receive instruction.</span></div><br /><br />
+			<div id="ESL">
+				*If required, <b>Lothian Aviation Incorporated</b> is able to assist with securing accommodations and support sytems for students
+				of ESL.
+			</div><br /><br />
+			<div id="collab">
+				<div class="service_info">
+					Lothian Aviation Incorporated, in collaboration with Vancouver Aviation College, at Pitt Meadows Airport, British Columbia,
+					Canada, provide the highest quality training at a new state of the art facility. We utilize aircraft maintained to the
+					highest safety standard at all times.<br /><br /><br />
+					<span id="direction_caption">To the right:</span> Captain Mostafa Khosrowtaj. Vancouver Aviation College.<br /><br />
+					Of his 20,000+ hours of flying experience, Captain Mostafa Khosrowtaj has accumulated
+					more than 8,000 hours of pilot instruction. In collaboration with Lothian Aviation Incorporated, Mostafa shares the vision to elevate
+					students to achieve the highest standard of safety and excellence.
+				</div><br class="mobile_break" />
+				<img src="./images/mostafa.jpg" alt="Captain Mostafa Khosrowtaj" id="mostafa" />
+			</div><br />
+			<a href="./contact.html" class="link"><button>Contact us &#8594;</button></a>
+		</div>
+		
+		<div id="footer_parallax" class="parallax" style="background-image: url('./images/substitute6.jpg')">
+			<img src="./images/logo/logo_standard.png" alt="Lothian Aviation Inc." id="footer_img" />
+			<h3 id="outro_quote">&#34;Life from a different point of view&#34;</h3>
+		</div>
+		
+		<footer>
+			<div>&#169; Copyright 2021 | Lothian Aviation Inc. | All Rights Reserved</div><br />
+			<div>Website created and designed by <a class="link" href="https://www.intivatechnologies.ca/">Intiva Technologies</a></div>
+		</footer>
+		
+		<script type="text/javascript" src="./scripts/main.js"></script>
+		<script type="text/javascript">
+			var allImgs = document.getElementsByTagName("img");
+			var allImgsSrc = [];
+			for(let i = 0; i < allImgs.length; i++){
+				allImgsSrc.push(allImgs[i].src);
+				allImgs[i].src = "#";
+			}
+			
+			var hamburgerSlots = hamburgerBtn.animation.el.getElementsByClassName("hamburger_slot");
+			function enableCloudColor(val){
+				if(val)
+					for(let l of hamburgerSlots) l.style.backgroundColor = "white";
+				else
+					for(let l of hamburgerSlots) l.style.backgroundColor = "#0600BA";
+			}
+			
+			var introSlides = document.getElementById("intro_slides");
+			class NavAnimation{
+				constructor(){
+					this.el = document.getElementsByTagName("nav")[0];
+					this.toggled = true;
+					this.navLinks = this.el.getElementsByClassName("link");
+					for(let l of this.navLinks){
+						l.onmouseover = () => { l.style.color = ((this.toggled) ? "#F1E071" : "black"); };
+						l.onmouseout = () => { l.style.color = ((this.toggled) ? "white" : "#0060BA"); };
+					}
+					if(window.innerWidth >= 1025){
+						for(let l of this.navLinks)
+							l.style.color = "white";
+						document.getElementById("logo_label").style.display = "none";
+					}
+					window.addEventListener("scroll", () => {
+						if(window.scrollY <= introSlides.offsetTop - this.el.offsetHeight && !this.toggled){
+							this.el.id = "cloud_nav";
+							this.toggled = true;
+							enableCloudColor(true);
+							if(window.innerWidth >= 1025){
+								for(let l of this.navLinks)
+									l.style.color = "white";
+								document.getElementById("logo_label").style.display = "none";
+							}
+						} else if(window.scrollY > introSlides.offsetTop - this.el.offsetHeight && this.toggled){
+							this.el.id = "";
+							this.toggled = false;
+							enableCloudColor(false);
+							if(window.innerWidth >= 1025){
+								for(let l of this.navLinks)
+									l.style.color = "#0060BA";
+								document.getElementById("logo_label").style.display = "block";
+							}
+						}
+					});
+				}
+			}
+			
+			var navAnimation = new NavAnimation();
+			hamburgerBtn.animation.el.addEventListener("click", () => {
+				if(navAnimation.toggled){
+					if(hamburgerBtn.animation.toggled)
+						enableCloudColor(false);
+					else
+						enableCloudColor(true);
+				}
+			});
+			
+			var slideshowLoaded = false;
+			var slideshowLoadingInterval = window.setInterval(() => {
+				if(!slideshowLoaded && window.scrollY > 0)
+					window.scrollTo(0, 0);
+				else if(slideshowLoaded)
+					window.clearInterval(slideshowLoadingInterval);
+			}, 50);
+			
+			/*Start slideshow once slides are loaded.*/
+			var introSlideshow = new Slideshow("intro_slides");
+			const SLIDE_LENGTH = introSlideshow.images.length;
+			var slidesLoaded = 0;
+			for(let i = 0; i < SLIDE_LENGTH; i++)
+				introSlideshow.images[i].onload = () => {
+					slidesLoaded++;
+					if(slidesLoaded >= SLIDE_LENGTH && introSlideshow){
+						let cardholder = document.getElementById("cardholder_front");
+						if(cardholder){
+							if(window.innerWidth === 1024 || window.innerHeight === 1024)
+								document.getElementById("cardholder_front").style.display = "none";
+							else{
+								document.getElementById("cardholder_front").style.display = "block";
+								document.getElementById("cardholder_front").style.width = document.getElementById("intro_slides").offsetWidth * 0.915 + "px";
+								document.getElementById("cardholder_front").style.top = -document.getElementById("intro_slides").offsetHeight * 0.92 + "px";
+							}
+						}
+						for(let i = 0; i < allImgsSrc.length; i++){
+							if(i >= 7 && i <= 10)
+								continue;
+							allImgs[i].src = allImgsSrc[i];
+						}
+						slideshowLoaded = true;
+						introSlideshow.start();
+					}
+					else if(slidesLoaded >= SLIDE_LENGTH && !introSlideshow){
+						let loadInterval = window.setInterval({
+							if(introSlideshow){
+								let cardholder = document.getElementById("cardholder_front");
+								if(cardholder){
+									if(window.innerWidth === 1024 || window.innerHeight === 1024)
+										document.getElementById("cardholder_front").style.display = "none";
+									else{
+										document.getElementById("cardholder_front").style.display = "block";
+										document.getElementById("cardholder_front").style.width = document.getElementById("intro_slides").offsetWidth * 0.915 + "px";
+										document.getElementById("cardholder_front").style.top = -document.getElementById("intro_slides").offsetHeight * 0.92 + "px";
+									}
+								}
+								for(let i = 0; i < allImgsSrc.length; i++){
+									if(i >= 7 && i <= 10)
+										continue;
+									allImgs[i].src = allImgsSrc[i];
+								}
+								slideshowLoaded = true;
+								introSlideshow.start();
+								window.clearInterval(loadInterval);
+							}
+						}, 300);
+					}
+				};
+			for(let i = 7; i < 11; i++)
+				allImgs[i].src = allImgsSrc[i];
+			
+			document.getElementById("about_link").onclick = e => {
+				e.preventDefault();
+				if(hamburgerBtn.animation.toggled)
+					hamburgerBtn.animation.el.click();
+				window.scrollTo({
+					top: document.getElementById("about_sec").offsetTop - navAnimation.el.offsetHeight + 20,
+					left: 0,
+					behavior: 'smooth'
+				});
+			};
+			
+			document.getElementById("services_link").onclick = e => {
+				e.preventDefault();
+				if(hamburgerBtn.animation.toggled)
+					hamburgerBtn.animation.el.click();
+				window.scrollTo({
+					top: document.getElementById("services_parallax").offsetTop - navAnimation.el.offsetHeight + 20,
+					left: 0,
+					behavior: 'smooth'
+				});
+			};
+			
+			class ServiceSection{
+				constructor(id){
+					this.container = document.getElementById(id);
+					this.services = this.container.getElementsByClassName("service");
+					this.minimize = this.container.getElementsByClassName("service_minimize");
+					this.toggledList = [];
+					
+					for(let i = 0; i < this.services.length; i++){
+						this.minimize[i].onclick = () => this.toggle(i);
+						this.toggledList.push(false);
+					}
+				}
+				
+				async toggle(n){
+					let sInfo = this.container.getElementsByClassName("service_info")[n];
+					
+					if(!this.toggledList[n]){
+						this.minimize[n].textContent = "Read more";
+						sInfo.style.filter = "alpha(opacity=0)";
+						sInfo.style.opacity = "0.0";
+						await pSleep(525);
+						
+						sInfo.style.display = "none";
+						this.toggledList[n] = true;
+					} else {
+						this.minimize[n].textContent = "Read less";
+						sInfo.style.display = "block";
+						await pSleep(25);
+						
+						sInfo.style.filter = "alpha(opacity=100)";
+						sInfo.style.opacity = "1.0";
+						this.toggledList[n] = false;
+					}
+				}
+			}
+			var serviceSection = new ServiceSection("services_sec");
+			
+			var scrollAnimations = [];
+			scrollAnimations.push(new ScrollAnimation(document.getElementById("outro_quote")));
+			scrollAnimations.push(new ScrollAnimation(document.getElementById("footer_img")));
+			scrollAnimations.push(new ScrollAnimation(document.getElementById("about_sec")));
+			scrollAnimations.push(new ScrollAnimation(document.getElementById("about_continued")));
+			scrollAnimations.push(new ScrollAnimation(document.getElementById("services_col")));
+			scrollAnimations.push(new ScrollAnimation(serviceSection.container, true));
+			
+			window.addEventListener("load", () => {
+				if(!introSlideshow.activeMobile && !introSlideshow.activeDesktop){
+					for(let i = 0; i < allImgsSrc.length; i++)
+						allImgs[i].src = allImgsSrc[i];
+					slideshowLoaded = true;
+					introSlideshow.start();
+				}
+			});
+			
+			if(window.innerWidth < 1025)
+					document.getElementById("direction_caption").textContent = "Below:";
+			else
+				document.getElementById("direction_caption").textContent = "To the right:";
+			window.addEventListener("resize", () => {
+				if(window.innerWidth < 1025)
+					document.getElementById("direction_caption").textContent = "Below:";
+				else
+					document.getElementById("direction_caption").textContent = "To the right:";
+			});
+		</script>
+	</body>
+</html>

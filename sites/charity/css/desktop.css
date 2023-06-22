@@ -1,0 +1,100 @@
+@media only screen and (min-width: 1025px){
+	nav img{
+		width: 190pt;
+	}
+	
+	#slogan, #slogan-anim{
+		font-size: 12pt;
+		background: none;
+		color: black;
+		font-family: 'Kalam', cursive;
+	}
+	
+	#slogan{
+		margin-top: -45pt;
+		position: relative;
+		z-index: 11;
+		font-size: 14pt;
+	}
+	
+	#mission{
+		padding-top: 10pt;
+		margin-top: 18pt;
+	}
+	
+	h2{
+		width: 400pt;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	.info, .info p{
+		font-size: 12pt;
+	}
+	
+	.info p{
+		width: 450pt;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	
+	#on-site-support{
+		margin-top: -75pt;
+	}
+	
+	#on-site-support h3{
+		margin-top: 8pt;
+	}
+	
+	.tab-display img{
+		width: 420pt;
+	}
+	
+	a, a:hover, a:active{
+		transition: 0.2s;
+	}
+	
+	a:hover, a:active{
+		color: #ffd500;
+	}
+	
+	.container{
+		margin-left: 200pt;
+		margin-right: 200pt;
+	}
+	
+	.image-group{
+		margin-left: -25pt;
+		margin-right: -25pt;
+		width: 175pt;
+		position: relative;
+		left: calc(50% - 262.5pt);
+		transform: translateX(-50%);
+	}
+	
+	.image-group img{
+		width: 150pt;
+	}
+	
+	.image-info h3{
+		width: 120%;
+		margin-left: -10%;
+	}
+	
+	.image-info p{
+		width: 100%;
+	}
+	
+	#container-purple, #container-yellow{
+		position: absolute;
+		top: 381pt;
+		left: calc(50% + 25pt);
+	}
+	
+	#container-yellow{
+		right: calc(50% - 262.5pt);
+		transform: translateX(calc(50% + 31pt));
+	}
+}

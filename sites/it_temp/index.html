@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="./scripts/main_style.css" />
+		<link rel="stylesheet" type="text/css" href="./scripts/landscape_style.css" />
+		<script type="text/javascript">
+			class SlideshowBg{
+				constructor(){
+					this.slides = [];
+					this.loaded = false;
+					this.SLIDE_LIMIT = 5;//must be equal to img amt
+					this.seq = [];
+					this.bgNo = 0;
+					this.zIndex = -5;
+					this.interval = null;
+				}
+				
+				loadImg(el){
+					this.slides.push(el);
+					if(this.slides.length === this.SLIDE_LIMIT){
+						this.loaded = true;
+					}
+				}
+				
+				load(){
+					while(this.seq.length < this.SLIDE_LIMIT){
+						let ran = Math.floor(Math.random() * this.SLIDE_LIMIT);
+						if(this.seq.includes(ran))
+							continue;
+						
+						this.seq.push(ran);
+					}
+					
+					for(let i = 0; i < this.SLIDE_LIMIT; i++){
+						if(i <= 1)
+							this.slides[this.seq[i]].style.display = "block";
+						else
+							this.slides[this.seq[i]].style.display = "none";
+					}
+					
+					this.slides[this.seq[1]].style.zIndex = this.zIndex - 1 + "";
+					this.slides[this.seq[1]].style.transform = "rotate(0deg)";
+					this.slides[this.seq[0]].style.zIndex = this.zIndex + "";
+					this.slides[this.seq[0]].style.transform = "rotate(0deg)";
+					
+					this.interval = window.setInterval(() => {
+						this.navigate();
+					}, 3500);
+				}
+				
+				pause(){
+					window.clearInterval(this.interval);
+					this.bgNo = 0;
+					for(let i = 0; i < this.SLIDE_LIMIT; i++)
+						this.slides[this.seq[i]].style.display = "none";
+				}
+				
+				async navigate(){
+					let next = this.bgNo + 1;
+					if(next >= this.SLIDE_LIMIT)
+						next = 0;
+					
+					await new Promise(r => setTimeout(r, 2000));
+					if(window.innerWidth <= window.innerHeight)
+						return;
+					this.slides[this.seq[this.bgNo]].style.filter = "alpha(opacity=0)";
+					this.slides[this.seq[this.bgNo]].style.opacity = "0.0";
+					
+					await new Promise(r => setTimeout(r, 500));
+					if(window.innerWidth <= window.innerHeight)
+						return;
+					this.slides[this.seq[this.bgNo]].style.display = "none";
+					this.slides[this.seq[this.bgNo]].style.transform = "none";
+					this.slides[this.seq[this.bgNo]].style.zIndex = "0";
+					this.slides[this.seq[this.bgNo]].style.filter = "alpha(opacity=100)";
+					this.slides[this.seq[this.bgNo]].style.opacity = "1.0";
+					
+					//setup next transition
+					this.bgNo = next;
+					next = this.bgNo + 1;
+					if(next >= this.SLIDE_LIMIT)
+						next = 0;
+					
+					this.slides[this.seq[next]].style.display = "block";
+					this.slides[this.seq[next]].style.zIndex = this.zIndex - 1 + "";
+					this.slides[this.seq[next]].style.transform = "rotate(0deg)";
+					this.slides[this.seq[this.bgNo]].style.zIndex = this.zIndex + "";
+					this.slides[this.seq[this.bgNo]].style.transform = "rotate(0deg)";
+				}
+			}
+			var slideshow = new SlideshowBg();
+		</script>
+		
+		<title>Intiva Technologies</title>
+	</head>
+	<body>
+		<img src="./landscape/img1.jpg" alt="Beautiful scenery" class="landscape_slideshow" onload="slideshow.loadImg(this)" />
+		<img src="./landscape/img2.jpg" alt="Beautiful scenery" class="landscape_slideshow" onload="slideshow.loadImg(this)" />
+		<img src="./landscape/img3.jpg" alt="Beautiful scenery" class="landscape_slideshow" onload="slideshow.loadImg(this)" />
+		<img src="./landscape/img4.jpg" alt="Beautiful scenery" class="landscape_slideshow" onload="slideshow.loadImg(this)" />
+		<img src="./landscape/img5.jpg" alt="Beautiful scenery" class="landscape_slideshow" onload="slideshow.loadImg(this)" />
+		
+		<div class="flip_container" id="logo_container">
+			<div class="flip_container_inner" id="logo_inner">
+				<div class="flip_container_front">
+					<img src="logo.jpg" alt="Intiva Technologies" id="logo" />
+				</div>
+				<div class="flip_container_back">
+					<img src="logo_black.jpg" alt="Intiva Technologies" id="logo_black" />
+				</div>
+			</div>
+		</div>
+		
+		<div class="flip_container" id="main_el">
+			<div class="flip_container_inner" id="main_el_inner">
+				<div class="flip_container_front" id="main_el_front">
+					<button id="previous_projects" class="anim1">Previous projects &#8594;</button>
+					<h2>Our website will be here soon.</h2>
+					<p>
+					Intiva Technologies makes your logos, websites, and applications for mobile and desktop
+					an intuitive and convenient process which will go beyond your expecations.
+					</p>
+					<h2>Inquiries</h2>
+					<span class="inquiry" id="email">intiva.technologies@gmail.com</span>
+					<span class="inquiry" id="phone_no">604-751-5569</span>
+				</div>
+				<div class="flip_container_back" id="main_el_back">
+					<button id="home_page" class="anim1">&#8592; Home page</button>
+					<h2 style="color: black">Previous Projects</h2>
+					<a href="https://www.savetheswans.ca/">Save The Swans</a>
+					<a href="https://www.clearbrookrentals.ca/">Clearbrook Rental Properties Ltd.</a>
+					<a href="https://www.mambamma.com/">Mamba Martial Arts</a>
+					<a href="https://www.judsonbassrv.ca/">Bass RV</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="loading_page">
+			<div class="loader"></div>
+		</div>
+		<script type="text/javascript" src="./scripts/main.js"></script>
+	</body>
+</html>

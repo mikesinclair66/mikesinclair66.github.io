@@ -1,0 +1,15 @@
+body{
+	background-color: #442D7B;
+}
+
+.info{
+	background-color: #604C8F;
+	color: white;
+	margin: 10pt;
+}
+
+.info h1{
+	color: white;
+	font-family: Raleway, Calibri;
+	font-weight: 600;
+}

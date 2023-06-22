@@ -1,0 +1,237 @@
+body{
+    margin: 0;
+}
+
+nav{
+    z-index: 10;
+    position: relative;
+	background-image: linear-gradient(to bottom, #e6e6e6, white, white, #e6e6e6);
+}
+
+nav img{
+    width: 100%;
+}
+
+#slogan, #slogan-anim{
+	transition: 0.4s;
+	text-align: center;
+	color: white;
+	background-color: #333333;
+	padding: 6pt 0 6pt 0;
+	margin-top: 0;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	position: absolute;
+	width: 100%;
+}
+
+#slogan{
+	margin-top: -28pt;
+}
+
+#slogan p{
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6{
+	color: #652297;
+	font-family: 'Raleway', sans-serif;
+}
+
+#mission{
+	margin-top: 25pt;
+}
+
+#mission h2{
+	color: #333333;
+}
+
+.container h3{
+	color: white;
+}
+
+.info{
+	text-align: center;
+	padding: 10pt;
+}
+
+.info p{
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+}
+
+.container{
+	background-image: linear-gradient(to bottom, #4e1a75, #652297, #4e1a75);
+	box-shadow: 2px 4px 8px #888888;
+	border-radius: 8pt;
+	color: white;
+	font-family: 'Inter', sans-serif;
+	margin: 28pt 12pt 0 12pt;
+	padding: 2pt 10pt 2pt 10pt;
+}
+
+#container-yellow{
+	background-image: linear-gradient(to bottom, #ebc400, #ffd500, #ebc400);
+}
+
+#container-green{
+	background-image: linear-gradient(to bottom, #07c904, #04eb00, #07c904);
+}
+
+.image-group{
+	padding-top: 25pt;
+}
+
+.image-group img{
+	width: 75%;
+	border: solid white 2pt;
+	box-shadow: 2px 4px 8px #333333;
+	transform: rotate(2deg);
+}
+
+.tab-display img{
+	margin-top: 10pt;
+	width: 95%;
+}
+
+.tab-post-display{
+	background-color: #333333;
+	color: white;
+	font-family: 'Inter', sans-serif;
+	margin: 0 -10pt 0 -10pt;
+}
+
+#country-list-col{
+	font-family: 'Raleway', sans-serif;
+	font-size: 16pt;
+	list-style: none;
+	padding-top: 8pt;
+}
+
+.tab-post-display li{
+	position: absolute;
+	left: 0;
+	width: 50%;
+	height: 36pt;
+	display: inline-block;
+}
+
+.tab-post-display li span{
+	position: relative;
+	top: calc(18pt - 25%);
+	position: relative;
+}
+
+#on-site-support{
+	margin-top: -95pt;
+	box-shadow: 2px 4px 8px #333333;
+}
+
+hr{
+	height: 1pt;
+	background-color: black;
+	border: none;
+	width: 25pt;
+}
+
+#author h3, #author h4{
+	color: black;
+}
+
+.grey-fill{
+	background-color: #E0E0E0;
+	margin: -10pt;
+	margin-bottom: -18pt;
+	padding: 10pt;
+	padding-bottom: 25pt;
+}
+
+#worldwide{
+	margin-top: 35pt;
+}
+
+#author{
+	padding-top: 15pt;
+	margin-top: 18pt;
+}
+
+.popup, .popup-anim{
+	transition: 0.4s;
+	opacity: 0.0;
+	margin-left: -25pt;
+}
+
+.popup-anim{
+	opacity: 1.0;
+	margin-left: 0;
+}
+
+footer{
+	padding: 10pt;
+	font-family: 'Inter', sans-serif;
+	font-weight: 300;
+	color: white;
+	background-color: #333333;
+	text-align: center;
+}
+
+footer a{
+	color: white;
+	font-weight: 400;
+	display: block;
+	margin-top: 5pt;
+}
+
+@media only screen and (orientation: landscape){
+	nav{
+		z-index: 10;
+		position: relative;
+		background-image: linear-gradient(to bottom, #e6e6e6, white, white, #e6e6e6);
+	}
+
+	nav img{
+		width: 300pt;
+	}
+	
+	#slogan, #slogan-anim{
+		font-size: 18pt;
+	}
+	
+	.info{
+		padding: 30pt;
+	}
+	
+	.info p{
+		font-size: 16pt;
+	}
+	
+	.container{
+		margin-left: 75pt;
+		margin-right: 75pt;
+		padding-left: 40pt;
+		padding-right: 40pt;
+	}
+	
+	.image-group img{
+		width: 200pt;
+	}
+	
+	.tab-info{
+		margin-top: -20pt;
+	}
+	
+	.tab-post-display{
+		margin: 30pt -30pt 0 -30pt;
+		padding: 0 30pt 0 30pt;
+	}
+	
+	#about{
+		margin-top: -50pt;
+	}
+	
+	.grey-fill{
+		margin: -30pt;
+		padding: 30pt;
+		padding-bottom: 22pt;
+	}
+}
